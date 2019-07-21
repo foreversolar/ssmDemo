@@ -30,6 +30,7 @@ public class GeneratorSqlMaper {
 		in.close();
 	}
 	public static void main(String[] args) throws Exception {
+		System.out.println("AAAAA");
 		try {
 			GeneratorSqlMaper generatorSqlmap = new GeneratorSqlMaper();
 			generatorSqlmap.generator();
