@@ -28,9 +28,10 @@ public class OpenReportController {
 
     @RequestMapping("/getOpenReport")
     @ResponseBody
-    public Object getOpenReport(int id){
-        System.out.println(id);
-        OpenReport openReport=openReportService.getOpenreport(new Integer(id));
+    public Object getOpenReport(int course_id){
+//        System.out.println(course_id);
+        OpenReport openReport=openReportService.getOpenreport(new Integer(course_id));
+//        System.out.println(openReport.getCourseId());
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);
 

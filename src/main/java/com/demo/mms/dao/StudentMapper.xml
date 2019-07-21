@@ -15,6 +15,16 @@
   <sql id="Base_Column_List">
     student_id, password, name, department, major, classNum, sex, email, IDNum
   </sql>
+  <select id="checkIDNum" parameterType="java.lang.Integer" resultType="int">
+    select count(student_id)
+    from student
+    where student_id=#{student_id} and idNum=#{idnum}
+  </select>
+  <update id="updatePassword" parameterType="java.lang.String">
+    update student
+    set password=#{newPwd}
+    where student_id=#{usr}
+  </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

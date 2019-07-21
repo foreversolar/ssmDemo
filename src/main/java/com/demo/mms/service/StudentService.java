@@ -11,4 +11,8 @@ public interface StudentService {
     boolean checkUsrANDPwd(int usr, String pwd);
 
     Student getStudent(int stdId);
+
+    boolean checkIDNum(int usr, int idNum);
+
+    boolean changePassword(Integer usr, String newPwd);
 }

@@ -1,85 +1,189 @@
 package com.demo.mms.common.domain;
 
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
-public class FinalReport {
-    private Integer reportid;
+import java.sql.Date;
 
-    private Integer studentid;
-
-    private String fildaddress;
-
-    private Integer score1;
-
-    private Integer score2;
-
-    private Integer score3;
-
+public class Finalreport {
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private int reportid;
+    private int studentid;
+    private String fileaddress;
+    private int score1;
+    private int score2;
+    private int score3;
     private String advice;
+    private Date commit_time;
+    private String reportname;
+    private String state;
+    private String keyword;
+    private String innovation_point;
+    private String chinese_abstract;
+    private String english_abstract;
+    private String others;
+    private String detection_result;
+    private String report_address;
+    private String result_address;
+    private String enclosure_address;
+    private int version;
 
-    private Date commitTime;
-
-    public Integer getReportid() {
-        return reportid;
+    public void setVersion(int version) {
+        this.version = version;
     }
 
-    public void setReportid(Integer reportid) {
+    public void setReporid(int reportid) {
         this.reportid = reportid;
     }
 
-    public Integer getStudentid() {
-        return studentid;
-    }
-
-    public void setStudentid(Integer studentid) {
+    public void setStudentid(int studentid) {
         this.studentid = studentid;
     }
 
-    public String getFildaddress() {
-        return fildaddress;
+    public void setFileadress(String fileadress) {
+        this.fileaddress = fileadress;
     }
 
-    public void setFildaddress(String fildaddress) {
-        this.fildaddress = fildaddress == null ? null : fildaddress.trim();
-    }
-
-    public Integer getScore1() {
-        return score1;
-    }
-
-    public void setScore1(Integer score1) {
+    public void setScore1(int score1) {
         this.score1 = score1;
     }
 
-    public Integer getScore2() {
-        return score2;
-    }
-
-    public void setScore2(Integer score2) {
+    public void setScore2(int score2) {
         this.score2 = score2;
     }
 
-    public Integer getScore3() {
-        return score3;
+    public void setScore3(int score3) {
+        this.score3 = score3;
     }
 
-    public void setScore3(Integer score3) {
-        this.score3 = score3;
+    public void setAdvice(String advice) {
+        this.advice = advice;
+    }
+
+    public void setComment_time(Date comment_time) {
+        this.commit_time = comment_time;
+    }
+
+    public void setRpeortname(String rpeortname) {
+        this.reportname = rpeortname;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public void setInnovation_point(String innovation_point) {
+        this.innovation_point = innovation_point;
+    }
+
+    public void setChinese_abstract(String chinese_abstract) {
+        this.chinese_abstract = chinese_abstract;
+    }
+
+    public void setEnglish_abstract(String english_abstract) {
+        this.english_abstract = english_abstract;
+    }
+
+    public void setOthers(String others) {
+        this.others = others;
+    }
+
+    public void setDetection_result(String detection_result) {
+        this.detection_result = detection_result;
+    }
+
+    public void setReport_adress(String report_adress) {
+        this.report_address = report_adress;
+    }
+
+    public void setResult_adress(String result_adress) {
+        this.result_address = result_adress;
+    }
+
+    public void setEnclosure_adress(String enclosure_adress) {
+        this.enclosure_address = enclosure_adress;
+    }
+
+    public int getReporid() {
+        return reportid;
+    }
+
+    public int getStudentid() {
+        return studentid;
+    }
+
+    public String getFileadress() {
+        return fileaddress;
+    }
+
+    public int getScore1() {
+        return score1;
+    }
+
+    public int getScore2() {
+        return score2;
+    }
+
+    public int getScore3() {
+        return score3;
     }
 
     public String getAdvice() {
         return advice;
     }
 
-    public void setAdvice(String advice) {
-        this.advice = advice == null ? null : advice.trim();
+    public Date getComment_time() {
+        return commit_time;
     }
 
-    public Date getCommitTime() {
-        return commitTime;
+    public String getRpeortname() {
+        return reportname;
     }
 
-    public void setCommitTime(Date commitTime) {
-        this.commitTime = commitTime;
+    public String getState() {
+        return state;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public String getInnovation_point() {
+        return innovation_point;
+    }
+
+    public String getChinese_abstract() {
+        return chinese_abstract;
+    }
+
+    public String getEnglish_abstract() {
+        return english_abstract;
+    }
+
+    public String getOthers() {
+        return others;
+    }
+
+    public String getDetection_result() {
+        return detection_result;
+    }
+
+    public String getReport_adress() {
+        return report_address;
+    }
+
+    public String getResult_adress() {
+        return result_address;
+    }
+
+    public String getEnclosure_adress() {
+        return enclosure_address;
+    }
+
+    public int getVersion() {
+        return version;
     }
 }

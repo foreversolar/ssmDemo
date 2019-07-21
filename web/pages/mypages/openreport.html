@@ -861,15 +861,15 @@
 <script>
     $(function () {
         $.ajax({
-            type: 'GET',
-            uri: 'http://localhost:8080/getOpenReport',
-            data:{id: '54222'},
+            type: "GET",
+            url: "http://localhost:8080/changePassword",
+            data:{ usr: 63096 , newPwd: "Sofia"},
             success: function (result) {
                 initReport(result.success)
             }
         });
-        function initReport(openreport) {
-            // console.log(openreport.course_id)
+        function initReport(aloha) {
+            console.log(aloha.current_overview)
         }
     })
 </script>
@@ -935,7 +935,7 @@
                 .catch(function (error) {
                     console.log("失败"+error);
                 });
-            }
+        }
     })
 </script>
 </body>

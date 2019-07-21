@@ -1,17 +1,18 @@
 package com.demo.mms.dao;
 
-import com.demo.mms.common.domain.FinalReport;
+import com.demo.mms.common.domain.Finalreport;
+import org.apache.ibatis.annotations.Param;
 
-public interface FinalReportMapper {
-    int deleteByPrimaryKey(Integer reportid);
+public interface FinalreportMapper {
+    Finalreport returnFinalreport(@Param("studentid") int studentid, @Param("version")int version);
 
-    int insert(FinalReport record);
+    Integer selectMaxversion(int studentid);
 
-    int insertSelective(FinalReport record);
+    void insertFinalreport(Finalreport finalreport);
 
-    FinalReport selectByPrimaryKey(Integer reportid);
+    void insertFinalreportpath(@Param("finalpath")String finalpath,@Param("studentid") String studentid,@Param("version") String version);
 
-    int updateByPrimaryKeySelective(FinalReport record);
+    void insertFinalresultpath(@Param("finalpath")String finalpath,@Param("studentid") String studentid,@Param("version") String version);
 
-    int updateByPrimaryKey(FinalReport record);
+    void insertFinalotherpath(@Param("finalpath")String finalpath,@Param("studentid") String studentid,@Param("version") String version);
 }

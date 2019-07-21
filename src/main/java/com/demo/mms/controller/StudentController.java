@@ -20,17 +20,20 @@ public class StudentController {
 
     @RequestMapping("/checkUserName")
     @ResponseBody
-    public boolean checkUserName(int usr){ return studentService.checkUserName(usr); }
+    public boolean checkUserName(Integer usr){ return studentService.checkUserName(usr); }
 
     @RequestMapping("/checkUsrANDPwd")
     @ResponseBody
-    public boolean checkUsrANDPwd(int usr,String pwd){
-        return studentService.checkUsrANDPwd(usr,pwd);
-    }
+    public boolean checkUsrANDPwd(Integer usr,String pwd){ return studentService.checkUsrANDPwd(usr,pwd); }
 
-/*    @RequestMapping("fetchThePassword")
+    @RequestMapping("/checkIDNum")
     @ResponseBody
-    public */
+    public boolean checkIDNum(Integer usr,Integer IDNum){return studentService.checkIDNum(usr,IDNum);}
+
+    @RequestMapping("/changePassword")
+    @ResponseBody
+    public boolean changePassword(Integer usr,String newPwd){return studentService.changePassword(usr,newPwd);}
+
     /*@RequestMapping("/getStudentInformation")
     @ResponseBody
     public Object getStudentInformation(int stuId){

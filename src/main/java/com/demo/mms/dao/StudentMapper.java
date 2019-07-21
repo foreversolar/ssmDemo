@@ -16,5 +16,9 @@ public interface StudentMapper {
 
     int updateByPrimaryKey(Student record);
 
+    int checkIDNum(@Param("student_id") int student_id,@Param("idnum") int idnum);
+
+    void updatePassword(@Param("usr") String usr,@Param("newPwd") String newPwd);
+
 //    int check(@Param("student_id") Integer student_id, @Param("password") String password);
 }
