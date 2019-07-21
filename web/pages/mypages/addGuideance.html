@@ -392,7 +392,7 @@
                         <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
                         <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a></li>
                         <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
-
+                        <li><a href=" "><i class="fa fa-circle-o"></i>指导教师答疑安排</a></li>
                     </ul>
                 </li>
 
@@ -486,28 +486,6 @@
                         </li>
                     </ul>
                     <ul class="gxf_designTable_box">
-                        <li id="teaShow" class="disNone">
-                            <p><i id="psname">单次平时成绩</i>（该学生对应总平时成绩占总成绩的权重为：<i id="psqz" style="font-weight:700"></i>）
-                            </p>
-                            <div class="gxf_designTable_detailes" style="background-color:#fff;">
-                                <input id="inputScore" type="text" class="easyui-textbox textbox-f"
-                                       data-options="height:28" style="width: 50px; display: none;"><span
-                                    class="textbox" style="width: 48px; height: 26px;"><input
-                                    id="_easyui_textbox_input4" type="text"
-                                    class="textbox-text validatebox-text textbox-prompt" autocomplete="off" tabindex=""
-                                    placeholder=""
-                                    style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 26px; line-height: 26px; width: 40px;"><input
-                                    type="hidden" class="textbox-value" value=""></span><span id="pstishi"
-                                                                                              class="margl">等级提示</span>
-                                <div class="statement txt_red">
-                                    *您可以在本次添加指导记录时，给定学生对应的“单次平时成绩”；系统将按照“多次平时成绩计算平均分”的方法计算学生的“平时成绩”，并按照设定的权重计入总成绩
-                                </div>
-                            </div>
-
-                        </li>
-                    </ul>
-
-                    <ul class="gxf_designTable_box">
                         <li id="fujian" style="">
                             <p>添加附件：<span id="scfj" class="statement">上传有关指导记录的附件，上传的文件将以附件的形式显示。支持附件格式为doc，docx，pdf，wps，rar，zip</span>
                             </p>
@@ -516,10 +494,8 @@
                             </div>
                         </li>
                         <li>
-                            <div class="margt">
-                                <input id="save" class="clearBtn margl" type="button" value="保存">
-                                <input id="submit" class="formBtn" type="button" value="提交">
-                            </div>
+                            <input id="submit_uploading" class="formBtn margt" type="button" value="提交">
+                            <input id="cancel" class="clearBtn margl margt" type="button" value="取消">
                         </li>
                     </ul>
                 </div>
@@ -534,21 +510,41 @@
         <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
         reserved.
     </footer>
-
-
 </div>
-<script src="../../dist/js/demo.js"></script>
+<script src="../../bower_components/toastr/toastr.min.js"></script>
+<link rel="stylesheet" href="../../bower_components/toastr/toastr.min.css">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
+        //指导内容框
         $('#summernote').summernote({
             lang: 'zh-CN',
             placeholder: '',
             tabsize: 4,
             height: 500
         });
+        //指导日期
         $('#datepicker').datepicker({
             autoclose: true
         });
+
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-center",
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "800",
+            timeOut: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
+
         $("#kv-explorer").fileinput({
             language: 'zh',
             theme: 'explorer-fas',
@@ -579,404 +575,54 @@
         });
     });
 </script>
-<!-- ./wrapper -->
 
-<script type="text/javascript">
-    var flag = getUrlParam("flag");//0添加 1修改
-    var num = getUrlParam("num");//第几次提交
-    var LogID = getUrlParam("LogID");//日志ID
-    var projectId = getUrlParam("ProjectId")//课题编号
-    var sid = getUrlParam("sid") //sid
-    var tid = getUrlParam("tid")//tid
-    var replace = getUrlParam("replace")//replace=1代替学生修改
-    var current_role = get_current_role(); //角色ID
-    var AttachmentNum = 0;// 删除附件
-    var stuAcademyNum = getUrlParam("stuAcademyNum");//学生学院编号
-    var zybh = "";
-    var xybh = "";
-    var DesignTableData;
-    var webUploader; //上传实例
-    $(function () {
-        //获得基本信息
-        if (current_role == 2) {//学生
-            var obj = getProjectInformation("", "task");
-        }
-        ;
-        if (current_role == 3) {//教师
-            var obj = getProjectInformation(projectId);
-            isTeaSub();//显示可填平时成绩
-        }
-        ;
-        zybh = obj["zybh"];
-        xybh = obj["xybh"];
-        if (obj["isTrue"]) {
-            $("#choiceDiv").show();
-            $("#nochoiceDiv").remove();
-            //创建上传实例
-            webUploader = createWebuploader({
-                server: "../Handler/ProjectLog.ashx?action=AddStuProjectLogAttachment",
-                successCallback: function (data) {
-                    ReturnFresh();
-                }
-            });
-            DesignTableData = isSetDesignTable(39, xybh, zybh); // 是否自定义
-            DesignTableData.done(function (data) {
-                if (data.isSuccess) {
-                    if (flag == 1) {
-                        $("#submit_uploading").val('修改');
-                        getDetail(data.rows); // 获取详情
-                    } else {
-                        $("#noDesignTable").remove();
-                        $("#DesignTable").show();
-                        SetDesignTable(data.rows, 'DesignTable');
-                        if (data.rows[0]['是否显示附件'] == '1') {
-                            $("#fujian").show();
-                        }
-                        ;
-                    }
-                } else {
-                    if (flag == 1) {
-                        $("#submit_uploading").val('修改');
-                        getDetail(); // 获取详情
-                    } else {
-                        $("#DesignTable").remove();
-                        $("#noDesignTable,#fujian").show();
-                        $.parser.parse('#noDesignTable');       // 重新渲染页面
-                        showWriteTextNumber.createNew("noDesignTable", "main_work");
-                    }
-                    ;
-                }
-                if (webUploader) {
-                    webUploader.refresh();
-                }
-                ;
-            }).fail(function (err) {
-                console.log(err);
-            });
-        } else {
-            $("#choiceDiv").remove();
-            $("#nochoiceDiv").show();
-        }
-        ;
-    });
+<script>
+    $(document).ready(function () {
 
-    //获取平时成绩的提示
-    function getScoreTips() {
-        $.ajax({
-            url: "../Handler/ReviewHandler.ashx",
-            data: {"action": "GetGetScoreRankToolTipsText"},
-            dataType: "json",
-            type: "POST",
-            success: function (data) {
-                if (data.isSuccess == true) {
-                    $("#pstishi").html(data.dataList[0]['提示']);
-                }
-                ;
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-    };
 
-    //获取平时成绩的权重
-    function GetWeightDetailes() {
-        $.ajax({
-            url: "../Handler/ReviewHandler.ashx",
-            data: {
-                "action": "GetStudentScoringWeight",
-                sid: sid,
-                projectId: projectId
-            },
-            dataType: "json",
-            type: "POST",
-            async: false,
-            success: function (data) {
-                if (data.isSuccess) {
-                    $('#psname').text(data.rows[0]['平时成绩名称']);
-                    $("#psqz").text(data.rows[0]['平时成绩']);
-                }
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-    };
-
-    //是否显示平时成绩
-    function isTeaSub() {
-        $.ajax({
-            url: '../Handler/SystemSet.ashx?action=GetSystemList',
-            type: 'post',
-            async: false,
-            dataType: 'json',
-            success: function (data) {
-                if (data.isSuccess && data.rows[0]['指导记录提交设置'] == 2) {//教师提交
-                    $.ajax({//是否显示
-                        url: "../Handler/ReviewHandler.ashx?action=GetReviewColumn",
-                        type: "post",
-                        dataType: "json",
-                        success: function (data) {
-                            if (data.isSuccess && data.dataList[0]['不显示平时成绩'] == 1) {
-                                GetWeightDetailes() //获取平时成绩的权重
-                                if ($("#psqz").text() > 0) {//权重大于0才显示
-                                    $("#teaShow").show();
-                                    getScoreTips(); //获取平时成绩的提示
-
-                                }
-                            }
-                            ;
-                        },
-                        error: function (err) {
-                            console.log(err);
-                        }
-                    });
-                }
-                ;
-            }
-        });
-    };
-
-    function getDetail(designTable) {
-        var xhr = $.ajax({
-            url: "../Handler/OpenReport.ashx",
-            type: "post",
-            dataType: "json",
-            data: {
-                action: "GetDetail",
-                id: LogID,
-                projectId: projectId,
-                sid: sid,
-                zybh: zybh,
-                xybh: xybh,
-                opeType: '3'
-            },
-            success: function (data) {
-                if (data.isSuccess) {
-                    $("#inputScore").textbox("setValue", data.rows[0]["成绩"] >= 0 ? data.rows[0]["成绩"] : '');
-                    if (designTable) {
-                        $("#noDesignTable").remove();
-                        $("#DesignTable").show();
-                        SetValueDesignTable(designTable, data.rows[0], 'DesignTable');
-                        if (designTable[0]['是否显示附件'] == '1') {
-                            getAttachment();
-                            $("#fujian").show();
-                        }
-                        ;
-                    } else {
-                        getAttachment();// 附件
-                        $("#txtTitle").textbox("setValue", data.rows[0]["主题"]);
-                        $("#txtTime").textbox("setValue", data.rows[0]["指导时间"]);
-                        $("#main_work").textbox("setValue", data.rows[0]["内容"]);
-                        $("#main_work").prev().find(".writerText>i").html(" " + $("#main_work").textbox("getText").replace(/\s|\r|\n/g, "").length + " ");
-                        $("#inputScore").textbox("setValue", data.rows[0]["成绩"] >= 0 ? data.rows[0]["成绩"] : '');
-                        $("#DesignTable").remove();
-                        $("#noDesignTable,#fujian").show();
-                        $.parser.parse('#noDesignTable');       // 重新渲染页面
-                    }
-                    ;
-                    webUploader.refresh();
-                }
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-        return xhr;
-    };
-
-    // 获取附件
-    function getAttachment() {
-        $.ajax({
-            url: "../Handler/OpenReport.ashx",
-            type: "post",
-            dataType: "json",
-            data: {
-                action: 'GetAttachent',
-                id: LogID,
-                projectId: projectId,
-                sid: sid,
-                opeType: '3'
-            },
-            success: function (data) {
-                if (data.isSuccess) {
-                    if (data.rows.length > 0) {
-                        if (data.rows[0]["文件名"] !== "" && data.rows[0]["附件"] !== "") {
-                            $("#scfj").html("已有中期报告的附件，<span style='color:#ff6632;'>" + data.rows[0]["文件名"] + "<a href='javascript:AttachmentClick( \"" + data.rows[0]["文件名"] + "\" );' class='listA margl'>删除 </a> </span>  支持附件格式为doc，docx，pdf，wps，rar，zip");
-                        }
-                        ;
-                    }
-                    ;
-                }
-                ;
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-    };
-
-    //点击取消
-    $("#cancel").click(function () {
-        location.reload(false);
-    });
-
-    // 提交修改成功后刷新
-    function ReturnFresh() {
-        if (current_role == 2) {//学生
-            if (flag == 1) {
-                refreshTab("提交指导记录");
-                refreshTab("首页");
-                closeTab("修改指导记录");
-            } else {
-                refreshTab("提交指导记录", "main");
-                refreshTab("首页");
-                closeTab("添加指导记录");
-            }
-            ;
-        }
-        ;
-        if (current_role == 3) {//教师
-            if (flag == 1) {
-                try {
-                    refreshTab("查看指导记录"); //刷新前一页
-                } catch (err) {
-
-                }
-                ;
-                refreshTab("学生指导记录"); //刷新父Tab
-                refreshTab(getRoleName(3) + "提交指导记录");
-                closeTab("修改指导记录");
-            }
-            else {
-                try {
-                    refreshTab("学生指导记录"); //刷新父Tab
-                } catch (err) {
-                    refreshTab(getRoleName(3) + "提交指导记录");
-                    closeTab("添加指导记录");
-                }
-                ;
-                refreshTab(getRoleName(3) + "提交指导记录");
-                closeTab("添加指导记录");
-            }
-            ;
-        }
-        ;
-    };
-
-    //点击提交 上传附件部分
-    var mark = true;//防止连点
-    $("#submit_uploading").click(function () {
-        if (!mark) {
-            return false;
-        }
-        ;
-        mark = false;
-        if (!$('#teaShow').is(":hidden")) {//学生不输入平时成绩
-            if ($.trim($("#inputScore").textbox("getValue")) == "") {
-                mark = true;
-                myMessage("平时成绩不能为空!")
-                return;
-            }
-            ;
-        }
-        ;
-        var list = {
-            'LogID': LogID,
-            'num': num,
-            'scfj': AttachmentNum, // 是否删除附件
-            'xybh': xybh,
-            'zybh': zybh,
-            'stuAcademyNum': stuAcademyNum,//学生学院编号
-            'ProjectId': projectId,
-            'sid': sid,
-            'tid': tid,
-            'replace': replace,
-            'inputScore': replaceUnequa($("#inputScore").textbox("getValue")), //平时成绩
-            'flag': flag,
-            'ScoreType': 10//成绩类型，10平时成绩
-        };
-        DesignTableData.done(function (data) {
-            if (data.isSuccess) {
-                submitDesignTableValue(data.rows, list);
-                if (data.rows[0]['类型'] == -1) {
-                    if (checkValIsUndefinedOrNull($("#txtFileName").val())) {
-                        mark = true;
-                        myMessage("附件不能为空！")
-                        return;
-                    }
-                    ;
-                }
-                ;
-            } else {
-                list["rizhizhuti"] = replaceUnequa($("#txtTitle").textbox("getValue")); //主题
-                list["zdsj"] = replaceUnequa($("#txtTime").textbox("getValue")); //指导
-                list["zhuyaogongzuo"] = replaceUnequa($("#main_work").textbox("getValue"))//主要工作
-                if ($.trim(list["zhuyaogongzuo"]) == "") {
-                    mark = true;
-                    myMessage("主要工作内容不能为空！")
-                    return;
-                }
-                ;
-            }
-            ;
-            var fileName = $("#txtFileName").textbox("getValue");
-            if (checkValIsUndefinedOrNull(fileName)) {//无附件
-                list["fileCount"] = 0;
-                list['action'] = 'AddStuProjectLog';
-                $.ajax({
-                    url: "../Handler/ProjectLog.ashx",
-                    data: list,
-                    dataType: "json",
-                    type: "POST",
-                    success: function (data) {
-                        if (data.isSuccess) {
-                            mark = true;
-                            myMessage(data.message, function () {
-                                ReturnFresh();
-                            });
-                        } else {
-                            mark = true;
-                            myMessage(data.message);
-                        }
-                        ;
-                    }
-                });
-            } else {  //有附件
-                list["ASPSESSID"] = getid();
-                list["fileCount"] = 1;
-                $.extend(webUploader.options.formData, list);
-                var fileId = $("#txtFileName").attr("fileId");
-                webUploader.upload(fileId);
-            }
-            ;
-        });
-    });
-
-    //删除附件
-    function AttachmentClick(data) {
-        $('#delmessagebox').text("你确定要删除附件（ " + data + " ）吗？");
-        $('#delmessagebox').dialog({
-            title: '删除附件',
-            buttons: [{
-                text: '确定', handler: function () {
-                    AttachmentNum = 1;
-                    $("#scfj").html("上传中期报告有关附件，支持附件格式为doc，docx，pdf，wps，rar，zip");
-                    $("#delmessagebox").dialog("close");
-                }
-            },
-                {
-                    text: '取消', handler: function () {
-                        AttachmentNum = 0;
-                        $("#delmessagebox").dialog("close");
-                    }
-                }]
-        });
-        $("#delmessagebox").dialog("open");
-        $('#delmessagebox').window('center');
-    };
-    // ==== 删除附件结束
+    })
 </script>
 
+<script>
+    $("#submit_uploading").click(function () {
+        submitReport(511009);
+        $("#kv-explorer").fileinput("upload");
+        toastr.success("保存成功", "消息提示");
+        // location.href = "./guideance.html";
+    });
+    $("#cancel").click(function () {
+        location.href = "./guideance.html";
+        alert("操作取消");
+    });
+
+
+    function submitReport(id) {
+        var course_id = 10001;
+        var time = 255400;//$("#datepicker").value;
+        var content = "aloha"//$("#summernote").textContent;
+        var version = 3;
+        //*****
+        var newday = new Date();
+        var sub_time ="2019-07-24 00:00:00";//newday.getFullYear()+ '年' +(newday.getMonth()+1)+'月'+newday.getDate()+'日'+newday.getHours()+':'+newday.getMinutes()+':'+newday.getSeconds()
+
+        console.log(sub_time);
+        console.log(time);
+        var guideancedate = {
+            id: id,
+            course_id:  course_id,
+            time: sub_time,
+            content: content,
+            version: version,
+            submit_time: sub_time
+        };
+        axios.post('http://localhost:8080/addGuidance', guideancedate)
+            .then(function (response) {
+                console.log("222"+response);
+            })
+            .catch(function (error) {
+                console.log("失败"+error);
+            });
+    }
+</script>
 </body>
 </html>
