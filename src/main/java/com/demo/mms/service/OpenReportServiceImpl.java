@@ -26,4 +26,9 @@ public class OpenReportServiceImpl implements OpenReportService{
 //        System.out.println(hellokitty.getCurrentOverview());
         return hellokitty;
     }
+
+    @Override
+    public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
+        openReportMapper.insertTeacherOpinion(course_id,advice,auditStatus);
+    }
 }

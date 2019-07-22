@@ -452,8 +452,8 @@
                                 <li style="display: inline-block" ><span>条件三(course_id)：</span><input id="condition_3" type="text"  /></li>
                             </div>
                             <div style="margin: 0 auto;">
-                                <li style="display: inline-block" ><span>条件四：</span><select id="condition_4"><option value="all_type">全部</option><option value="theoretical_research">理论研究</option><option value="system_design">系统设计</option></select></li>
-                                <li style="display: inline-block" ><span>条件五：</span><select id="condition_5"><option value="all_title">全部</option><option value="student_title">学生提交课题</option><option value="teacher_title">教师科研纵向课题</option></select></li>
+                                <li style="display: inline-block" ><span>条件四：</span><select id="condition_4"><option value="all_type">全部</option><option value="theoretical_research">理论研究</option><option value="system_design">系统设计</option><option value="saturday">今天是星期六</option></select></li>
+                                <li style="display: inline-block" ><span>条件五：</span><select id="condition_5"><option value="all_title">全部</option><option value="student_title">学生提交课题</option><option value="teacher_title">教师科研纵向课题</option><option value="saturday">今天是星期六</option></select></li>
                                 <li style="display: inline-block" ><span>&nbsp;</span><input class="formBtn" id="search_btn" type="button" value="查询"></li>
                             </div>
                         </ul>
@@ -817,39 +817,32 @@ $(document).ready(function () {
             $("#search_btn").click(function () {
                   for(var index  in result){
                       var each = result[index];
-                      //载入数据函数
-                      // console.log(each["id"])
-                      function display_table() {
+                      function displaydata() {
                           var $tr=  $("<tr>").append($("<td>").html(parseInt(Object.keys(result)[index])+1))
                               .append($("<td>").html(each["version"]))
                               .append($("<td>").html(each["content"]))
-                              .append($("<td>").html(each["submitTime"]))
+                              .append($("<td>").html(each["courseId"]))
                               .append($("<td>").html(""+index))
                               .append($("<td>").html(each["content"]))
                               .append($("<td>").html(each["submitTime"]));
                           $tbody.append($tr);
+                          console.log("查询成功")
                       }
-                      //
-                      if (each["version"]==$("#condition_1")[0].value){
-                          display_table();
-                          console.log("查询成功");
+                      if (each["version"]==$("#condition_1")[0].value ){
+                          displaydata();
                       }
-                       if (each["content"]==$("#condition_2")[0].value){
-                           display_table();
-                           console.log("查询成功");
-                       }
-                      if (each["id"]==$("#condition_3")[0].value){
-                          display_table();
-                          console.log("查询成功");
+                      if (each["id"]==$("#condition_2")[0].value){
+                          displaydata();
+                           }
+                      if (each["courseId"]==$("#condition_3")[0].value){
+                          displaydata();
                       }
-                      // if ("全部"==$("#condition_4 option:selected").text()){
-                      //     display_table();
-                      //     console.log("查询成功");
-                      // }
-                      // if (each["content"]==$("#condition_5 option:selected").text()){
-                      //     display_table();
-                      //     console.log("查询成功");
-                      // }
+                      if ("content"==$("#condition_4 option:selected").text()){
+                          displaydata();
+                      }
+                      if (each["content"]==$("#condition_5 option:selected").text()){
+                          displaydata();
+                      }
                   }
             })
         },

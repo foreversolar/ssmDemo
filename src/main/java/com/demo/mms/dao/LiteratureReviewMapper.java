@@ -1,6 +1,7 @@
 package com.demo.mms.dao;
 
 import com.demo.mms.common.domain.LiteratureReview;
+import org.apache.ibatis.annotations.Param;
 
 public interface LiteratureReviewMapper {
     int deleteByPrimaryKey(Integer id);
@@ -17,5 +18,7 @@ public interface LiteratureReviewMapper {
 
     int selectMaxVersion(Integer course_id);
 
-    LiteratureReview selectLiteratureReview(Integer course_id, int version);
+    LiteratureReview selectLiteratureReview(@Param("course_id") Integer course_id,@Param("version") int version);
+
+    void insertTeacherOpinion(@Param("course_id") String course_id,@Param("advice") String advice,@Param("auditStatus") String auditStatus);
 }

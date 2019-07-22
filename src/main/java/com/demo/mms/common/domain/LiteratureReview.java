@@ -19,6 +19,16 @@ public class LiteratureReview {
 
     private Date time;
 
+    private String result;
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
     public Integer getId() {
         return id;
     }

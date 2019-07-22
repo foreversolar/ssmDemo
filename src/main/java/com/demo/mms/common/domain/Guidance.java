@@ -15,6 +15,26 @@ public class Guidance {
 
     private Date submitTime;
 
+    private String result;
+
+    private String advice;
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public void setAdvice(String advice) {
+        this.advice = advice;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public String getAdvice() {
+        return advice;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -1,6 +1,6 @@
 package com.demo.mms.controller;
 
-import com.demo.mms.common.domain.FinalReport;
+import com.demo.mms.common.domain.Finalreport;
 import com.demo.mms.service.FinalreportService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class FinalreportController {
 
     @RequestMapping(value="/addFinalreport",method= RequestMethod.POST)
     @ResponseBody
-    public Object addFinalreport(@RequestBody FinalReport finalreport){
+    public Object addFinalreport(@RequestBody Finalreport finalreport){
         Integer version = finalreportService.addMaxversion(finalreport.getStudentid());
         if(version==null){
             version=0;
@@ -40,7 +40,7 @@ public class FinalreportController {
     @ResponseBody
     public Object returnFinalreport(int studentid){
         Integer version = finalreportService.addMaxversion(studentid);
-        FinalReport finalreport= finalreportService.findFinalreport(studentid,version);
+        Finalreport finalreport= finalreportService.findFinalreport(studentid,version);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",finalreport);
         return rs;
@@ -94,6 +94,14 @@ public class FinalreportController {
                 }
             }
         }
+        Map<String,Object> rs = new HashMap<>(64);
+        rs.put("success",true);
+        return rs;
+    }
+    @RequestMapping("/addFianlreportTeacherOpinion")
+    @ResponseBody
+    public Object addTeacherOpinion(@Param("stuentid")Integer studentid,@Param("advice")String advice,@Param("AuditStatus")String AuditStatus){
+        finalreportService.addTeacherOpinion(Integer.toString(studentid),advice,AuditStatus);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);
         return rs;

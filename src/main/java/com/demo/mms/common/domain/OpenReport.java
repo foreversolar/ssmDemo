@@ -41,6 +41,16 @@ public class OpenReport {
 
     private Date submitTime;
 
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    private String result;
+
     public Integer getId() {
         return id;
     }

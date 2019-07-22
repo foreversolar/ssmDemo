@@ -4,7 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 
-public class FinalReport {
+public class Finalreport {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private int reportid;
     private int studentid;
@@ -26,6 +26,16 @@ public class FinalReport {
     private String result_address;
     private String enclosure_address;
     private int version;
+
+    public void setTeacher_result(String teacher_result) {
+        this.teacher_result = teacher_result;
+    }
+
+    public String getTeacher_result() {
+        return teacher_result;
+    }
+
+    private String teacher_result;
 
     public void setVersion(int version) {
         this.version = version;

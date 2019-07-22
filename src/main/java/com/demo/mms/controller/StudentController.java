@@ -34,12 +34,13 @@ public class StudentController {
 
     @RequestMapping("/checkUsrANDPwd")
     @ResponseBody
-    public Object checkUsrANDPwd(@Param("usr") Integer usr, @Param("pwd") String pwd, HttpSession session){
+    public Object checkUsrANDPwd(@Param("usr") Integer usr, @Param("pwd") String pwd,@Param("role") Integer role, HttpSession session){
         String msg=null;
         Map<String,Object> rs = new HashMap<>(64);
         if(studentService.checkUsrANDPwd(usr,pwd)){
            msg="登录成功";
             rs.put("msg",msg);
+            session.setAttribute("role",role);
             session.setAttribute("current_user",usr);
         }else{
             msg="用户名或密码错误";

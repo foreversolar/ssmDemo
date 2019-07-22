@@ -48,7 +48,6 @@
         position: absolute;
         width: 8px;
         height: 8px;
-        background: url(./images/o.png) no-repeat 0 0;
         top: 7px;
         left: 2px;
     }
@@ -69,7 +68,7 @@
 
 .gxf_rangy_left {
     box-sizing: border-box;
-    width: 70%;
+    width: 100%;
     float: left;
     padding: 8px;
     border-right: 1px solid #ccc;
@@ -98,7 +97,6 @@
     display: inline-block;
     height: 11px;
     width: 13px;
-    background: url('images/allRangy.png') no-repeat 0 0;
 }
 
 .gxf_rangy_right {

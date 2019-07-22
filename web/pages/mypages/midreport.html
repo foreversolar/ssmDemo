@@ -6,12 +6,9 @@
     <title>本科毕业论文(设计)管理系统</title>
     <!-- Tell the browser to be responsive to screen width -->
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>本科毕业论文(设计)管理系统</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
+    <!-- 基础必备-->
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -25,7 +22,7 @@
     <script src="../../dist/js/demo.js"></script>
     <script src="../../dist/js/adminlte.min.js"></script>
 
-
+    <!-- 川大Style-->
     <link rel="stylesheet" href="../../dist/css/origin/easyui(4).css">
     <link rel="stylesheet" href="../../dist/css/origin/default(1).css">
     <link rel="stylesheet" href="../../dist/css/origin/rangyStyle(1).css">
@@ -57,7 +54,9 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
+    <!--可以全部复制-->
     <header class="main-header">
         <!-- Logo -->
         <a href="../../index2.html" class="logo">
@@ -67,31 +66,33 @@
             <span class="logo-lg"><b>川大</b>毕设</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
             <div class="navbar-custom-menu">
                 <div class="bannerRight">
-                    <p class="john"><span id="user_name">王启帆(2015141463170)</span>, &nbsp;欢迎使用系统</p>
-                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span class="role_name">学生</span><span id="academyName" title="专业：软件学院-软件工程">&nbsp; / &nbsp;专业：软件学院-...</span></p>
+                    <p class="john"><span id="user_name">用户名</span>, &nbsp;欢迎使用系统</p>
+                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span
+                            class="role_name">学生</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span>
+                    </p>
                     <!--<input  id="hdUserDefinedRoles" value="[{&quot;name&quot;:&quot;管理员&quot;,&quot;value&quot;:1},{&quot;name&quot;:&quot;学生&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;指导教师&quot;,&quot;value&quot;:3},{&quot;name&quot;:&quot;专业负责人&quot;,&quot;value&quot;:4},{&quot;name&quot;:&quot;教学秘书&quot;,&quot;value&quot;:5},{&quot;name&quot;:&quot;院长&quot;,&quot;value&quot;:6},{&quot;name&quot;:&quot;答辩录入员&quot;,&quot;value&quot;:7},{&quot;name&quot;:&quot;督导专家&quot;,&quot;value&quot;:8},{&quot;name&quot;:&quot;评阅专家&quot;,&quot;value&quot;:9},{&quot;name&quot;:&quot;辅助导师&quot;,&quot;value&quot;:10},{&quot;name&quot;:&quot;管理员（被授权）&quot;,&quot;value&quot;:11}]">-->
                     <!--<input id="hdAuthToken" value="">-->
                     <p class="quitChunk">
-                        <a id="knowledge" >诚信与学术规范<span class="new"></span></a>
+                        <a id="knowledge">诚信与学术规范<span class="new"></span></a>
                         <a id="WeChart">绑定微信</a>
-                        <a id="help" >帮助</a>
+                        <a id="help">帮助</a>
                         <a id="quit">退出</a>
                     </p>
                 </div>
             </div>
-            <img style=" float:left;padding:15px"  src="../../dist/img/scu.png">
+            <img style=" float:left;padding:15px" src="../../dist/img/scu.png">
             <p class="login-paper" id="xtmc">本科毕业论文（设计）管理系统</p>
         </nav>
-
     </header>
-    <!-- Left side column. contains the logo and sidebar -->
+    <!--修改 active-->
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -118,7 +119,6 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header"> </li>
                 <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>首页管理</span>
@@ -130,7 +130,7 @@
                         <li class=""><a href="../../index.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-files-o"></i>
                         <span>师生双选管理</span>
@@ -139,9 +139,9 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../../pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
-                        <li><a href="../../pages/layout/boxed.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
-                        <li><a href="../../pages/layout/fixed.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
+                        <li class=""><a href="./addCourse.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
+                        <li><a href="./chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
+                        <li><a href="./task.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
                     </ul>
                 </li>
 
@@ -159,7 +159,8 @@
                         <li class="active"><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
                         <li><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
                         <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
-                        <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a></li>
+                        <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a>
+                        </li>
                         <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
                     </ul>
                 </li>
@@ -173,9 +174,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../../pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> 查看我参加的答辩</a></li>
-                        <li><a href="../../pages/charts/morris.html"><i class="fa fa-circle-o"></i> 答辩记录</a></li>
-                        <li><a href="../../pages/charts/flot.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
+                        <li><a href="./gradeview.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
                     </ul>
                 </li>
 
@@ -188,8 +187,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../../pages/UI/general.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
-                        <li><a href="../../pages/UI/icons.html"><i class="fa fa-circle-o"></i> 个人信息维护</a></li>
+                        <li><a href="./modifyPw.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
                     </ul>
                 </li>
             </ul>
@@ -197,15 +195,8 @@
         <!-- /.sidebar -->
     </aside>
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" ?>
-        <div id="nochoiceDiv" class="gxf_tips" style="display:none; margin-bottom:15px;">
-            <div class="gxf_tip">
-                <i></i>信息提示
-            </div>
-            <div>
-                <p>您还没有申报课题，或者选择的课题未被审核通过，您现在不能提交。</p>
-            </div>
-        </div>
+    <div class="content-wrapper">
+
         <!-- 时间限制提示 -->
         <div id="timeLimit" class="gxf_tips" style="display:none;">
             <div class="gxf_tip">
@@ -228,14 +219,6 @@
         <div class="main" id="choiceDiv" style="">
             <div class="gxf_problem gxf_pro_top" id="historyDiv" style="">
                 <div class="active"><h2><span class="sanjiao_active"></span>中期报告</h2></div>
-                <div class="gxf_pro_content ">
-                    <span>最新提交时间：<span id="zxtjsj">2019/3/16 21:35:04</span></span>
-                    <span id="CheckDetail-link" style=""><a
-                            href="http://scu.co.cnki.net/Student/SubmitMiddleReport.html?r=0.9366341223303578#CheckDetail"
-                            class="listA">查看审核详情</a></span>
-                    <span><a id="distorylink" class="listA" style=""
-                             href="javascript:openframe(&#39;中期报告历史纪录&#39;, &#39;../Student/StuHistoryFile.html?projectId=null&amp;sid=null&amp;opeType=5&#39;,false)">查看历史记录</a></span>
-                </div>
             </div>
             <!-- 课题基本信息 -->
             <div id="gxf-project-information">
@@ -244,33 +227,34 @@
                     <div class="gxf_pro_content gxf_content_table">
                         <ul class="clearfix gxf_project_detadil_ul">
                             <li style="width:100%;"><span class="detadil_txt_left"> 课题题目：</span><span
-                                    style="width:600px;" class="detadil_txt_right" title="条件生成对抗网络在少数类有效数据生成中的研究与应用">条件生成对抗网络在少数类有效数据生成中的研究与应用</span>
+                                    style="width:600px;" class="detadil_txt_right" id="c_title">条件生成对抗网络在少数类有效数据生成中的研究与应用</span>
                             </li>
                             <li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right"
-                                                                                  title="软件工程">软件工程</span></li>
-                            <li><span class="detadil_txt_left"> 课题申报时间：</span><span class="detadil_txt_right"
-                                                                                    title="2018-12-11">2018-12-11</span>
+                                                                                  id="c_availmajor">软件工程</span>
                             </li>
-                            <li><span class="detadil_txt_left"> 题目类型：</span><span class="detadil_txt_right">理论研究</span>
+                            <li><span class="detadil_txt_left"> 课题申报时间：</span><span
+                                    class="detadil_txt_right" id="c_time">2018-12-11</span></li>
+                            <li><span class="detadil_txt_left"> 题目类型：</span><span class="detadil_txt_right" id="c_type">理论研究</span>
                             </li>
-                            <li><span class="detadil_txt_left"> 题目来源：</span><span class="detadil_txt_right"
-                                                                                  title="教师科研纵向课题">教师科研纵向课题</span></li>
-                            <li><span class="detadil_txt_left"> 选择模式：</span><span class="detadil_txt_right"
-                                                                                  title="学生提交课题">学生提交课题</span></li>
+                            <li><span class="detadil_txt_left"> 题目来源：</span><span
+                                    class="detadil_txt_right" id="c_source">教师科研纵向课题</span></li>
+                            <li><span class="detadil_txt_left"> 选择模式：</span><span
+                                    class="detadil_txt_right" id="c_mode">学生提交课题</span></li>
                             <li><span class="detadil_txt_left"> 课题所属专业：</span><span
-                                    class="detadil_txt_right">软件学院-软件工程</span></li>
-                            <li><span class="detadil_txt_left"> 指导教师：</span><span class="detadil_txt_right"
-                                                                                  title="段磊（20092049）">段磊（20092049）</span>
+                                    class="detadil_txt_right" id="c_attachmajor">软件学院-软件工程</span></li>
+                            <li><span class="detadil_txt_left"> 指导教师：</span><span
+                                    class="detadil_txt_right" id="c_teacher">段磊（20092049）</span></li>
+                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right"
+                                                                                  id="c_teachertitle">教授</span>
                             </li>
-                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right" title="教授">教授</span>
-                            </li>
-                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"></span>
+                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"
+                                                                                    id="c_teacheremail"></span>
                             </li>
                             <li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right"
-                                                                                  title="王启帆（2015141463170）">王启帆（2015141463170）</span>
+                                                                                  id="c_student">王启帆（2015141463170）</span>
                             </li>
                             <li><span class="detadil_txt_left"> 学生院系专业：</span><span
-                                    class="detadil_txt_right">软件学院-软件工程</span></li>
+                                    class="detadil_txt_right" id="c_student_major">软件学院-软件工程</span></li>
                         </ul>
                     </div>
                 </div>
@@ -292,11 +276,6 @@
                                             <input type="radio" id="wcqk1" name="radio_17_wcqk" value="1"
                                                    checked="checked">
                                             <label for="wcqk1" class="margr">部分完成</label></div>
-                                        <div id="right_box_left_wcqk" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -305,18 +284,9 @@
                                         class="gxf_designTable_secondTitle_Title">
                                     <i> </i>若选择“部分完成”，请填写先完成进度（%）<span class="statement margl"></span></h3>
                                     <div class="gxf_designTable_rangy clearfix">
-                                        <div class="gxf_rangy_left gxf_noRangy">
-                                            <input id="translation_process" type="text" class="form-control progresst"
-                                                   placeholder="请填写0-100范围内的数字" maxlength="3"
-                                                   onKeyUp="value=value.replace(/\D/g,'')">
-                                        </div>
-                                        <!-- text input -->
-
-                                        <div id="right_box_left_wejd" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
-                                        </div>
+                                        <input id="translation_process" type="text" class="form-control progresst"
+                                               placeholder="请填写0-100范围内的数字" maxlength="3"
+                                               onKeyUp="value=value.replace(/\D/g,'')">
                                     </div>
                                 </div>
                             </li>
@@ -327,18 +297,11 @@
                                 </h3>
                                     <div class="gxf_designTable_rangy clearfix">
 
-                                        <div id="left_yjsj" tablemodelid="19" class="gxf_rangy_left">
-                                            <div class="input-group date">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input type="text" class="form-control pull-right" id="datepicker">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
                                             </div>
-                                        </div>
-                                        <div id="right_box_left_yjsj" class="gxf_rangy_right_box">
-                                            <ul id="right_left_yjsj" class="gxf_rangy_right">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
+                                            <input type="text" class="form-control pull-right" id="datepicker">
                                         </div>
                                     </div>
                                 </div>
@@ -352,14 +315,6 @@
                                             <textarea id="translation_comment" class="form-control" rows="4"
                                                       placeholder=""></textarea>
                                         </p></div>
-                                        <div id="right_box_left_wwbz" class="gxf_rangy_right_box" style="height: 99px;">
-                                            <p class="gxf_rangy_right_top">支持左侧选择文字批注，也支持★<a class="listA rangy_all"
-                                                                                             href="javascript:;">整体批注</a>
-                                            </p>
-                                            <ul id="right_left_wwbz" class="gxf_rangy_right" style="height: 68px;">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -375,11 +330,6 @@
                                                    checked="checked">
                                             <label for="wxwcqk1" class="margr">部分完成</label>
                                         </div>
-                                        <div id="right_box_left_wxwcqk" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -392,11 +342,6 @@
                                         <div class="gxf_rangy_left gxf_noRangy"><input id="wxprogress" type="text"
                                                                                        class="form-control progresst"
                                                                                        placeholder="请填写0-100范围内的数字">
-                                        </div>
-                                        <div id="right_box_left_wxbfwc" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -417,11 +362,6 @@
                                                 <input type="text" class="form-control pull-right" id="datepicker2">
                                             </div>
                                         </div>
-                                        <div id="right_box_left_wxbfwc2" class="gxf_rangy_right_box">
-                                            <ul id="right_left_wxbfwc" class="gxf_rangy_right">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -433,14 +373,6 @@
                                              style="height: 115px;"><textarea id="wxcomment" class="form-control"
                                                                               rows="4"
                                                                               placeholder=""></textarea></div>
-                                        <div id="right_box_left_wxbz" class="gxf_rangy_right_box" style="height: 99px;">
-                                            <p class="gxf_rangy_right_top">支持左侧选择文字批注，也支持★<a class="listA rangy_all"
-                                                                                             href="javascript:;">整体批注</a>
-                                            </p>
-                                            <ul id="right_left_wxbz" class="gxf_rangy_right" style="height: 68px;">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -456,18 +388,14 @@
                                             <label for="sywcqk0" class="margr">完成</label><input type="radio"
                                                                                                 id="sywcqk1"
                                                                                                 name="radio_27_sywcqk"
-                                                                                                value="1">
+                                                                                                value="1"
+                                                                                                checked='checked'>
                                             <label for="sywcqk1" class="margr">部分完成</label><input type="radio"
                                                                                                   id="sywcqk2"
                                                                                                   name="radio_27_sywcqk"
-                                                                                                  value="2" checked='checked'>
+                                                                                                  value="2">
                                             <label
                                                     for="sywcqk2" class="margr">无实验</label></div>
-                                        <div id="right_box_left_sywcqk" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -480,11 +408,6 @@
                                         <div class="gxf_rangy_left gxf_noRangy"><input id="syprogress" type="text"
                                                                                        class="form-control progresst"
                                                                                        placeholder="请填写0-100范围内的数字">
-                                        </div>
-                                        <div id="right_box_left_syjd" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -503,11 +426,6 @@
                                                 <input type="text" class="form-control pull-right" id="datepicker3">
                                             </div>
                                         </div>
-                                        <div id="right_box_left_syyjsj" class="gxf_rangy_right_box">
-                                            <ul id="right_left_syyjsj" class="gxf_rangy_right">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -518,14 +436,6 @@
                                         <div id="left_sybz" tablemodelid="30" class="gxf_rangy_left">
                                             <textarea id="sycomment" class="form-control" rows="4"
                                                       placeholder=""></textarea>
-                                        </div>
-                                        <div id="right_box_left_sybz" class="gxf_rangy_right_box" style="height: 99px;">
-                                            <p class="gxf_rangy_right_top">支持左侧选择文字批注，也支持★<a class="listA rangy_all"
-                                                                                             href="javascript:;">整体批注</a>
-                                            </p>
-                                            <ul id="right_left_sybz" class="gxf_rangy_right" style="height: 68px;">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -538,13 +448,6 @@
                                     <div class="gxf_designTable_rangy clearfix">
                                         <div id="left_qtqkmc" tablemodelid="32" class="gxf_rangy_left"><textarea
                                                 class="form-control" rows="3" placeholder=""></textarea></div>
-                                        <div id="right_box_left_qtqkmc" class="gxf_rangy_right_box"
-                                             style="height: 99px;"><p class="gxf_rangy_right_top">支持左侧选择文字批注，也支持★<a
-                                                class="listA rangy_all" href="javascript:;">整体批注</a></p>
-                                            <ul id="right_left_qtqkmc" class="gxf_rangy_right" style="height: 68px;">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -565,11 +468,6 @@
                                                                                                    onclick="displaypro(this.id)"
                                                                                                    checked="checked">
                                             <label for="qtwcqk2" class="margr">无其它情况</label></div>
-                                        <div id="right_box_left_qtwcqk" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -582,11 +480,6 @@
                                         <div class="gxf_rangy_left gxf_noRangy"><input type="text"
                                                                                        class="form-control progresst"
                                                                                        placeholder="请填写0-100范围内的数字">
-                                        </div>
-                                        <div id="right_box_left_sybfjd" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -605,12 +498,6 @@
                                                 <input type="text" class="form-control pull-right" id="datepicker4">
                                             </div>
                                         </div>
-                                        <div id="right_box_left_qisj" class="gxf_rangy_right_box">
-
-                                            <ul id="right_left_qisj" class="gxf_rangy_right">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -621,14 +508,6 @@
                                         <div id="left_qtbz" tablemodelid="36" class="gxf_rangy_left"
                                              style="height: 115px;"><textarea class="form-control" rows="4"
                                                                               placeholder=""></textarea></div>
-                                        <div id="right_box_left_qtbz" class="gxf_rangy_right_box" style="height: 99px;">
-                                            <p class="gxf_rangy_right_top">支持左侧选择文字批注，也支持★<a class="listA rangy_all"
-                                                                                             href="javascript:;">整体批注</a>
-                                            </p>
-                                            <ul id="right_left_qtbz" class="gxf_rangy_right" style="height: 68px;">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -640,11 +519,6 @@
                                         <div class="gxf_rangy_left gxf_noRangy">
                                             <input id="ktprocess" type="text" class="form-control progresst"
                                                    placeholder="请填写0-100范围内的数字">
-                                        </div>
-                                        <div id="right_box_left_ktwcjd" class="gxf_rangy_right_box gxf_noRangy">
-                                            <ul class="gxf_rangy_right gxf_noRangy">
-                                                <li class="gxf_rangy_noContent"><h3>该内容暂不支持批注</h3></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -662,19 +536,14 @@
                                                 <input type="text" class="form-control pull-right" id="datepicker5">
                                             </div>
                                         </div>
-                                        <div id="right_box_left_ktyjwc" class="gxf_rangy_right_box">
-                                            <ul id="right_left_ktyjwc" class="gxf_rangy_right">
-                                                <li class="gxf_rangy_noContent"><h3>暂无批注内容</h3></li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </li>
 
 
-                            <li id="fujian"  class="WZN-lrtable-r" style="display:none"><p>附件</p>
+                            <li id="fujian" class="WZN-lrtable-r" style="display:none"><p>附件</p>
                                 <div id="accessory" class="gxf_designTable_detailes">四川大学毕业论文（设计）中期检查表.doc
-                               </div>
+                                </div>
                                 <a class="listA margl" id="file_path" download="四川大学毕业论文（设计）中期检查表.doc">点击下载</a>
                             </li>
 
@@ -691,15 +560,13 @@
                     <div class="gxf_designTable_content">
                         <!-- 有自定义时显示 -->
                         <ul class="gxf_designTable_box" id="isShowDesignTable"></ul>
-                        <ul class="gxf_designTable_box">
-                            <li >
+                        <ul class="gxf_designTable_box" id="file_loading">
+                            <li>
                                 <p>添加附件：<span class="statement" id="scfj">上传有关中期报告的附件，上传的文件将以附件的形式显示。支持附件格式为doc，docx，pdf，wps，rar，zip</span>
                                 </p>
                                 <div class="file-loading">
                                     <input id="kv-explorer" type="file" multiple name="items">
                                 </div>
-
-                                <div id="divFileProgressContainer"></div>
                             </li>
                         </ul>
                     </div>
@@ -710,26 +577,20 @@
                 <input id="submit" class="formBtn" type="button" value="提交">
             </div>
 
+            <!-- 审核意见 -->
             <div class="gxf_problem gxf_problem_reader" id="CheckDetail" style="">
                 <div><h2><span></span>审核情况</h2></div>
                 <div id="designTableCheckBox">
                     <div class="gxf_designTable_check">指导教师审核情况</div>
                     <div class="gxf_designTable_content">
                         <ul class="gxf_designTable_box">
-                            <li class="gxf_designTable_roleTime"><span>审核人：段磊</span><span class="margl">审核时间：2019-06-03 10:34:43</span>
+                            <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl" id="reviewer"></span>
                             </li>
-                            <li class="_checkState_"><p>审核状态</p><input type="hidden" class="hdOpeKeyId" value="35663"
-                                                                       projectid="6134" roletype="3"
-                                                                       checkstate="1"><input type="hidden"
-                                                                                             class="showAttachment"
-                                                                                             value="true" filename=""
-                                                                                             filelink=""><input
-                                    type="hidden" class="designTableModel" value="毕业论文进度合理。"
-                                    aesdesigntableinfo="lUGC1STGT2lTSw3LMIXo+hzESrt5dwHS5HXWOAssArslSDy0l2VOXLQ/Rfi4u6/62tnxEZPy9cS1lFVJG3+dlH8NbCexQqrYU3ayDgRbbBL+svsqf97g4JzL/5ZEMSEswq7gCDNQ25VYW86QgUn0KWesqjgoOP6reHp5tlQelm9KINofKKxszpu3KVAJvBAwjpvncf2Yw6JnBCNXzqa3UQ==">
-                                <div class="gxf_designTable_detailes"><span class="txt_green">审核通过</span></div>
+                            <li class="_checkState_"><p>审核状态</p>
+                                <input class="form-control" id="result" disabled="disabled">
                             </li>
                             <li><p>审核意见</p>
-                                <div class="gxf_designTable_detailes">毕业论文进度合理。</div>
+                                <input class="form-control" id="advice" disabled="disabled">
                             </li>
                         </ul>
                     </div>
@@ -737,9 +598,7 @@
             </div>
 
         </div>
-        <div class="window-shadow"
-             style="display: none; left: 443px; top: 193px; width: 400px; height: 200px; z-index: 9085;"></div>
-        <div class="window-mask" style="display: none; z-index: 9084; position: fixed;"></div>
+
 
     </div>
     <!-- /.content-wrapper -->
@@ -756,6 +615,7 @@
 
 
 <script>
+    var formdata={};
     //组件初始化
     $(function () {
         $('#datepicker').datepicker({
@@ -789,33 +649,23 @@
             hideMethod: "fadeOut"
         };
 
+        //初始化文件上传
         $("#kv-explorer").fileinput({
             language: 'zh',
             theme: 'explorer-fas',
-            uploadUrl: 'http://localhost:8080/saveMidreport',
+            uploadUrl: 'http://localhost:8080/saveMidreport',  //修改地址！
             overwriteInitial: false,
             initialPreviewAsData: true,
             showPreview: true,//是否显示预览
             initialPreview: [],
-            showUpload:false,
+            showUpload: false,
             enctype: "multipart/form-data",
-            uploadExtraData: function () {
-                var data = {
-                    course_id:"3110002"
-                };
-                return data;
+            uploadExtraData: function (previewId,index) {
+                return formdata;
             },
             initialPreviewConfig: []
-        }).on('filepreupload', function (event, data, previewId, index) {     //上传中
-            var form = data.form, files = data.files, extra = data.extra,
-                response = data.response, reader = data.reader;
-            console.log('文件正在上传');
-        }).on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
-            console.log('文件上传成功！' + data.id);
-
-        }).on('fileerror', function (event, data, msg) {  //一个文件上传失败
-            console.log('文件上传失败！' + data.id);
         });
+
 
         $(".translation_radio :radio").change(function () {
 
@@ -852,74 +702,144 @@
 </script>
 
 <script type="text/javascript">
-    //页面加载先判断是否有之前的版本
+    //页面初始化
+    var cid = 0;
+    var sid = 0;
+    var role=0;
     $(function () {
         $.ajax({
-            type: "GET",
-            url: "http://localhost:8080/returnMidreport",
-            data: {course_id: "3110002"},
-            success: function (msg) {
-                initReport(msg.success)
-            }
-        });
-        function initReport(midreport) {
-            console.log(midreport.translation_complete);
-            if (midreport.state !== "SAVE") {
-                $("body").find("input,textarea").attr("disabled", true);
-                $("#submit").hide();
-                $("#save").hide();
-            }
-         //处理文件下载
-            if(midreport.path!==null){
-                $("#tianjiafujian").hide();
-                $("#fujian").show();
-                $("#accessory").html(midreport.originfilename);
-                $("#file_path").attr({
-                    'href':midreport.path,
-                    'download':midreport.originfilename
+            url: "http://localhost:8080/getUser",
+            dataType: "json",
+            error: function (data) {
+            },
+            success: function (data) {
+                sid = data.current_user;
+                cid = data.course_id;
+                role=data.role;  //0表示学生 1表示老师
+                $.ajax({
+                    url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data.success.stu_major);
+                        $("#user_name").html(data.success.student);
+                        $("#depart_name").html(data.success.stuMajor);
+                       //添加文件上传时候的参数，三处用到
+                        formdata={
+                            course_id:cid
+                        };
+                        console.log(formdata);
+                    }
+                });
+
+                initBasicInfor(sid, cid,role);
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:8080/returnMidreport",
+                    data: {course_id: cid},
+                    success: function (msg) {
+                        initReport(msg.success)
+                    }
                 });
 
             }
-            if (midreport.translation_complete == 1) {
-                $("#wcqk0").attr('checked', "checked");
-                $(".wcqk4").hide();
-            } else {
-                $("#wcqk1").attr('checked', "checked");
-                $("#translation_process").val(midreport.translation_progress);
-                $("#datepicker").val(midreport.translation_time)
-            }
-            $("#translation_comment").val(midreport.translation_comment);
-
-            if (midreport.paper_complete == 1) {
-                $("#wxwcqk0").attr('checked', "checked");
-                $(".wxwcqk4").hide();
-            } else {
-                $("#wxwcqk1").attr('checked', "checked");
-                $("#translation_process").val(midreport.paper_progress);
-                $("#datepicker2").val(midreport.paper_time)
-            }
-            $("#wxcomment").val(midreport.paper_comment);
-
-            if (midreport.experiment_complete == 0) {
-                $("#sywcqk0").attr('checked', "checked");
-                $(".sywcqk4").hide();
-            } else if (midreport.experiment_complete == 2) {
-                $("#sywcqk2").attr('checked', "checked");
-                $(".sywcqk4").hide();
-            } else {
-                $("#sywcqk1").attr('checked', "checked");
-                $("#syprogress").val(midreport.experiment_progress);
-                $("#datepicker3").val(midreport.experiment_time)
-            }
-            $("#sycomment").val(midreport.experiment_comment);
-
-            $("#ktprocess").val(midreport.project_progress);
-            $("#datepicker5").val(midreport.project_time);
+        });
 
 
-            console.log(midreport.course_id)
-        }
     });
+
+    function initBasicInfor(sid, cid,role) {
+        //处理角色
+        if(role===1){
+            $("#result").removeAttr("disabled");
+            $("#advice").removeAttr("disabled");
+        }
+
+        // 课题基本信息
+        $.ajax({
+            url: "http://localhost:8080/getCourse?student_id=" + sid,
+            dataType: "json",
+            success: function (data) {
+                data = data.success;
+                $("#c_attachmajor").html(data.attachMajor);
+                $("#c_availmajor").html(data.availMajor);
+                $("#c_mode").html(data.mode);
+                $("#c_source").html(data.resource);
+                $("#c_student").html(data.student);
+                $("#c_teacher").html(data.instructor);
+                $("#c_time").html(data.declareTime);
+                $("#c_teacheremail").html(data.instEmail);
+                $("#c_teachertitle").html(data.teaTitle);
+                $("#c_student_major").html(data.stuMajor);
+                $("#c_title").html(data.title);
+                $("#c_type").html(data.type)
+            }
+        });
+    }
+
+    function initReport(midreport) {
+        console.log(midreport.state);
+        //处理报告状态
+        if (midreport.state !== "SAVE" && midreport.state !== "") {
+            $("body").find("input,textarea").attr("disabled", true);
+            $("#submit").hide();
+            $("#save").hide();
+        }
+        //处理文件下载
+        if (midreport.path !== null) {
+            $("#tianjiafujian").hide();
+            $("#fujian").show();
+            $("#accessory").html(midreport.originfilename);
+            $("#file_path").attr({
+                'href': midreport.path,
+                'download': midreport.originfilename
+            });
+
+        }
+        //处理报告信息（不能直接复制）
+        if (midreport.translation_complete == 1) {
+            $("#wcqk0").attr('checked', "checked");
+            $(".wcqk4").hide();
+        } else {
+            $("#wcqk1").attr('checked', "checked");
+            $("#translation_process").val(midreport.translation_progress);
+            $("#datepicker").val(midreport.translation_time)
+        }
+        $("#translation_comment").val(midreport.translation_comment);
+
+        if (midreport.paper_complete == 1) {
+            $("#wxwcqk0").attr('checked', "checked");
+            $(".wxwcqk4").hide();
+        } else {
+            $("#wxwcqk1").attr('checked', "checked");
+            $("#translation_process").val(midreport.paper_progress);
+            $("#datepicker2").val(midreport.paper_time)
+        }
+        $("#wxcomment").val(midreport.paper_comment);
+
+        if (midreport.experiment_complete == 0) {
+            $("#sywcqk0").attr('checked', "checked");
+            $(".sywcqk4").hide();
+        } else if (midreport.experiment_complete == 2) {
+            $("#sywcqk2").attr('checked', "checked");
+            $(".sywcqk4").hide();
+        } else {
+            $("#sywcqk1").attr('checked', "checked");
+            $("#syprogress").val(midreport.experiment_progress);
+            $("#datepicker3").val(midreport.experiment_time)
+        }
+        $("#sycomment").val(midreport.experiment_comment);
+
+        $("#ktprocess").val(midreport.project_progress);
+        $("#datepicker5").val(midreport.project_time);
+
+
+        //处理审核状态  此处直接复制
+        $("#result").val(midreport.result);
+        $("#reviewer").html($("#c_teacher")[0].innerText)
+        $("#advice").val(midreport.advice);
+
+
+    }
 </script>
 <script type="text/javascript">
     //报告保存提交处理
@@ -927,14 +847,14 @@
         //提交报告
         $('#submit').on('click', function () {
             // 以下属性 字符串类型的必须是string 但 Number类型的属性值传入string类型也可以
-            commitReport(3110002, "SUBMIT");
+            commitReport(cid, "SUBMIT");
             toastr.success("提交成功", "消息提示");
             //window.location.reload();
         });
         $("#save").on('click', function () {
-            commitReport(3110002, "SAVE")
+            commitReport(cid, "SAVE");
             toastr.success("保存成功", "消息提示");
-           // window.location.reload();
+            // window.location.reload();
 
         })
 
@@ -966,7 +886,7 @@
             var kt = new Date($("#datepicker5")[0].value);
 
 
-            //state:  状态: SAVE COMMIT PASS FAIL
+            //state:  状态: SAVE SUBMIT
             //version: 版本号
             var midreport = {
                 course_id: course_id,

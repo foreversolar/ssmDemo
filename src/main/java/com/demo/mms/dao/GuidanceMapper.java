@@ -24,4 +24,6 @@ public interface GuidanceMapper {
     Guidance selectGuidance(@Param("course_id") Integer course_id, @Param("version") int version);//此处service里面是getGuidance函数对应这一个
 
     List<Guidance> getGuidances(Integer course_id);//此处service里面是selectGuidances函数对应这一个
+
+    void insertTeacherOpinion(@Param("course_id")String course_id, @Param("advice")String advice, @Param("auditStatus")String auditStatus);
 }

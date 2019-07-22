@@ -25,4 +25,9 @@ public class LiteratureReviewServiceImpl implements LiteratureReviewService{
 //        System.out.println(hellokitty.getCurrentOverview());
         return hellokitty;
     }
+
+    @Override
+    public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
+        literatureReviewMapper.insertTeacherOpinion(course_id,advice,auditStatus);
+    }
 }

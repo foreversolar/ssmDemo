@@ -15,7 +15,7 @@
     id, course_id, content, state, version, advice, attachment_address, time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from literaturereview
     where id = #{id,jdbcType=INTEGER}
@@ -36,11 +36,11 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.demo.mms.common.domain.LiteratureReview">
-    insert into literaturereview (id, course_id, content, 
-      state, version, advice, 
+    insert into literaturereview (id, course_id, content,
+      state, version, advice,
       attachment_address, time)
-    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
-      #{state,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{advice,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR},
+      #{state,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{advice,jdbcType=VARCHAR},
       #{attachmentAddress,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.demo.mms.common.domain.LiteratureReview">
@@ -135,5 +135,11 @@
       attachment_address = #{attachmentAddress,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="insertTeacherOpinion" parameterType="java.lang.String">
+    update literaturereview set result = #{auditStatus},advice=#{advice} where course_id= #{course_id} and version=(
+	    select max(a.version)
+	    from (select version from literaturereview where course_id=#{course_id}) a
+      )
   </update>
 </mapper>

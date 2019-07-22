@@ -9,4 +9,6 @@ public interface LiteratureReviewService {
     void addLiteratureReview(LiteratureReview literatureReview);
 
     LiteratureReview getLiteratureReview(Integer course_id, int version);
+
+    void addTeacherOpinion(String course_id, String advice, String auditStatus);
 }

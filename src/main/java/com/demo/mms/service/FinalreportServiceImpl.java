@@ -1,6 +1,6 @@
 package com.demo.mms.service;
 
-import com.demo.mms.common.domain.FinalReport;
+import com.demo.mms.common.domain.Finalreport;
 import com.demo.mms.dao.FinalreportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public class FinalreportServiceImpl implements FinalreportService {
 
     @Transactional
     @Override
-    public FinalReport findFinalreport(int studentid, int version) {
+    public Finalreport findFinalreport(int studentid,int version) {
         return finalreportMapper.returnFinalreport(studentid,version);
     }
 
@@ -25,25 +25,27 @@ public class FinalreportServiceImpl implements FinalreportService {
 
     @Transactional
     @Override
-    public void addFinalreport(FinalReport finalreport) {
+    public void addFinalreport(Finalreport finalreport) {
         finalreportMapper.insertFinalreport(finalreport);
     }
 
     @Override
     public void addFinalreportpath(String originalFilename,String finalpath, String studentid, String version) {
         finalreportMapper.insertFinalreportpath(originalFilename,finalpath,studentid,version);
-        System.out.println("1; "+originalFilename);
     }
 
     @Override
     public void addFinalresultpath(String originalFilename,String finalpath, String studentid, String version) {
         finalreportMapper.insertFinalresultpath(originalFilename,finalpath,studentid,version);
-        System.out.println("2; "+originalFilename);
     }
 
     @Override
     public void addFinalotherpath(String originalFilename,String finalpath, String studentid, String version) {
         finalreportMapper.insertFinalotherpath(originalFilename,finalpath,studentid,version);
-        System.out.println("3; "+originalFilename);
+    }
+
+    @Override
+    public void addTeacherOpinion(String studentid,String advice, String auditStatus) {
+        finalreportMapper.insertTeacherOpinion(studentid,advice,auditStatus);
     }
 }
