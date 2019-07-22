@@ -60,7 +60,6 @@ public class MidreportController {
             if (version == null) {
                 version = 0;
             }
-            version++;
             for (MultipartFile item : items) {
                 //获取上传文件的原始名称
                 String originalFilename = item.getOriginalFilename();
