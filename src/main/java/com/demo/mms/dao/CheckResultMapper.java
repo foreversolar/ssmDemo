@@ -1,5 +1,7 @@
 package com.demo.mms.dao;
 
+import com.demo.mms.common.domain.Finalreport;
+
 public interface CheckResultMapper {
     String selectFinalReportState(int studentid);
 
@@ -12,4 +14,6 @@ public interface CheckResultMapper {
     String selectLiteratureReviewState(int course_id);
 
     String selectGuidanceState(int course_id);
+
+    Finalreport selectScore(int studentid);
 }

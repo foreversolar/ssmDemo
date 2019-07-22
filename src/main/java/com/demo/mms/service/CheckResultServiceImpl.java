@@ -1,5 +1,6 @@
 package com.demo.mms.service;
 
+import com.demo.mms.common.domain.Finalreport;
 import com.demo.mms.dao.CheckResultMapper;
 import com.demo.mms.dao.FinalreportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,10 @@ public class CheckResultServiceImpl implements CheckResultService {
     @Override
     public String findLiteratureReviewState(int course_id) {
         return checkResultMapper.selectLiteratureReviewState(course_id);
+    }
+
+    @Override
+    public Finalreport findScore(int studentid) {
+        return checkResultMapper.selectScore(studentid);
     }
 }

@@ -7,6 +7,15 @@ public class CheckResult {
     private String FinalReportState;
     private String GuidanceState;
     private String LiteratureReviewState;
+    private double score;
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
+    public double getScore() {
+        return score;
+    }
 
     public void setTranslationState(String translationState) {
         TranslationState = translationState;
