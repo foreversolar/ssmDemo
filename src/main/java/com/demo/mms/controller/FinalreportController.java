@@ -24,24 +24,24 @@ public class FinalReportController {
     @Autowired
     private FinalReportService finalreportService;
 
-    @RequestMapping(value="/addFileReport",method= RequestMethod.POST)
+    @RequestMapping(value="/addFinalReport",method= RequestMethod.POST)
     @ResponseBody
-    public Object addFileReport(@RequestBody FinalReport finalreport){
+    public Object addFinalReport(@RequestBody FinalReport finalreport){
         Integer version = finalreportService.addMaxversion(finalreport.getStudentid());
         if(version==null){
             version=0;
         }
         finalreport.setVersion(version+1);
-        finalreportService.addFileReport(finalreport);
+        finalreportService.addFinalReport(finalreport);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);
         return rs;
     }
-    @RequestMapping("/returnFileReport")
+    @RequestMapping("/returnFinalReport")
     @ResponseBody
-    public Object returnFileReport(int studentid){
+    public Object returnFinalReport(int studentid){
         Integer version = finalreportService.addMaxversion(studentid);
-        FinalReport finalreport= finalreportService.findFileReport(studentid,version);
+        FinalReport finalreport= finalreportService.findFinalReport(studentid,version);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",finalreport);
         return rs;
@@ -49,7 +49,7 @@ public class FinalReportController {
     /**
      * 接收文件上传请求
      */
-    @RequestMapping(value = "/saveFileReport",method = RequestMethod.POST)
+    @RequestMapping(value = "/saveFinalReport",method = RequestMethod.POST)
     @ResponseBody
     public Object saveFile(List<MultipartFile> items, @Param("studentid")Integer studentid, @Param("type") String type, HttpServletRequest request){
         String savePath = request.getSession().getServletContext().getRealPath("/storage");;
@@ -73,7 +73,7 @@ public class FinalReportController {
                     //使用MultipartFile接口的方法完成文件上传到指定位置
                     item.transferTo(new File(finalpath));
                     if(type.equals("paper")){
-                        finalreportService.addFileReportpath(originalFilename,dbpath,Integer.toString(studentid),Integer.toString(version));
+                        finalreportService.addFinalReportpath(originalFilename,dbpath,Integer.toString(studentid),Integer.toString(version));
                         System.out.println("1; "+originalFilename);
                     }
                     if(type.equals("result")){

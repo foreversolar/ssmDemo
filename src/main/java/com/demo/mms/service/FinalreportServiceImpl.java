@@ -13,8 +13,8 @@ public class FinalReportServiceImpl implements FinalReportService {
 
     @Transactional
     @Override
-    public FinalReport findFileReport(int studentid, int version) {
-        return finalreportMapper.returnFileReport(studentid,version);
+    public FinalReport findFinalReport(int studentid, int version) {
+        return finalreportMapper.returnFinalReport(studentid,version);
     }
 
     @Transactional
@@ -25,13 +25,13 @@ public class FinalReportServiceImpl implements FinalReportService {
 
     @Transactional
     @Override
-    public void addFileReport(FinalReport finalreport) {
-        finalreportMapper.insertFileReport(finalreport);
+    public void addFinalReport(FinalReport finalreport) {
+        finalreportMapper.insertFinalReport(finalreport);
     }
 
     @Override
-    public void addFileReportpath(String originalFilename,String finalpath, String studentid, String version) {
-        finalreportMapper.insertFileReportpath(originalFilename,finalpath,studentid,version);
+    public void addFinalReportpath(String originalFilename,String finalpath, String studentid, String version) {
+        finalreportMapper.insertFinalReportpath(originalFilename,finalpath,studentid,version);
     }
 
     @Override

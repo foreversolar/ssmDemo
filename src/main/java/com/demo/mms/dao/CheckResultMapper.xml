@@ -55,7 +55,7 @@
 	    where course_id=#{course_id}
       )
   </select>
-    <select id="selectScore" parameterType="int" resultType="com.demo.mms.common.domain.FileReport">
+    <select id="selectScore" parameterType="int" resultType="com.demo.mms.common.domain.FinalReport">
     select score1,score2,score3
     from finalreport
     where studentid=#{studentid} and version=(
