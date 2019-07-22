@@ -2,18 +2,25 @@ package com.demo.mms.common.domain;
 
 import java.util.Date;
 
-public class translation {
+public class Translation {
     private Integer id;
 
-    private Integer courseId;
+    private Integer course_id;
 
-    private String fileAddress;
+    private String file_address;
 
     private String state;
 
     private String advice;
 
     private Date time;
+
+    private String translation_content;
+
+    private String original_text;
+
+    private int version;
+
 
     public Integer getId() {
         return id;
@@ -23,20 +30,12 @@ public class translation {
         this.id = id;
     }
 
-    public Integer getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
-
     public String getFileAddress() {
-        return fileAddress;
+        return file_address;
     }
 
-    public void setFileAddress(String fileAddress) {
-        this.fileAddress = fileAddress == null ? null : fileAddress.trim();
+    public void setFileAddress(String file_address) {
+        this.file_address = file_address == null ? null : file_address.trim();
     }
 
     public String getState() {
@@ -62,4 +61,37 @@ public class translation {
     public void setTime(Date time) {
         this.time = time;
     }
+
+    public String getTranslationContent() {
+        return translation_content;
+    }
+
+    public void setTranslationContent(String translationContent) {
+        this.translation_content = translation_content == null ? null : translation_content.trim();
+    }
+
+    public String getOriginalText() {
+        return original_text;
+    }
+
+    public void setOriginalText(String originalText) {
+        this.original_text = original_text == null ? null : original_text.trim();
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public Integer getCourse_id() {
+        return course_id;
+    }
+
+    public void setCourse_id(Integer course_id) {
+        this.course_id = course_id;
+    }
+
 }

@@ -1,17 +1,13 @@
 package com.demo.mms.dao;
 
-import com.demo.mms.common.domain.translation;
+import com.demo.mms.common.domain.Translation;
+import org.apache.ibatis.annotations.Param;
 
-public interface translationMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface TranslationMapper {
 
-    int insert(translation record);
+    int insertTranslation(Translation translation);
 
-    int insertSelective(translation record);
+    Integer getVersion(int course_id);
 
-    translation selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(translation record);
-
-    int updateByPrimaryKey(translation record);
+    Translation selectTranslation(@Param("course_id") int course_id, @Param("version") int version);
 }
