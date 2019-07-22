@@ -1,6 +1,5 @@
 package com.demo.mms.dao;
 
-import com.demo.mms.common.domain.Translation;
 import org.apache.ibatis.annotations.Param;
 
 public interface TranslationMapper {
