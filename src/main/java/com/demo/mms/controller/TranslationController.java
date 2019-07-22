@@ -2,6 +2,7 @@ package com.demo.mms.controller;
 
 import com.demo.mms.common.domain.Translation;
 import com.demo.mms.service.TranslationService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -73,6 +74,14 @@ public class TranslationController {
                 }
             }
         }
+        Map<String,Object> rs = new HashMap<>(64);
+        rs.put("success",true);
+        return rs;
+    }
+    @RequestMapping("/addTranslationTeacherOpinion")
+    @ResponseBody
+    public Object addTeacherOpinion(@Param("course_id")Integer course_id, @Param("advice")String advice, @Param("AuditStatus")String AuditStatus){
+        translationService.addTeacherOpinion(Integer.toString(course_id),advice,AuditStatus);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);
         return rs;

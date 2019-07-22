@@ -6,5 +6,7 @@ public interface TranslationService {
     void  addTranslation(Translation translation);
     Integer getVersion(int course_id);
     Translation findTranslation(int course_id, int version);
+
+    void addTeacherOpinion(String course_id, String advice, String auditStatus);
 }
 

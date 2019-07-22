@@ -20,6 +20,13 @@ public class TranslationServiceImpl implements TranslationService{
     public Translation findTranslation(int course_id,int version){
         return translationMapper.selectTranslation(course_id ,version);
     }
+
+    @Override
+    public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
+        System.out.println("1"+course_id+" "+advice+" "+auditStatus);
+        translationMapper.insertTeacherOpinion(course_id,advice,auditStatus);
+    }
+
     @Transactional
     @Override
     public Integer getVersion(int course_id){

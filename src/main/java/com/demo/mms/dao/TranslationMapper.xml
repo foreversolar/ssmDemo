@@ -153,4 +153,10 @@
     insert into translation(id,course_id,file_address,state,advice,time,translation_content,original_text,version)
     value (#{id},#{course_id},#{file_address},#{state},#{advice},#{time},#{translation_content},#{original_text},#{version})
   </insert>
+  <update id="insertTeacherOpinion" parameterType="java.lang.String">
+    update translation set result = #{auditStatus},advice=#{advice} where course_id= #{course_id} and version=(
+	    select max(a.version)
+	    from (select version from translation where course_id=#{course_id}) a
+      )
+  </update>
 </mapper>
