@@ -4,7 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 
-public class Finalreport {
+public class FinalReport {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private int reportid;
     private int studentid;
@@ -26,6 +26,33 @@ public class Finalreport {
     private String result_address;
     private String enclosure_address;
     private int version;
+    private String originfilename1;
+    private String originfilename2;
+    private String originfilename3;
+
+    public void setOriginfilename1(String originfilename1) {
+        this.originfilename1 = originfilename1;
+    }
+
+    public void setOriginfilename2(String originfilename2) {
+        this.originfilename2 = originfilename2;
+    }
+
+    public void setOriginfilename3(String originfilename3) {
+        this.originfilename3 = originfilename3;
+    }
+
+    public String getOriginfilename1() {
+        return originfilename1;
+    }
+
+    public String getOriginfilename2() {
+        return originfilename2;
+    }
+
+    public String getOriginfilename3() {
+        return originfilename3;
+    }
 
     public void setTeacher_result(String teacher_result) {
         this.teacher_result = teacher_result;

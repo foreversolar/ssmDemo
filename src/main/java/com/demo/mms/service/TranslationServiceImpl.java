@@ -1,5 +1,6 @@
 package com.demo.mms.service;
 
+import com.demo.mms.common.domain.Translation;
 import com.demo.mms.dao.TranslationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

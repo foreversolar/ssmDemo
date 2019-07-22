@@ -1,6 +1,6 @@
 package com.demo.mms.service;
 
-import com.demo.mms.common.domain.Finalreport;
+import com.demo.mms.common.domain.FinalReport;
 
 public interface CheckResultService {
     String findFinalReportState(int studentid);
@@ -15,5 +15,5 @@ public interface CheckResultService {
 
     String findLiteratureReviewState(int course_id);
 
-    Finalreport findScore(int studentid);
+    FinalReport findScore(int studentid);
 }
