@@ -21,6 +21,15 @@ public class Translation {
 
     private int version;
 
+    private String result;
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getResult() {
+        return result;
+    }
 
     public Integer getId() {
         return id;

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mms.dao.TranslationMapper">
+  <resultMap id="BaseResultMap" type="com.demo.mms.common.domain.Translation">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="file_address" jdbcType="VARCHAR" property="fileAddress" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="advice" jdbcType="VARCHAR" property="advice" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="translation_content" jdbcType="VARCHAR" property="translationContent" />
+    <result column="original_text" jdbcType="VARCHAR" property="originalText" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, course_id, file_address, state, advice, time, translation_content, original_text, 
+    version
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from translation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from translation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.mms.common.domain.Translation">
+    insert into translation (id, course_id, file_address, 
+      state, advice, time, 
+      translation_content, original_text, version
+      )
+    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{fileAddress,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{advice,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{translationContent,jdbcType=VARCHAR}, #{originalText,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.mms.common.domain.Translation">
+    insert into translation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="fileAddress != null">
+        file_address,
+      </if>
+0      <if test="state != null">
+        state,
+      </if>
+      <if test="advice != null">
+        advice,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="translationContent != null">
+        translation_content,
+      </if>
+      <if test="originalText != null">
+        original_text,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="fileAddress != null">
+        #{fileAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="advice != null">
+        #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="translationContent != null">
+        #{translationContent,jdbcType=VARCHAR},
+      </if>
+      <if test="originalText != null">
+        #{originalText,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.mms.common.domain.Translation">
+    update translation
+    <set>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="fileAddress != null">
+        file_address = #{fileAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="advice != null">
+        advice = #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="translationContent != null">
+        translation_content = #{translationContent,jdbcType=VARCHAR},
+      </if>
+      <if test="originalText != null">
+        original_text = #{originalText,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.mms.common.domain.Translation">
+    update translation
+    set course_id = #{courseId,jdbcType=INTEGER},
+      file_address = #{fileAddress,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      advice = #{advice,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      translation_content = #{translationContent,jdbcType=VARCHAR},
+      original_text = #{originalText,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectTranslation" parameterType="java.lang.Integer" resultType="com.demo.mms.common.domain.Translation">
+   select *
+   from translation
+   where course_id=#{course_id} and version=#{version};
+  </select>
+  <select id="getVersion" parameterType="java.lang.Integer" resultType="Integer">
+    select max(version)
+    from translation
+    where course_id=#{value};
+  </select>
+  <insert id="insertTranslation" parameterType="com.demo.mms.common.domain.Translation">
+    insert into translation(id,course_id,file_address,state,advice,time,translation_content,original_text,version)
+    value (#{id},#{course_id},#{file_address},#{state},#{advice},#{time},#{translation_content},#{original_text},#{version})
+  </insert>
+  <update id="insertTeacherOpinion" parameterType="java.lang.String">
+    update translation set result = #{auditStatus},advice=#{advice} where course_id= #{course_id} and version=(
+	    select max(a.version)
+	    from (select version from translation where course_id=#{course_id}) a
+      )
+  </update>
+</mapper>

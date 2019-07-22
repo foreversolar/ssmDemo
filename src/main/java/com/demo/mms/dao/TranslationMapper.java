@@ -10,4 +10,6 @@ public interface TranslationMapper {
     Integer getVersion(int course_id);
 
     Translation selectTranslation(@Param("course_id") int course_id, @Param("version") int version);
+
+    void insertTeacherOpinion(@Param("course_id")String course_id, @Param("advice")String advice, @Param("auditStatus")String auditStatus);
 }
