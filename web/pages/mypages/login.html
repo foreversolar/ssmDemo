@@ -6,13 +6,13 @@
     <title>本科毕设管理系统</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="keywords" content="">
-
     <link rel="stylesheet" href="../../dist/login/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../dist/login/fontawesome-all.css">
-    <script src="../../dist/js/jquery-3.3.1.min.js"></script>
     <script src="../../dist/js/jquery.form.js"></script>
+    <script src="../../dist/js/axios.js"></script>
+    <script src="../../bower_components/toastr/toastr.min.js"></script>
+    <link rel="stylesheet" href="../../bower_components/toastr/toastr.min.css">
+
 </head>
 
 <body>
@@ -26,7 +26,7 @@
 <h1>本科毕业设计管理系统</h1>
 <!-- content -->
 <div class="sub-main-w3">
-    <form id="form1" action="http://localhost:8080/checkUsrANDPwd" method="get">
+    <form id="form1" action="checkUsrANDPwd" method="get">
         <h2>登录
             <i class="fas fa-level-down-alt"></i>
         </h2>
@@ -89,20 +89,50 @@
 
 <script language="JavaScript">
     $(function () {
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-center",
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "800",
+            timeOut: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
         $('#form1').submit(function () {
             $.ajax({
                 url: "http://localhost:8080/checkUsrANDPwd",
                 data: $('#form1').serialize(),
                 dataType: "json",
                 error: function (data) {
-                    alert(data);
+                    console.log(data);
+                    console.log(data.msg);
+                    if(data.msg==="登录成功")
+                    {window.location.href="pages/mypages/myindex.html"}
+                    else {
+                        toastr.error(data.msg);
+                        window.location.href="pages/mypages/login.html"
+                    }
                 },
                 success: function (data) {
-                    window.location.href="myindex.html"
+                    console.log(data);
+                    console.log(data.msg);
+                    if(data.msg==="登录成功")
+                    {window.location.href="pages/mypages/myindex.html"}
+                    else {
+                        toastr.error(data.msg);
+                        window.location.href="pages/mypages/login.html"
+                    }
+
                 }
             });
         });
-    })
+    });
 
     function getMyName() {
         $.ajax({

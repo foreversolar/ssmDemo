@@ -7,13 +7,13 @@ public class course {
 
     private String title;
 
-    private String availMajor;
+    private String avail_major;
 
     private String mode;
 
     private String type;
 
-    private String attachMajor;
+    private String attach_major;
 
     private String instructor;
 
@@ -25,7 +25,7 @@ public class course {
 
     private String instEmail;
 
-    private String stuMajor;
+    private String stu_major;
 
     private Date declareTime;
 
@@ -52,11 +52,11 @@ public class course {
     }
 
     public String getAvailMajor() {
-        return availMajor;
+        return avail_major;
     }
 
     public void setAvailMajor(String availMajor) {
-        this.availMajor = availMajor == null ? null : availMajor.trim();
+        this.avail_major = availMajor == null ? null : availMajor.trim();
     }
 
     public String getMode() {
@@ -76,11 +76,11 @@ public class course {
     }
 
     public String getAttachMajor() {
-        return attachMajor;
+        return attach_major;
     }
 
     public void setAttachMajor(String attachMajor) {
-        this.attachMajor = attachMajor == null ? null : attachMajor.trim();
+        this.attach_major = attachMajor == null ? null : attachMajor.trim();
     }
 
     public String getInstructor() {
@@ -124,11 +124,11 @@ public class course {
     }
 
     public String getStuMajor() {
-        return stuMajor;
+        return stu_major;
     }
 
     public void setStuMajor(String stuMajor) {
-        this.stuMajor = stuMajor == null ? null : stuMajor.trim();
+        this.stu_major = stuMajor == null ? null : stuMajor.trim();
     }
 
     public Date getDeclareTime() {

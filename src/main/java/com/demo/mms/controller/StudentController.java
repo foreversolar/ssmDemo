@@ -64,14 +64,10 @@ public class StudentController {
 
     }
 
-/*    @RequestMapping("fetchThePassword")
-    @ResponseBody
-    public */
-    /*@RequestMapping("/getStudentInformation")
+
+    @RequestMapping("/getStudentInformation")
     @ResponseBody
     public Object getStudentInformation(int stuId){
-        Course course=courseService.getCourse(stuId);//在course中实现
-//        return studentService.getStudent(stuId);
+         return studentService.getStudent(stuId);
     }
-*/
 }
