@@ -1,20 +1,20 @@
 package com.demo.mms.service;
 
-import com.demo.mms.common.domain.Finalreport;
-import com.demo.mms.dao.FinalreportMapper;
+import com.demo.mms.common.domain.FinalReport;
+import com.demo.mms.dao.FinalReportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class FinalreportServiceImpl implements FinalreportService {
+public class FinalReportServiceImpl implements FinalReportService {
     @Autowired
-    FinalreportMapper finalreportMapper;
+    FinalReportMapper finalreportMapper;
 
     @Transactional
     @Override
-    public Finalreport findFinalreport(int studentid,int version) {
-        return finalreportMapper.returnFinalreport(studentid,version);
+    public FinalReport findFileReport(int studentid, int version) {
+        return finalreportMapper.returnFileReport(studentid,version);
     }
 
     @Transactional
@@ -25,13 +25,13 @@ public class FinalreportServiceImpl implements FinalreportService {
 
     @Transactional
     @Override
-    public void addFinalreport(Finalreport finalreport) {
-        finalreportMapper.insertFinalreport(finalreport);
+    public void addFileReport(FinalReport finalreport) {
+        finalreportMapper.insertFileReport(finalreport);
     }
 
     @Override
-    public void addFinalreportpath(String originalFilename,String finalpath, String studentid, String version) {
-        finalreportMapper.insertFinalreportpath(originalFilename,finalpath,studentid,version);
+    public void addFileReportpath(String originalFilename,String finalpath, String studentid, String version) {
+        finalreportMapper.insertFileReportpath(originalFilename,finalpath,studentid,version);
     }
 
     @Override

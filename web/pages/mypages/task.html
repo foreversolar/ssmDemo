@@ -343,7 +343,7 @@
         $(function () {
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/returnFinalreport",
+                url: "http://localhost:8080/returnFileReport",
                 data: {studentid: "123"},
                 success: function (msg) {
                     initReport(msg.success)
@@ -389,7 +389,7 @@
                 schedule: $('#schedule').summernote('code'),
             };
 
-            axios.post('http://localhost:8080/addFinalreport', page)
+            axios.post('http://localhost:8080/addFileReport', page)
                 .then(function (response) {
                     $("div [name='items']").fileinput('upload');
                     // window.location.reload();

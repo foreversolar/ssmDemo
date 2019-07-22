@@ -1,8 +1,7 @@
 package com.demo.mms.service;
 
-import com.demo.mms.common.domain.Finalreport;
+import com.demo.mms.common.domain.FinalReport;
 import com.demo.mms.dao.CheckResultMapper;
-import com.demo.mms.dao.FinalreportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +41,7 @@ public class CheckResultServiceImpl implements CheckResultService {
     }
 
     @Override
-    public Finalreport findScore(int studentid) {
+    public FinalReport findScore(int studentid) {
         return checkResultMapper.selectScore(studentid);
     }
 }

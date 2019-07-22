@@ -1,7 +1,8 @@
 package com.demo.mms.controller;
 
-import com.demo.mms.common.domain.Finalreport;
-import com.demo.mms.service.FinalreportService;
+
+import com.demo.mms.common.domain.FinalReport;
+import com.demo.mms.service.FinalReportService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,28 +20,28 @@ import java.util.Map;
 import java.util.UUID;
 
 @Controller
-public class FinalreportController {
+public class FinalReportController {
     @Autowired
-    private FinalreportService finalreportService;
+    private FinalReportService finalreportService;
 
-    @RequestMapping(value="/addFinalreport",method= RequestMethod.POST)
+    @RequestMapping(value="/addFileReport",method= RequestMethod.POST)
     @ResponseBody
-    public Object addFinalreport(@RequestBody Finalreport finalreport){
+    public Object addFileReport(@RequestBody FinalReport finalreport){
         Integer version = finalreportService.addMaxversion(finalreport.getStudentid());
         if(version==null){
             version=0;
         }
         finalreport.setVersion(version+1);
-        finalreportService.addFinalreport(finalreport);
+        finalreportService.addFileReport(finalreport);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);
         return rs;
     }
-    @RequestMapping("/returnFinalreport")
+    @RequestMapping("/returnFileReport")
     @ResponseBody
-    public Object returnFinalreport(int studentid){
+    public Object returnFileReport(int studentid){
         Integer version = finalreportService.addMaxversion(studentid);
-        Finalreport finalreport= finalreportService.findFinalreport(studentid,version);
+        FinalReport finalreport= finalreportService.findFileReport(studentid,version);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",finalreport);
         return rs;
@@ -48,7 +49,7 @@ public class FinalreportController {
     /**
      * 接收文件上传请求
      */
-    @RequestMapping(value = "/saveFinalreport",method = RequestMethod.POST)
+    @RequestMapping(value = "/saveFileReport",method = RequestMethod.POST)
     @ResponseBody
     public Object saveFile(List<MultipartFile> items, @Param("studentid")Integer studentid, @Param("type") String type, HttpServletRequest request){
         String savePath = request.getSession().getServletContext().getRealPath("/storage");;
@@ -72,7 +73,7 @@ public class FinalreportController {
                     //使用MultipartFile接口的方法完成文件上传到指定位置
                     item.transferTo(new File(finalpath));
                     if(type.equals("paper")){
-                        finalreportService.addFinalreportpath(originalFilename,dbpath,Integer.toString(studentid),Integer.toString(version));
+                        finalreportService.addFileReportpath(originalFilename,dbpath,Integer.toString(studentid),Integer.toString(version));
                         System.out.println("1; "+originalFilename);
                     }
                     if(type.equals("result")){

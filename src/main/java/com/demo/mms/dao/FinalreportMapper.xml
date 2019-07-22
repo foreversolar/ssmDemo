@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.demo.mms.dao.FinalreportMapper">
-  <select id="returnFinalreport" parameterType="java.lang.Integer" resultType="com.demo.mms.common.domain.Finalreport">
+<mapper namespace="com.demo.mms.dao.FileReportMapper">
+  <select id="returnFileReport" parameterType="java.lang.Integer" resultType="com.demo.mms.common.domain.FileReport">
     select *
     from finalreport
     where studentid=#{studentid} and version=#{version};
   </select>
-  <insert id="insertFinalreport" parameterType="com.demo.mms.common.domain.Finalreport">
+  <insert id="insertFileReport" parameterType="com.demo.mms.common.domain.FileReport">
     insert into finalreport (reportid, studentid, fileaddress,score1,score2,score3,advice,commit_time,reportname,state,keyword,innovation_point,chinese_abstract,others,detection_result,result_address,enclosure_address,version)
     values   (#{reporid}, #{studentid}, #{fileaddress},#{score1},#{score2},#{score3},#{advice},#{commit_time},#{reportname},#{state},#{keyword},#{innovation_point},#{chinese_abstract},#{others},#{detection_result},#{report_address},#{enclosure_address},#{version})
   </insert>
@@ -15,7 +15,7 @@
     from finalreport
     where studentid=#{studentid};
   </select>
-  <update id="insertFinalreportpath" parameterType="java.lang.String">
+  <update id="insertFileReportpath" parameterType="java.lang.String">
     update finalreport set fileaddress = #{finalpath},originfilename1=#{originalFilename} where studentid= #{studentid} and version = #{version}
   </update>
   <update id="insertFinalresultpath" parameterType="java.lang.String">
