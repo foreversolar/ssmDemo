@@ -27,6 +27,16 @@ public class Finalreport {
     private String enclosure_address;
     private int version;
 
+    public void setTeacher_result(String teacher_result) {
+        this.teacher_result = teacher_result;
+    }
+
+    public String getTeacher_result() {
+        return teacher_result;
+    }
+
+    private String teacher_result;
+
     public void setVersion(int version) {
         this.version = version;
     }

@@ -98,5 +98,13 @@ public class FinalreportController {
         rs.put("success",true);
         return rs;
     }
+    @RequestMapping("/addFianlreportTeacherOpinion")
+    @ResponseBody
+    public Object addTeacherOpinion(@Param("stuentid")Integer studentid,@Param("advice")String advice,@Param("AuditStatus")String AuditStatus){
+        finalreportService.addTeacherOpinion(Integer.toString(studentid),advice,AuditStatus);
+        Map<String,Object> rs = new HashMap<>(64);
+        rs.put("success",true);
+        return rs;
+    }
 }
 

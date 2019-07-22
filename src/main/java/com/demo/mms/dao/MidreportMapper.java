@@ -8,4 +8,5 @@ public interface MidreportMapper {
     Integer selectMaxversion(int course_id);
     Midreport selectMidreport(@Param("course_id") int course_id, @Param("version") int version);
     void insertMidreportpath(@Param("finalpath")String finalpath,@Param("course_id")String course_id,@Param("version")String version,@Param("originalFilename")String originalFilename);
+    void insertTeacherOpinion(@Param("course_id")String course_id, @Param("advice")String advice, @Param("auditStatus")String auditStatus);
 }

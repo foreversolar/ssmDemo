@@ -120,4 +120,10 @@
       submit_time = #{submitTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="insertTeacherOpinion" parameterType="java.lang.String">
+    update guidance set result = #{auditStatus},advice=#{advice} where course_id= #{course_id} and version=(
+	    select max(a.version)
+	    from (select version from guidance where course_id=#{course_id}) a
+      )
+  </update>
 </mapper>

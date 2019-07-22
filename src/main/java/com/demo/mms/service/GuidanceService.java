@@ -10,4 +10,6 @@ public interface GuidanceService {
     void addGuidance(Guidance guidance);
     Guidance getGuidance(Integer course_id, int version);
     List<Guidance> selectGuidances(Integer course_id);
+
+    void addTeacherOpinion(String toString, String advice, String auditStatus);
 }

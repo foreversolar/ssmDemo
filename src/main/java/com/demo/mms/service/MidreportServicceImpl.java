@@ -34,4 +34,9 @@ public class MidreportServicceImpl implements MidreportService{
         midreportMapper.insertMidreportpath(finalpath,course_id,version,originalFilename);
 
     }
+
+    @Override
+    public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
+        midreportMapper.insertTeacherOpinion(course_id,advice,auditStatus);
+    }
 }

@@ -18,9 +18,9 @@ public class AddedCourseController {
     @Autowired
     private AddedCourseService addedCourseService;
 
-    @RequestMapping(value="/addAddedCourse",method= RequestMethod.GET)
+    @RequestMapping("/addAddedCourse")
     @ResponseBody
-    public Object addAddedCourse(@RequestBody AddedCourse addedCourse){
+    public Object addAddedCourse(AddedCourse addedCourse){
         addedCourseService.addNewCourse(addedCourse);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);

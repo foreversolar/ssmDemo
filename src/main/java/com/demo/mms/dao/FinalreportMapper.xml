@@ -25,4 +25,10 @@
     <update id="insertFinalotherpath" parameterType="java.lang.String">
     update finalreport set enclosure_address = #{finalpath},originfilename3=#{originalFilename} where studentid= #{studentid} and version = #{version}
   </update>
+  <update id="insertTeacherOpinion" parameterType="java.lang.String">
+    update finalreport set teacher_result = #{auditStatus},advice=#{advice} where studentid= #{studentid} and version=(
+	    select max(a.version)
+	    from (select version from finalreport where studentid=#{studentid}) a
+      )
+  </update>
 </mapper>

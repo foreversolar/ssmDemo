@@ -15,4 +15,6 @@ public interface FinalreportMapper {
     void insertFinalresultpath(@Param("originalFilename") String originalFilename,@Param("finalpath") String finalpath, @Param("studentid") String studentid, @Param("version") String version);
 
     void insertFinalotherpath(@Param("originalFilename") String originalFilename,@Param("finalpath") String finalpath, @Param("studentid") String studentid, @Param("version") String version);
+
+    void insertTeacherOpinion(@Param("studentid")String studentid,@Param("advice") String advice,@Param("auditStatus") String auditStatus);
 }

@@ -19,4 +19,6 @@ public interface OpenReportMapper {
     int updateByPrimaryKeySelective(OpenReport record);
 
     int updateByPrimaryKey(OpenReport record);
+
+    void insertTeacherOpinion(@Param("course_id")String course_id, @Param("advice")String advice, @Param("auditStatus")String auditStatus);
 }

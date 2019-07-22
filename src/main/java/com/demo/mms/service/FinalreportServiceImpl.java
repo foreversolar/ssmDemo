@@ -32,18 +32,20 @@ public class FinalreportServiceImpl implements FinalreportService {
     @Override
     public void addFinalreportpath(String originalFilename,String finalpath, String studentid, String version) {
         finalreportMapper.insertFinalreportpath(originalFilename,finalpath,studentid,version);
-        System.out.println("1; "+originalFilename);
     }
 
     @Override
     public void addFinalresultpath(String originalFilename,String finalpath, String studentid, String version) {
         finalreportMapper.insertFinalresultpath(originalFilename,finalpath,studentid,version);
-        System.out.println("2; "+originalFilename);
     }
 
     @Override
     public void addFinalotherpath(String originalFilename,String finalpath, String studentid, String version) {
         finalreportMapper.insertFinalotherpath(originalFilename,finalpath,studentid,version);
-        System.out.println("3; "+originalFilename);
+    }
+
+    @Override
+    public void addTeacherOpinion(String studentid,String advice, String auditStatus) {
+        finalreportMapper.insertTeacherOpinion(studentid,advice,auditStatus);
     }
 }

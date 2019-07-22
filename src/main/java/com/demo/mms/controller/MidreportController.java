@@ -89,10 +89,10 @@ public class MidreportController {
         rs.put("success",true);
         return rs;
     }
-    @RequestMapping("/downloadFile")
+    @RequestMapping("/addMidreportTeacherOpinion")
     @ResponseBody
-    public Object downloadFile(){
-
+    public Object addTeacherOpinion(@Param("stuentid")Integer course_id,@Param("advice")String advice,@Param("AuditStatus")String AuditStatus){
+        midreportService.addTeacherOpinion(Integer.toString(course_id),advice,AuditStatus);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);
         return rs;

@@ -6,6 +6,24 @@ public class AddedCourse {
     private String course_type;
     private String course_overview;
     private String course_goal;
+    private String teacher_result;
+    private String professional_person_result;
+
+    public void setTeacher_result(String teacher_result) {
+        this.teacher_result = teacher_result;
+    }
+
+    public void setProfessional_person_result(String professional_person_result) {
+        this.professional_person_result = professional_person_result;
+    }
+
+    public String getTeacher_result() {
+        return teacher_result;
+    }
+
+    public String getProfessional_person_result() {
+        return professional_person_result;
+    }
 
     public void setCourse_id(int course_id) {
         this.course_id = course_id;

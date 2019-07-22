@@ -14,4 +14,6 @@ public interface FinalreportService {
     void addFinalresultpath(String originalFilename,String finalpath, String toString, String toString1);
 
     void addFinalotherpath(String originalFilename,String finalpath, String toString, String toString1);
+
+    void addTeacherOpinion(String studentid,String advice, String auditStatus);
 }

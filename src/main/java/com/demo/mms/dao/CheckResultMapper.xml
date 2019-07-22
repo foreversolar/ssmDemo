@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mms.dao.CheckResultMapper">
+  <select id="selectFinalReportState" parameterType="int" resultType="String">
+    select state
+    from finalreport
+    where studentid=#{studentid} and version=(
+	    select max(version)
+	    from finalreport
+	    where studentid=#{studentid}
+      )
+  </select>
+  <select id="selectTranslationState" parameterType="int" resultType="String">
+    select state
+    from translation
+    where course_id=#{course_id} and version=(
+	    select max(version)
+	    from translation
+	    where course_id=#{course_id}
+      )
+  </select>
+  <select id="selectMidReportState" parameterType="int" resultType="String">
+    select state
+    from midreport
+    where course_id=#{course_id} and version=(
+	    select max(version)
+	    from midreport
+	    where course_id=#{course_id}
+      )
+  </select>
+  <select id="selectOpenReportState" parameterType="int" resultType="String">
+    select state
+    from openreport
+    where course_id=#{course_id} and version=(
+	    select max(version)
+	    from openreport
+	    where course_id=#{course_id}
+      )
+  </select>
+  <select id="selectLiteratureReviewState" parameterType="int" resultType="String">
+    select state
+    from literaturereview
+    where course_id=#{course_id} and version=(
+	    select max(version)
+	    from literaturereview
+	    where course_id=#{course_id}
+      )
+  </select>
+  <select id="selectGuidanceState" parameterType="int" resultType="String">
+    select state
+    from guidance
+    where course_id=#{course_id} and version=(
+	    select max(version)
+	    from guidance
+	    where course_id=#{course_id}
+      )
+  </select>
+</mapper>

@@ -6,4 +6,6 @@ public interface OpenReportService {
     @Transactional
     void addOpenReport(OpenReport openReport);
     OpenReport getOpenreport(Integer id);
+
+    void addTeacherOpinion(String toString, String advice, String auditStatus);
 }

@@ -27,11 +27,16 @@ public class GuidanceServiceImpl implements GuidanceService{
 //        System.out.println(hellokitty.getCurrentOverview());
         return hellokitty;
     }
-
+    @Override
     public  List<Guidance> selectGuidances(Integer course_id){
         List<Guidance> temp=guidanceMapper.getGuidances(course_id);
         System.out.println(temp.size());
         return temp;
+    }
+
+    @Override
+    public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
+        guidanceMapper.insertTeacherOpinion(course_id,advice,auditStatus);
     }
 
     /*

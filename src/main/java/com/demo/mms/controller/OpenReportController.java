@@ -4,6 +4,7 @@ import com.demo.mms.common.domain.*;
 import com.demo.mms.common.utils.IDGenerator;
 import com.demo.mms.service.AdminService;
 import com.demo.mms.service.OpenReportService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,5 +37,12 @@ public class OpenReportController {
 
         return openReport;
     }
-
+    @RequestMapping("/addOpenreportTeacherOpinion")
+    @ResponseBody
+    public Object addTeacherOpinion(@Param("stuentid")Integer course_id, @Param("advice")String advice, @Param("AuditStatus")String AuditStatus){
+        openReportService.addTeacherOpinion(Integer.toString(course_id),advice,AuditStatus);
+        Map<String,Object> rs = new HashMap<>(64);
+        rs.put("success",true);
+        return rs;
+    }
 }

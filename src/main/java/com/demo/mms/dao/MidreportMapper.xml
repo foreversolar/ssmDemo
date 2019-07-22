@@ -18,4 +18,10 @@
   <update id="insertMidreportpath" parameterType="java.lang.String">
     update midreport set path = #{finalpath},originfilename = #{originalFilename} where course_id= #{course_id} and version = #{version}
   </update>
+  <update id="insertTeacherOpinion" parameterType="java.lang.String">
+    update midreport set result = #{auditStatus},advice=#{advice} where course_id= #{course_id} and version=(
+	    select max(a.version)
+	    from (select version from midreport where course_id=#{course_id}) a
+      )
+  </update>
 </mapper>
