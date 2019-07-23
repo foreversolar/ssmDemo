@@ -1,5 +1,6 @@
 package com.demo.mms.controller;
 
+import com.demo.mms.common.domain.Midreport;
 import com.demo.mms.common.domain.Translation;
 import com.demo.mms.service.TranslationService;
 import org.apache.ibatis.annotations.Param;
@@ -90,12 +91,21 @@ public class TranslationController {
         rs.put("success", true);
         return rs;
     }
+    @RequestMapping("/getAllTranslation")
+    @ResponseBody
+    public Object returnOpenReportToTeacher(Integer teacher_id){
+        List<Translation> temp=translationService.returnTranslationToTeacher(teacher_id);
+        Map<String,List<Translation>> rs=new HashMap<>(64);
+        rs.put("success",temp);
+        return rs;
+    }
+
     @RequestMapping("/addTranslationTeacherOpinion")
     @ResponseBody
-    public Object addTeacherOpinion(@Param("course_id") Integer course_id, @Param("advice") String advice, @Param("AuditStatus") String AuditStatus) {
-        translationService.addTeacherOpinion(Integer.toString(course_id), advice, AuditStatus);
-        Map<String, Object> rs = new HashMap<>(64);
-        rs.put("success", true);
+    public Object addTeacherOpinion(@Param("course_id")Integer course_id, @Param("advice")String advice, @Param("AuditStatus")String AuditStatus){
+        translationService.addTeacherOpinion(Integer.toString(course_id),advice,AuditStatus);
+        Map<String,Object> rs = new HashMap<>(64);
+        rs.put("success",true);
         return rs;
     }
 }

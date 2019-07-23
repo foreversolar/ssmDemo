@@ -45,17 +45,10 @@ public class TeacherController {
     @RequestMapping("/getTeacherUser")
     @ResponseBody
     public Object getUser(HttpSession session){
-        Integer currentUser = (Integer) session.getAttribute("current_user");
-
-        course coursetl= courseService.findcourse(currentUser);
         Map<String,Object>rs = new HashMap<>(64);
-        if(currentUser!=null){
-            rs.put("current_user",currentUser);
-            rs.put("course_id",coursetl.getId());
-            return rs;
-        }
-        return  null;
-
+        Integer currentUser = (Integer) session.getAttribute("current_user");
+        rs.put("current_user",currentUser);
+        return rs;
     }
 
     @RequestMapping("/getTeacherInformation")

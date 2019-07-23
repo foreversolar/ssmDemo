@@ -1,10 +1,13 @@
 package com.demo.mms.service;
 
 import com.demo.mms.common.domain.Midreport;
+import com.demo.mms.common.domain.OpenReport;
 import com.demo.mms.dao.MidreportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class MidreportServicceImpl implements MidreportService{
@@ -38,5 +41,10 @@ public class MidreportServicceImpl implements MidreportService{
     @Override
     public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
         midreportMapper.insertTeacherOpinion(course_id,advice,auditStatus);
+    }
+
+    @Override
+    public List<Midreport> returnMidReportToTeacher(Integer teacher_id) {
+        return midreportMapper.returnMidReportToTeacher(teacher_id);
     }
 }

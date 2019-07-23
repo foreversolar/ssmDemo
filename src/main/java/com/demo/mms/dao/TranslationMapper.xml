@@ -163,4 +163,15 @@
   <update id="insertTranslation2path" parameterType="java.lang.String">
     update translation set file_address2 = #{dbpath},originfilename2 = #{originalFilename} where course_id= #{course_id} and version = #{version}
   </update>
+  <select id="returnTranslationToTeacher" parameterType="java.lang.Integer" resultType="com.demo.mms.common.domain.Translation">
+    SELECT*
+    FROM translation NATURAL JOIN (
+    select course_id,max(version) as version
+        from translation
+        where course_id in(
+        select id
+        from course
+        where inst_id=#{teacher_id})
+            group by course_id) tt
+  </select>
 </mapper>

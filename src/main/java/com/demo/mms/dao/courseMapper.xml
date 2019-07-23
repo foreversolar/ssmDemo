@@ -225,4 +225,9 @@
    from course
    where student_id =#{student_id};
   </select>
+  <select id = "getCourseByTeacherId" parameterType="java.lang.Integer" resultType="com.demo.mms.common.domain.course">
+   select *
+   from course
+   where inst_id =#{inst_id};
+  </select>
 </mapper>

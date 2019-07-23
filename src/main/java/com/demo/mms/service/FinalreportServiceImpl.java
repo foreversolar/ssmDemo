@@ -1,10 +1,13 @@
 package com.demo.mms.service;
 
 import com.demo.mms.common.domain.FinalReport;
+import com.demo.mms.common.domain.Midreport;
 import com.demo.mms.dao.FinalReportMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class FinalReportServiceImpl implements FinalReportService {
@@ -47,5 +50,10 @@ public class FinalReportServiceImpl implements FinalReportService {
     @Override
     public void addTeacherOpinion(String studentid,String advice, String auditStatus) {
         finalreportMapper.insertTeacherOpinion(studentid,advice,auditStatus);
+    }
+
+    @Override
+    public List<Midreport> returnFinalReportToTeacher(Integer teacher_id) {
+        return finalreportMapper.returnFinalReportToTeacher(teacher_id);
     }
 }
