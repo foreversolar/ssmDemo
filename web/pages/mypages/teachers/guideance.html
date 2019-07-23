@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>本科毕业论文(设计)管理系统</title>
-    <!-- Tell the browser to be responsive to screen width -->
+
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <!-- 基础必备-->
+
     <script src="../../../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -15,51 +14,43 @@
     <link rel="stylesheet" href="../../../bower_components/Ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="../../../dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../../../dist/css/skins/_all-skins.min.css">
-    <script src="../../../dist/js/pages/dashboard.js"></script>
-    <script src="../../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="../../../bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="../../../dist/js/demo.js"></script>
-    <script src="../../../dist/js/adminlte.min.js"></script>
 
-
-    <!-- 川大css-->
+    <!-- 川大Style-->
+    <link rel="stylesheet" href="../../../dist/css/origin/default.css">
     <link rel="stylesheet" href="../../../dist/css/origin/easyui(4).css">
-    <link rel="stylesheet" href="../../../dist/css/origin/rangyStyle(1).css">
     <link rel="stylesheet" href="../../../dist/css/origin/base(4).css">
-    <link rel="stylesheet" href="../../../dist/css/origin/common(1).css">
-    <link rel="stylesheet" href="../../../dist/css/origin/webuploader(2).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/common.css">
+    <link rel="stylesheet" href="../../../dist/css/origin/webuploader(1).css">
 
     <!-- 富文本css-->
     <link href="../../../bower_components/summernote/dist/summernote.css" rel="stylesheet">
     <script src="../../../bower_components/summernote/dist/summernote.js"></script>
     <script src="../../../bower_components/summernote/dist/lang/summernote-zh-CN.js"></script>
 
+    <!-- 时间选择器-->
+    <link rel="stylesheet" href="../../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <script src="../../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
     <!-- 文件上传-->
-    <link href="../../../bower_components/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../../../bower_components/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet"
+          type="text/css"/>
     <script src="../../../bower_components/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
     <script src="../../../bower_components/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
 
-    <!-- 弹窗-->
-    <script src="../../../bower_components/toastr/toastr.min.js"></script>
-    <link rel="stylesheet" href="../../../bower_components/toastr/toastr.min.css">
 
-    <!--AXIOS-->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
+    <!--可以全部复制-->
     <header class="main-header">
         <!-- Logo -->
-        <a href="../../index2.html" class="logo">
+        <a href="../../../index2.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>毕设</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -73,272 +64,34 @@
             </a>
 
             <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li><!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <!-- end message -->
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                AdminLTE Design Team
-                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Sales Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
-                        </ul>
-                    </li>
-                    <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 10 notifications</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
-                                            may not fit into the
-                                            page and may cause design problems
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-red"></i> 5 new members joined
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user text-red"></i> You changed your username
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
-                    <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 9 tasks</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-right">20%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                     role="progressbar"
-                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Create a nice theme
-                                                <small class="pull-right">40%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%"
-                                                     role="progressbar"
-                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">40% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Some task I need to do
-                                                <small class="pull-right">60%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%"
-                                                     role="progressbar"
-                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">60% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Make beautiful transitions
-                                                <small class="pull-right">80%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
-                                                     role="progressbar"
-                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">80% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">View all tasks</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                                <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
-                                </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>
-                </ul>
+                <div class="bannerRight">
+                    <p class="john"><span id="user_name">用户名</span>, &nbsp;欢迎使用系统</p>
+                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span
+                            class="role_name">学生</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span>
+                    </p>
+                    <!--<input  id="hdUserDefinedRoles" value="[{&quot;name&quot;:&quot;管理员&quot;,&quot;value&quot;:1},{&quot;name&quot;:&quot;学生&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;指导教师&quot;,&quot;value&quot;:3},{&quot;name&quot;:&quot;专业负责人&quot;,&quot;value&quot;:4},{&quot;name&quot;:&quot;教学秘书&quot;,&quot;value&quot;:5},{&quot;name&quot;:&quot;院长&quot;,&quot;value&quot;:6},{&quot;name&quot;:&quot;答辩录入员&quot;,&quot;value&quot;:7},{&quot;name&quot;:&quot;督导专家&quot;,&quot;value&quot;:8},{&quot;name&quot;:&quot;评阅专家&quot;,&quot;value&quot;:9},{&quot;name&quot;:&quot;辅助导师&quot;,&quot;value&quot;:10},{&quot;name&quot;:&quot;管理员（被授权）&quot;,&quot;value&quot;:11}]">-->
+                    <!--<input id="hdAuthToken" value="">-->
+                    <p class="quitChunk">
+                        <a id="knowledge">诚信与学术规范<span class="new"></span></a>
+                        <a id="WeChart">绑定微信</a>
+                        <a id="help">帮助</a>
+                        <a id="quit">退出</a>
+                    </p>
+                </div>
             </div>
+            <img style=" float:left;padding:15px" src="../../../dist/img/scu.png">
+            <p class="login-paper" id="xtmc">本科毕业论文（设计）管理系统</p>
         </nav>
     </header>
-    <!-- Left side column. contains the logo and sidebar -->
+
+    <!--修改 active-->
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="../../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>
@@ -358,6 +111,7 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">MAIN NAVIGATION</li>
                 <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>首页管理</span>
@@ -366,7 +120,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class=""><a href="./myindex.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
+                        <li class=""><a href="../../../index.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -378,9 +132,9 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./addCourse.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
-                        <li><a href="./chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
-                        <li><a href="./task.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
+                        <li><a href="../../../pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
+                        <li><a href="../../../pages/mypages/chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
+                        <li><a href="../../../pages/layout/fixed.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
                     </ul>
                 </li>
 
@@ -394,13 +148,12 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>提交开题报告</a></li>
-                        <li><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
-                        <li class="active"><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
-                        <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
-                        <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a></li>
-                        <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
-                        <li><a href=" "><i class="fa fa-circle-o"></i>指导教师答疑安排</a></li>
+                        <li><a href=" ./openreport_t.html"><i class="fa fa-circle-o"></i>审核开题报告</a></li>
+                        <li><a href="./midreport_t.html "><i class="fa fa-circle-o"></i>审核中期检查</a></li>
+                        <li><a href=" ./guideance_t.html"><i class="fa fa-circle-o"></i>审核指导记录</a></li>
+                        <li><a href="./foreign_t.html "><i class="fa fa-circle-o"></i>审核外文译文和原件</a></li>
+                        <li><a href="./literaturereview_t.html"><i class="fa fa-circle-o"></i>审核文献综述</a></li>
+                        <li><a href="./finapaper_t.html "><i class="fa fa-circle-o"></i>审核毕业设计(论文)</a></li>
                     </ul>
                 </li>
 
@@ -413,7 +166,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./gradeview.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
+                        <li><a href="./gradeview_t.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
                     </ul>
                 </li>
 
@@ -436,6 +189,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        <!-- 时间限制提示 -->
         <div id="timeLimit" class="gxf_tips" style="display:none;">
             <div class="gxf_tip">
                 <i></i>信息提示
@@ -444,7 +198,16 @@
                 <p style="margin-top: 10px; font-size:14px;" id="timeText"></p>
             </div>
         </div>
-        <div class="main" id="main">
+        <!-- 时间限制提示 -->
+        <div id="otherMIdReport" class="gxf_tips" style="display:none;">
+            <div class="gxf_tip">
+                <i></i>信息提示
+            </div>
+            <div>
+                <p style="margin-top: 10px; font-size:14px;">您所在学校设置了您无权限查看内容</p>
+            </div>
+        </div>
+        <div class="main" id="choiceDiv" style="">
             <!-- 课题基本信息 -->
             <div id="gxf-project-information">
                 <div class="gxf_problem gxf_problem_detail">
@@ -452,117 +215,62 @@
                     <div class="gxf_pro_content gxf_content_table">
                         <ul class="clearfix gxf_project_detadil_ul">
                             <li style="width:100%;"><span class="detadil_txt_left"> 课题题目：</span><span
-                                    style="width:600px;" class="detadil_txt_right"> </span></li>
-                            <li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right">软件工程</span>
+                                    style="width:600px;" class="detadil_txt_right" id="c_title">条件生成对抗网络在少数类有效数据生成中的研究与应用</span>
+                            </li>
+                            <li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right"
+                                                                                  id="c_availmajor">软件工程</span>
                             </li>
                             <li><span class="detadil_txt_left"> 课题申报时间：</span><span
-                                    class="detadil_txt_right">2018-12-11</span></li>
-                            <li><span class="detadil_txt_left"> 题目类型：</span><span class="detadil_txt_right">理论研究</span>
+                                    class="detadil_txt_right" id="c_time">2018-12-11</span></li>
+                            <li><span class="detadil_txt_left"> 题目类型：</span><span class="detadil_txt_right" id="c_type">理论研究</span>
                             </li>
                             <li><span class="detadil_txt_left"> 题目来源：</span><span
-                                    class="detadil_txt_right">教师科研纵向课题</span></li>
+                                    class="detadil_txt_right" id="c_source">教师科研纵向课题</span></li>
                             <li><span class="detadil_txt_left"> 选择模式：</span><span
-                                    class="detadil_txt_right">学生提交课题</span></li>
+                                    class="detadil_txt_right" id="c_mode">学生提交课题</span></li>
                             <li><span class="detadil_txt_left"> 课题所属专业：</span><span
-                                    class="detadil_txt_right">软件学院-软件工程</span></li>
+                                    class="detadil_txt_right" id="c_attachmajor">软件学院-软件工程</span></li>
                             <li><span class="detadil_txt_left"> 指导教师：</span><span
-                                    class="detadil_txt_right">段磊（20092049）</span></li>
-                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right">教授</span>
+                                    class="detadil_txt_right" id="c_teacher">段磊（20092049）</span></li>
+                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right"
+                                                                                  id="c_teachertitle">教授</span>
                             </li>
-                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"></span>
+                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"
+                                                                                    id="c_teacheremail"></span>
                             </li>
-                            <li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right">王启帆（2015141463170）</span>
+                            <li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right"
+                                                                                  id="c_student">王启帆（2015141463170）</span>
                             </li>
                             <li><span class="detadil_txt_left"> 学生院系专业：</span><span
-                                    class="detadil_txt_right">软件学院-软件工程</span></li>
+                                    class="detadil_txt_right" id="c_student_major">软件学院-软件工程</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="gxf_problem gxf_pro_top">
-                <h2><span></span>学生指导记录列表</h2>
-            </div>
-            <!--提交指导记录按钮-->
-            <!--<form action="http://localhost:8080/pages/mypages/addGuideance.hml" method="get">-->
-            <div id="Submit_GuideRecord" style="margin-bottom: 10px;">
-                <input id="submit" class="formBtn" type="button" value="提交指导记录">
-            </div>
-            <!--指导记录-->
-            <section class="content" style="width: 100%; margin: 0px">
-                <div class="row" class="gxf_problem gxf_pro_top">
-                    <div class="col-md-12">
-                        <div class="box">
-                            <!-- /.box-header -->
-                            <div class="box-body">
-                                <table style="text-align:center" id="main-table" class="table table-bordered table-hover gxf_problem gxf_pro_top">
-                                    <thead>
-                                    <tr>
-                                        <th style="text-align:center" >序号</th>
-                                        <th style="text-align:center">课题题目</th>
-                                        <th style="text-align:center">题目类型</th>
-                                        <th style="text-align:center">题目来源</th>
-                                        <th style="text-align:center">指导教师</th>
-                                        <th style="text-align:center">申报时间</th>
-                                        <th style="text-align:center">操作</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="choose_table_id"></tbody>
-                                </table>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <!-- /.box -->
-                    </div>
-                    <!-- /.col -->
+            <div class=" gxf_problem gxf_problem_title">
+                <div><h2><span></span>添加内容</h2></div>
+                <div class="gxf_designTable_content">
+                    <ul class="gxf_designTable_box" id="DesignTable" style="">
+                        <li><p>指导时间</p>
+                            <span class="textbox easyui-fluid" style="width: 1211px; height: 28px;">
+                                 <div class="input-group date">
+                                     <div class="input-group-addon">
+                                         <i class="fa fa-calendar"></i>
+                                     </div>
+                                     <input type="text" class="form-control pull-right" id="datepicker">
+                                 </div>
+                            </span>
+                        </li>
+                        <li><p>指导内容<span class="statement margl"></span></p>
+                            <!--<div id="summernote"  class="gxf_rangy_left" ></div>-->
+                            <textarea id="input_textarea" class="form-control"  rows="24" ></textarea>
+                        </li>
+                    </ul>
+                    <ul class="gxf_designTable_box">
+                    </ul>
                 </div>
-                <!-- /.row -->
-            </section>
-            <!-- 列表 -->
-        </div>
-
-
-        <div class="panel window panel-htop"
-             style="display: none; width: 400px; left: 443px; top: 191px; z-index: 9002;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 400px;">
-                <div class="panel-title">提示</div>
-                <div class="panel-tool"></div>
             </div>
         </div>
-        <div class="window-shadow"
-             style="display: none; left: 443px; top: 191px; width: 400px; height: 205px; z-index: 9001;"></div>
-        <div class="window-mask" style="display: none; z-index: 9000; width: 1286px; height: 586px;"></div>
-
-
-        <div class="panel window panel-htop" style="display: none; width: 400px; left: 443px; top: 193px;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">New Dialog</div>
-                <div class="panel-tool"><a href="javascript:;" class="panel-tool-close"></a></div>
-            </div>
-            <div id="delmessagebox" class="easyui-dialog panel-body panel-body-noborder window-body"
-                 style="width: 398px; height: 163px;" data-options="closed:true" title=""></div>
-        </div>
-        <div class="window-shadow" style="display: none; left: 443px; top: 193px; width: 400px; height: 200px;"></div>
-        <div class="panel window panel-htop"
-             style="display: none; width: 400px; left: 443px; top: 193px; z-index: 9005;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">提示</div>
-                <div class="panel-tool"></div>
-            </div>
-        </div>
-        <div class="window-shadow"
-             style="display: none; left: 443px; top: 193px; width: 400px; height: 200px; z-index: 9004;"></div>
-        <div class="window-mask" style="display: none; z-index: 9003; position: fixed;"></div>
-        <div class="panel window panel-htop"
-             style="display: none; width: 400px; left: 443px; top: 193px; z-index: 9014;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">提示</div>
-                <div class="panel-tool"></div>
-            </div>
-        </div>
-        <div class="window-shadow"
-             style="display: none; left: 443px; top: 193px; width: 400px; height: 200px; z-index: 9013;"></div>
-        <div class="window-mask" style="display: none; z-index: 9012; position: fixed;"></div>
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -572,284 +280,121 @@
         <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
         reserved.
     </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                <p>New phone +1(800)555-1234</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                <p>nora@example.com</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                <p>Execution time 5 seconds</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="label label-danger pull-right">70%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Update Resume
-                                <span class="label label-success pull-right">95%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Laravel Integration
-                                <span class="label label-warning pull-right">50%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Back End Framework
-                                <span class="label label-primary pull-right">68%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-            </div>
-            <!-- /.tab-pane -->
-            <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-            <!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Allow mail redirect
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Other sets of options are available
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Expose author name in posts
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Allow the user to show his name in blog posts
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Show me as online
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Turn off notifications
-                            <input type="checkbox" class="pull-right">
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Delete chat history
-                            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
-            </div>
-            <!-- /.tab-pane -->
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../bower_components/toastr/toastr.min.js"></script>
+<link rel="stylesheet" href="../../../bower_components/toastr/toastr.min.css">
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="../../bower_components/toastr/toastr.min.js"></script>
-<link rel="stylesheet" href="../../bower_components/toastr/toastr.min.css">
 
-<script>
-    //设置table
-    $(document).ready(function() {
-        var t = $("#main-table").DataTable({
-            'paging'      : true,
-            'lengthChange': true,
-            'searching'   : false,
-            'ordering'    : false,
-            'info'        : true,
-            'autoWidth'   : true,
-            "bSort"       : false, //是否支持排序功能
-            "bLengthChange" : true,// 每行显示记录数
-            'stateSave'     :true,
-            // "deferRender"   : true,
-            "language": {
-                "paginate": {
-                    "next": "下一页",
-                    "previous":"上一页"
-                },
-                "search":"快速搜索",
-                "info": "第_PAGE_页(共_PAGES_页)",
-                "emptyTable":"无可用数据",
-                "lengthMenu": "_MENU_ 条/页"
-            },
-            "columnDefs": [{
-                "searchable": false,
-                "orderable": false,
-                "visible": false,
-                "targets": 0
-            }],
-            "order": [[ 1, 'asc' ]]
-        });
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var formdata={};
+        //指导内容框
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-center",
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "800",
+            timeOut: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
     });
 </script>
-
-<script>
-    $(document).ready(function () {
+<script type="text/javascript">
+    //页面初始化
+    var cid = 0;
+    var sid = 0;
+    var role=0;
+    $(function () {
         $.ajax({
-            method: "GET",
-            url:"http://localhost:8080/selectGuidances",
-            data:{course_id: 10001},
-            success: function (result) {
-                var $tbody=$("#choose_table_id");
-                $tbody.html("");
-                for(var index  in result){
-                    var each = result[index];
-                    var $tr=  $("<tr>").append($("<td>").html(parseInt(Object.keys(result)[index])+1))
-                        .append($("<td>").html(each["content"]))
-                        .append($("<td>").html(each["submit_time"]))
-                        .append($("<td>").html(""+index))
-                        .append($("<td>").html(each["version"]))
-                        .append($("<td>").html("查看详情"));
-                    $tbody.append($tr);
-                    console.log(each["time"]);
-                }
+            url: "http://localhost:8080/getUser",
+            dataType: "json",
+            error: function (data) {
             },
-            dateType:"json"
-        })
-        $("#submit").click(function () {
-            location.href = "./addGuideance.html";
-        })
+            success: function (data) {
+                sid = data.student_id;
+                cid = data.course_id;
+                role=data.role;  //0表示学生 1表示老师
+                $.ajax({
+                    url: "http://localhost:8080/getTeacherInformation?teacherId=" + data.current_user,
+                    dataType: "json",
+                    success: function (data) {
+                        $("#user_name").html(data.name);
+                        $("#depart_name").html(data.department);
+                    }
+                });
+                initBasicInfor(sid, cid,role);
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:8080/getGuidance",
+                    data: {course_id: cid},
+                    success: function (msg) {
+                        initReport(msg.success)
+                    }
+                });
+            }
+        });
     });
+
+    function initBasicInfor(sid, cid,role) {
+
+            $("#result").removeAttr("disabled");
+            $("#advice").removeAttr("disabled");
+            $("#submitt").show();
+        // 课题基本信息
+        $.ajax({
+            url: "http://localhost:8080/getCourse?student_id=" + sid,
+            dataType: "json",
+            success: function (data) {
+                data = data.success;
+                $("#c_attachmajor").html(data.attachMajor);
+                $("#c_availmajor").html(data.availMajor);
+                $("#c_mode").html(data.mode);
+                $("#c_source").html(data.resource);
+                $("#c_student").html(data.student);
+                $("#c_teacher").html(data.instructor);
+                $("#c_time").html(data.declareTime);
+                $("#c_teacheremail").html(data.instEmail);
+                $("#c_teachertitle").html(data.teaTitle);
+                $("#c_student_major").html(data.stuMajor);
+                $("#c_title").html(data.title);
+                $("#c_type").html(data.type)
+            }
+        });
+    }
+
+    function initReport(guideancedate) {
+
+            $("body").find("input,textarea").attr("disabled", true);
+            $("#submit").hide();
+            $("#save").hide();
+        //处理文件下载
+        // if (guideancedate.path !== null) {
+        //     $("#tianjiafujian").hide();
+        //     $("#fujian").show();
+        //     $("#accessory").html(guideancedate.originfilename);
+        //     $("#file_path").attr({
+        //         'href': guideancedate.path,
+        //         'download': guideancedate.originfilename
+        //     });
+        // }
+        //处理审核状态  此处直接复制
+        $("#result").val(midreport.result);
+        $("#reviewer").html($("#c_teacher")[0].innerText)
+        $("#advice").val(midreport.advice);
+    }
+</script>
+<script>
+
 </script>
 </body>
 </html>
