@@ -126,7 +126,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class=""><a href="../../index.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
+                        <li class=""><a href="./myindex.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
                 <li class=" treeview">
@@ -411,7 +411,6 @@
                 sid = data.current_user;
                 cid = data.course_id;
                 role=data.role;  //0表示学生 1表示老师
-                role=1;
                 $.ajax({
                     url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
                     dataType: "json",

@@ -2,6 +2,7 @@ package com.demo.mms.controller;
 
 
 import com.demo.mms.common.domain.FinalReport;
+import com.demo.mms.common.domain.Midreport;
 import com.demo.mms.service.FinalReportService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +106,15 @@ public class FinalReportController {
         finalreportService.addTeacherOpinion(Integer.toString(studentid),advice,AuditStatus);
         Map<String,Object> rs = new HashMap<>(64);
         rs.put("success",true);
+        return rs;
+    }
+
+    @RequestMapping("/getAllFinalReport")
+    @ResponseBody
+    public Object returnOpenReportToTeacher(Integer teacher_id){
+        List<Midreport> temp=finalreportService.returnFinalReportToTeacher(teacher_id);
+        Map<String,List<Midreport>> rs=new HashMap<>(64);
+        rs.put("success",temp);
         return rs;
     }
 }

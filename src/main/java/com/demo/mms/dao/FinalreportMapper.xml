@@ -30,4 +30,15 @@
 	    from (select version from finalreport where studentid=#{studentid}) a
       )
   </update>
+  <select id="returnFinalReportToTeacher" parameterType="java.lang.Integer" resultType="com.demo.mms.common.domain.FinalReport">
+    SELECT*
+    FROM finalreport NATURAL JOIN (
+    select studentid,max(version) as version
+        from finalreport
+        where studentid in(
+        select student_id
+        from course
+        where inst_id=#{teacher_id})
+            group by studentid) tt
+  </select>
 </mapper>

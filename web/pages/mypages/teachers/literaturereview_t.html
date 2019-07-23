@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>本科毕业论文(设计)管理系统</title>
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- 基础必备-->
+    <script src="../../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../../../dist/css/skins/_all-skins.min.css">
+    <script src="../../../dist/js/pages/dashboard.js"></script>
+    <script src="../../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../../../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../../../dist/js/demo.js"></script>
+    <script src="../../../dist/js/adminlte.min.js"></script>
+
+
+    <!-- 川大css-->
+    <link rel="stylesheet" href="../../../dist/css/origin/easyui(4).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/rangyStyle(1).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/base(4).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/common(1).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/webuploader(2).css">
+
+    <!-- 富文本css-->
+    <link href="../../../bower_components/summernote/dist/summernote.css" rel="stylesheet">
+    <script src="../../../bower_components/summernote/dist/summernote.js"></script>
+    <script src="../../../bower_components/summernote/dist/lang/summernote-zh-CN.js"></script>
+
+    <!-- 文件上传-->
+    <link href="../../../bower_components/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet"
+          type="text/css"/>
+    <script src="../../../bower_components/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="../../../bower_components/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
+
+    <!-- 弹窗-->
+    <script src="../../../bower_components/toastr/toastr.min.js"></script>
+    <link rel="stylesheet" href="../../../bower_components/toastr/toastr.min.css">
+
+    <!--AXIOS-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <!--可以全部复制-->
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="../../index2_t.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>毕设</b></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>川大</b>毕设</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <div class="bannerRight">
+                    <p class="john"><span id="user_name">用户名</span>, &nbsp;欢迎使用系统</p>
+                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span
+                            class="role_name">学生</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span>
+                    </p>
+                    <!--<input  id="hdUserDefinedRoles" value="[{&quot;name&quot;:&quot;管理员&quot;,&quot;value&quot;:1},{&quot;name&quot;:&quot;学生&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;指导教师&quot;,&quot;value&quot;:3},{&quot;name&quot;:&quot;专业负责人&quot;,&quot;value&quot;:4},{&quot;name&quot;:&quot;教学秘书&quot;,&quot;value&quot;:5},{&quot;name&quot;:&quot;院长&quot;,&quot;value&quot;:6},{&quot;name&quot;:&quot;答辩录入员&quot;,&quot;value&quot;:7},{&quot;name&quot;:&quot;督导专家&quot;,&quot;value&quot;:8},{&quot;name&quot;:&quot;评阅专家&quot;,&quot;value&quot;:9},{&quot;name&quot;:&quot;辅助导师&quot;,&quot;value&quot;:10},{&quot;name&quot;:&quot;管理员（被授权）&quot;,&quot;value&quot;:11}]">-->
+                    <!--<input id="hdAuthToken" value="">-->
+                    <p class="quitChunk">
+                        <a id="knowledge">诚信与学术规范<span class="new"></span></a>
+                        <a id="WeChart">绑定微信</a>
+                        <a id="help">帮助</a>
+                        <a id="quit">退出</a>
+                    </p>
+                </div>
+            </div>
+            <img style=" float:left;padding:15px" src="../../../dist/img/scu.png">
+            <p class="login-paper" id="xtmc">本科毕业论文（设计）管理系统</p>
+        </nav>
+    </header>
+    <!--修改 active-->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Alexander Pierce</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class=" treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>首页管理</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class=""><a href="../../index_t.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
+                    </ul>
+                </li>
+                <li class=" treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span>师生双选管理</span>
+                        <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class=""><a href="./addCourse_t.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
+                        <li><a href="./chooseTopic_t.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
+                        <li><a href="./task_t.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-th"></i>
+                        <span>过程文档管理</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class=" treeview-menu">
+                        <li><a href=" ./openreport_t.html"><i class="fa fa-circle-o"></i>审核开题报告</a></li>
+                        <li class=""><a href="./midreport_t.html "><i class="fa fa-circle-o"></i>审核中期检查</a></li>
+                        <li><a href=" ./guideance_t.html"><i class="fa fa-circle-o"></i>审核指导记录</a></li>
+                        <li class=""><a href="./foreign_t.html "><i class="fa fa-circle-o"></i>审核外文译文和原件</a></li>
+                        <li class="active"><a href="./literaturereview_t.html"><i class="fa fa-circle-o"></i>审核文献综述</a>
+                        </li>
+                        <li><a href="./finapaper_t.html "><i class="fa fa-circle-o"></i>审核毕业设计(论文)</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i>
+                        <span>评审答辩和成绩管理</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="./gradeview_t.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-laptop"></i>
+                        <span>用户设置</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="./modifyPw_t.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <div class="content-wrapper">
+
+        <!-- 中期检查 -->
+        <div class="main" id="choiceDiv" style="">
+            <div class="gxf_problem gxf_pro_top" id="historyDiv" style="">
+                <div class="active"><h2><span class="sanjiao_active"></span>文献综述</h2></div>
+            </div>
+            <section class="content" style="width: 100%; margin: 0px">
+                <div class="row" class="gxf_problem gxf_pro_top">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <table style="text-align:center; font-size: small" id="main-table"
+                                       class="table table-bordered table-hover gxf_problem gxf_pro_top">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th style="text-align:center">学生姓名</th>
+                                        <th style="text-align:center">学生专业</th>
+                                        <th style="text-align:center">课题题目</th>
+                                        <th style="text-align:center">状态</th>
+                                        <th style="text-align:center">查看</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="choose_table_id"
+                                           style="align-items: center; vertical-align: middle;"></tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+        </div>
+
+
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.4.0
+        </div>
+        <strong>Copyright &copy; 2018-2019 <a href="https://adminlte.io">年轻人的亚子队</a>.</strong> All rights
+        reserved
+    </footer>
+
+</div>
+<!-- ./wrapper -->
+
+
+<script>
+    $(function () {
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-center",
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "800",
+            timeOut: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        }
+    })
+
+</script>
+
+
+<script>
+    var tid = 0;    //老师的id
+    var tbody = $("#choose_table_id");
+    tbody.html(""); //去掉控件第一行
+
+
+    // 模拟数据
+    var datas = [{
+        student_id: 63096,
+        id: 11000,
+        student: "刘玉",
+        stuMajor: "软件工程",
+        title: "基于联邦迁移的金融平台",
+        state: "通过"
+    }, {
+        student_id: 1313,
+        id: 345,
+        student: "小王",
+        stuMajor: "软件工程",
+        title: "基于联邦迁移的金融平台",
+        state: "通过"
+    }]
+    //初始化表格
+    function initTable(datas) {
+        for (var index = 0; index < datas.length;index++) {
+            var data = datas[index];
+            console.log(data)
+            var i = "<input id=" + data.id + " name='chakan' pid=" + data.student_id + " class='btn btn-block btn-success btn-flat' type='button' value='选择课题'>"
+            var $tr = $("<tr>").append($("<td>").html(index+1))
+                .append($("<td>").html(data.student))
+                .append($("<td>").html(data.stuMajor))
+                .append($("<td>").html(data.title))
+                .append($("<td>").html(data.state))
+                .append($("<td>").append(i));
+            tbody.append($tr);
+        }
+    }
+
+    //页面初始化：  首先获得session中的教师id 然后请求所有的midreport
+    $(function () {
+        initTable(datas);
+        $.ajax({
+            url: "http://localhost:8080/getTeacherUser",
+            dataType: "json",
+            error: function (data) {
+            },
+            success: function (data) {
+                tid = data.current_user;
+                $.ajax({
+                    url: "http://localhost:8080/getCourseByTeacherId?inst_id=" + tid,
+                    dataType: "json",
+                    success: function (data) {
+                        $.ajax({
+                            url: "http://localhost:8080/getTeacherInformation?teacherId=" + tid,
+                            dataType: "json",
+                            success: function (data) {
+                                $("#user_name").html(data.name);
+                                $("#depart_name").html(data.department);
+
+                            }
+                        });
+                        initTable(data.success);
+                    }
+                });
+
+            }
+
+        });
+
+
+        //当按钮被点击的时候 获得courseid和studentid 为下一个页面做准备
+        $("input[name='chakan']").on("click", function () {
+            var cid = $(this).attr("id");
+            var sid = $(this).attr("pid");
+            //更新session
+            $.ajax({
+                url: "http://localhost:8080/navigate",
+                dataType: "json",
+                data: {course_id: cid, student_id: sid}
+            });
+            //进行跳转
+            window.location.href = "./literaturereview.html"
+        })
+    })
+
+</script>
+
+
+</body>
+</html>

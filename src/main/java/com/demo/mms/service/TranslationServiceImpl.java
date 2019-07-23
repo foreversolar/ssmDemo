@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class TranslationServiceImpl implements TranslationService{
     @Autowired
@@ -35,6 +37,11 @@ public class TranslationServiceImpl implements TranslationService{
     @Override
     public void addTranslation2path(String dbpath, String course_id, String version, String originalFilename) {
         translationMapper.insertTranslation2path(dbpath,course_id,version,originalFilename);
+    }
+
+    @Override
+    public List<Translation> returnTranslationToTeacher(Integer teacher_id) {
+        return translationMapper.returnTranslationToTeacher(teacher_id);
     }
 
 

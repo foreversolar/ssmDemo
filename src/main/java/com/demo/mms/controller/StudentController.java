@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.testng.mustache.Model;
 import sun.applet.resources.MsgAppletViewer;
@@ -53,22 +54,34 @@ public class StudentController {
     @RequestMapping("/getUser")
     @ResponseBody
     public Object getUser(HttpSession session){
-        Integer currentUser = (Integer) session.getAttribute("current_user");
-        course coursetl= courseService.findcourse(currentUser);
         Map<String,Object>rs = new HashMap<>(64);
-        if(currentUser!=null){
-            rs.put("current_user",currentUser);
+        Integer currentUser = (Integer) session.getAttribute("current_user");
+        Integer cid = (Integer) session.getAttribute("course_id");
+        Integer sid = (Integer) session.getAttribute("student_id");
+        if(cid==null){
+            course coursetl= courseService.findcourse(currentUser);
             rs.put("course_id",coursetl.getId());
-            return rs;
         }
-        return  null;
-
+        rs.put("student_id",sid);
+        rs.put("course_id",cid);
+        rs.put("current_user",currentUser);
+        return rs;
     }
+
 
 
     @RequestMapping("/getStudentInformation")
     @ResponseBody
     public Object getStudentInformation(int stuId){
          return studentService.getStudent(stuId);
+    }
+
+    @RequestMapping("/navigate")
+    @ResponseBody
+    public Object navigate(@RequestParam("course_id") Integer usr,@RequestParam("student_id") Integer sid, HttpSession session){
+        session.setAttribute("course_id",usr);
+        session.setAttribute("student_id",sid);
+        return "success";
+
     }
 }

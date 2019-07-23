@@ -4,76 +4,47 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>本科毕业论文(设计)管理系统</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
-    <script src="../../dist/js/pages/dashboard.js"></script>
-    <script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="../../dist/js/demo.js"></script>
-    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <script src="../../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../../../dist/css/skins/_all-skins.min.css">
+    <script src="../../../dist/js/pages/dashboard.js"></script>
+    <script src="../../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../../../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../../../dist/js/demo.js"></script>
+    <script src="../../../dist/js/adminlte.min.js"></script>
 
 
-    <link rel="stylesheet" href="../../dist/css/origin/easyui(4).css">
-    <link rel="stylesheet" href="../../dist/css/origin/default(1).css">
-    <link rel="stylesheet" href="../../dist/css/origin/rangyStyle(1).css">
-    <link rel="stylesheet" href="../../dist/css/origin/base(4).css">
-    <link rel="stylesheet" href="../../dist/css/origin/common(1).css">
-    <link rel="stylesheet" href="../../dist/css/origin/webuploader(2).css">
+    <!-- 川大css-->
+    <link rel="stylesheet" href="../../../dist/css/origin/easyui(4).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/rangyStyle(1).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/base(4).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/common(1).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/webuploader(2).css">
 
     <!-- 富文本css-->
-    <link href="../../bower_components/summernote/dist/summernote.css" rel="stylesheet">
-    <script src="../../bower_components/summernote/dist/summernote.js"></script>
-    <script src="../../bower_components/summernote/dist/lang/summernote-zh-CN.js"></script>
+    <link href="../../../bower_components/summernote/dist/summernote.css" rel="stylesheet">
+    <script src="../../../bower_components/summernote/dist/summernote.js"></script>
+    <script src="../../../bower_components/summernote/dist/lang/summernote-zh-CN.js"></script>
 
     <!-- 文件上传-->
-    <link href="../../bower_components/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet"
-          type="text/css"/>
-    <script src="../../bower_components/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
-    <script src="../../bower_components/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
+    <link href="../../../bower_components/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="../../../bower_components/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="../../../bower_components/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
 
     <!-- 弹窗-->
-    <script src="../../bower_components/toastr/toastr.min.js"></script>
-    <link rel="stylesheet" href="../../bower_components/toastr/toastr.min.css">
+    <script src="../../../bower_components/toastr/toastr.min.js"></script>
+    <link rel="stylesheet" href="../../../bower_components/toastr/toastr.min.css">
 
     <!--AXIOS-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <![endif]-->
-
-    <style>
-        html, body {
-            height: 99%;
-            box-sizing: border-box;
-        }
-
-        textarea::selection {
-            color: orange;
-            background-color: #dd4b39;
-        }
-
-        div {
-            box-sizing: border-box;
-        }
-
-        .basic-message {
-            height: 200px;
-            margin-top: -200px;
-        }
-
-        .WZ-titleTop span {
-            font-size: 12px;
-            font-weight: 400;
-            color: #555;
-        }
-    </style>
-
-    <![endif]-->
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -150,7 +121,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class=""><a href="../../index.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
+                        <li class=""><a href="./myindex.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
                 <li class=" treeview">
@@ -169,7 +140,7 @@
                 </li>
 
 
-                <li class="treeview">
+                <li class="active treeview">
                     <a href="#">
                         <i class="fa fa-th"></i>
                         <span>过程文档管理</span>
@@ -181,10 +152,10 @@
                         <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>提交开题报告</a></li>
                         <li class=""><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
                         <li><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
-                        <li class="active"><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
+                        <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
                         <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a>
                         </li>
-                        <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
+                        <li class="active"><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
                     </ul>
                 </li>
 
@@ -220,32 +191,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!--错误信息提示框-->
-        <div id="nochoiceDiv" class="gxf_tips" style="display:none; margin-bottom:15px;">
-            <div class="gxf_tip">
-                <i></i>信息提示
-            </div>
-            <div>
-                <p>您还没有申报，或者选择的课题未被审核通过，您现在不能提。</p>
-            </div>
-        </div>
-        <!-- 时间限制提示 -->
-        <div id="timeLimit" class="gxf_tips" style="display:none;">
-            <div class="gxf_tip">
-                <i></i>信息提示
-            </div>
-            <div>
-                <p style="margin-top: 10px; font-size:14px;" id="timeText"></p>
-            </div>
-        </div>
-        <!--错误信息提示框结束-->
-
-        <div id="main" class="main" style="height: 100%; margin-top: 10px; padding-bottom: 0px;">
-            <div style="" id="historyDiv">
-                <div class="gxf_problem gxf_pro_top">
-                    <div class="active"><h2><span class="sanjiao_active"></span>外文译文和原件</h2></div>
-                </div>
-            </div>
+        <div class="main" id="choiceDiv">
             <!-- 课题基本信息 -->
             <div id="gxf-project-information">
                 <div class="gxf_problem gxf_problem_detail">
@@ -285,87 +231,112 @@
                     </div>
                 </div>
             </div>
-            <!--课题基本信息框结束-->
-            <!--中间左右两个盒子的大盒子,  只读   -->
-            <div id="read_only" class="clearfix" style="height: 100%; cursor:pointer;margin-top:10px;">
-                <div class="WZ-leftBox clearfix" style="padding-top: 35px;">
-                    <!--大盒子中的上部分头部盒子-->
-                    <div class="WZ-TopBox" style="height:35px;margin-top: -35px">
-                        <div class="WZ-titleTop">
-                            <h4>外文译文内容<span id="read_only_state_left" class="margl"></span></h4>
-                        </div>
-                    </div>
-                    <!--大盒子中的下部分内容盒子-->
-                    <div class="WZ-BottomBox clearfix" style="height: 100%; padding: 0; overflow-y: auto;">
-                        <ul class="gxf_designTable_box">
-                            <li>
-                                <div class="gxf_designTable_rangy clearfix">
-                                    <div name="summernote" id="translated"></div>
+        </div>
+        <!-- 详情 -->
+        <div class="main" id="thesisDetail">
+            <div class="WZN-g">
+                <div><h2><span></span>论文检测结果</h2></div>
+            </div>
+            <div class="WZN-lrtable ">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="WZN-lrtable-l">【文件名】：</div>
+                            <div class="WZN-lrtable-r" >
+                                <input style="margin-bottom: 10px" id="papername" type="text" class="form-control ">
+                                <div class="file-loading">
+                                    <input id="paperfile" type="file" multiple name="items">
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="WZ-rightBox" style="padding-top: 35px;">
-                    <!--大盒子中的上部分头部盒子-->
-                    <div class="WZ-TopBox" style="height:35px;margin-top: -35px">
-                        <div class="WZ-titleTop">
-                            <h4>原文内容<span id="read_only_state_right" class="margl"></span></h4>
-                        </div>
-                    </div>
-                    <!--大盒子中的下部分内容盒子-->
-                    <div class="WZ-BottomBox" style="height: 100%; padding: 0; overflow-y: auto;">
-                        <ul class="gxf_designTable_box">
-                            <li>
-                                <div class="gxf_designTable_rangy clearfix">
-                                    <div name="summernote" id="original"></div>
+                            </div>
+                            <div class="WZN-lrtable-r "  style="display: none" id="file_download">
+                                <div id="file_name">   2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
+
+                                <div id="filename" >
+                                    <a id="file_path" class="listA margl"
+                                       href=""
+                                       download="2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊 ">点击下载原文</a>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--中间左右两个盒子的大盒子结束-->
-            <!--输入附件-->
-            <div id="write_btn" class="clearfix">
-                <div class="WZ-leftBox" style="border:none; padding:0;">
-                    <p id="write_Left" style="display: none">提示:&nbsp;<span class="statement" id="yiwenFJ">已有外文译文的附件，
-                        <span id="write_Left_accessory" style="color:#ff6632;">毕业论文文献翻译.docx<a
-                                class="listA margl">删除 </a> </span></span>
-                        <a id="write_Left_A" class="listA margl margr">下载</a>
-                    </p>
-                    <div class="margt">
-                        <span id="liAttachment" class="statement"></span>
-                        <div class="filep">
-                            附件：
-                            <div class="file-loading">
-                                <input id="translated_file" type="file" multiple name="items">
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="WZ-rightBox" style="border:none; padding:0;">
-                    <p id="write_Right" style="display: none">提示:&nbsp;<span class="statement"
-                                                                             id="yuanwenFJ">已有原文的附件，<span
-                            style="color:#ff6632;" id="write_Right_accessory">原文.pdf<a
-                            class="listA margl">删除 </a></span></span>
-                        <a id="write_Right_A" class="listA margl margr">下载</a>
-                    </p>
-                    <div class="margt">
-                        <span id="liAttachment1" class="statement"></span>
-                        <div class="filep">
-                            附件：
-                            <div class="file-loading">
-                                <input id="original_file" type="file" multiple name="items">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="WZN-lrtable-l">【检测结果】：</div>
+                            <div class="WZN-lrtable-r">
+                                <input style="margin-bottom: 10px" id="result" type="text" class="form-control ">
+                                <div class="file-loading">
+                                    <input id="resultfile" type="file" multiple name="items">
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                            <div class="WZN-lrtable-r" id='result_download' style="display: none">
+                                <div id="result_name">   2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
+                                <a  id="result_path" class="listA margl" target="_Blank"
+                                   href="">下载报告单</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="WZN-lrtable-l">【关键词】：</div>
+                            <div class="WZN-lrtable-r" id="gjc"><input id="keys" type="text" class="form-control ">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="WZN-lrtable-l">【创新点】：</div>
+                            <div class="WZN-lrtable-r" id="cxd"><input id="points" type="text" class="form-control ">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="WZN-lrtable-l">【中文摘要】：</div>
+                            <div class="WZN-lrtable-r" id="zwzy">
+                                <textarea id="summary" class="form-control" rows="4" placeholder=""></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="WZN-lrtable-l">【英文摘要】：</div>
+                            <div class="WZN-lrtable-r" id="ywzy">
+                                <textarea id="summary-e" class="form-control" rows="4" placeholder=""></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="WZN-lrtable-l">【其他】：</div>
+                            <div class="WZN-lrtable-r"><input id="others" type="text" class="form-control "></div>
+                        </td>
+                    </tr>
+                    <tr id="fujian">
+                        <td>
+                            <div class="WZN-lrtable-l">【附件】：</div>
+                            <div class="WZN-lrtable-r">
+                                <div class="file-loading">
+                                    <input id="otherfile" type="file" multiple name="items">
+                                </div>
+                            </div>
+                            <div class="WZN-lrtable-r" id="other_file" style="display:none">
+                                <span id="other_name">附件.zip</span>&nbsp;&nbsp;&nbsp;<a id="other_path" class="listA"
+                                                                                           href="http://reportdownload.cnki.net/cofiledownload/DownLoadFile.aspx?downType=6&amp;user=2015141463170&amp;userServerID=0&amp;fileID=49037&amp;universityNum=2647&amp;isHistory=0&amp;check=9fd80099b7cc20715952b2b70f6eac45"
+                                                                                           style="" download="附件.zip">点击下载</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <div class="margt">
+                    <input id="save" class="clearBtn margl" type="button" value="保存">
+                    <input id="submit" class="formBtn" type="button" value="提交">
                 </div>
             </div>
-            <div class="margt">
-                <input id="save" style="margin:20px" class="clearBtn margl" type="button" value="保存">
-                <input id="submit" style="margin:20px" class="formBtn" type="button" value="提交">
-            </div>
+
             <div class="gxf_problem gxf_problem_reader" id="CheckDetail" style="">
                 <div><h2><span></span>审核情况</h2></div>
                 <div id="designTableCheckBox">
@@ -375,7 +346,7 @@
                             <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl" id="reviewer"></span>
                             </li>
                             <li class="_checkState_"><p>审核状态</p>
-                                <input class="form-control" id="result" disabled="disabled">
+                                <input class="form-control" id="resultt" disabled="disabled">
                             </li>
                             <li><p>审核意见</p>
                                 <input class="form-control" id="advice" disabled="disabled">
@@ -386,31 +357,20 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.4.0
+            </div>
+            <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+            reserved.
+        </footer>
     </div>
-    <!--审核意见-->
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.0
-        </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-        reserved.
-    </footer>
 </div>
-
-
 <script type="text/javascript">
-    //处理组件初始化
-    $(document).ready(function () {
-        $("div [name='summernote']").summernote({
-            lang: 'zh-CN',
-            tabsize: 4,
-            height: 700
-        });
-
+    $(function () {
         toastr.options = {
             closeButton: false,
             debug: false,
@@ -426,13 +386,16 @@
             showMethod: "fadeIn",
             hideMethod: "fadeOut"
         };
+
     })
+
 </script>
+
 <script type="text/javascript">
     //页面初始化
     var cid = 0;
     var sid = 0;
-    var role = 0;
+    var role=0;
     $(function () {
         $.ajax({
             url: "http://localhost:8080/getUser",
@@ -442,50 +405,78 @@
             success: function (data) {
                 sid = data.current_user;
                 cid = data.course_id;
-                role = data.role;  //0表示学生 1表示老师
+                role=data.role;  //0表示学生 1表示老师
                 $.ajax({
                     url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
                     dataType: "json",
                     success: function (data) {
+                        console.log(data.success.stu_major);
                         $("#user_name").html(data.success.student);
                         $("#depart_name").html(data.success.stuMajor);
-
-                        $("#original_file").fileinput({
+                        //添加文件上传时候的参数，三处用到
+                        $("#paperfile").fileinput({
                             language: 'zh',
                             theme: 'explorer-fas',
-                            uploadUrl: 'http://localhost:8080/saveTranslation',
+                            uploadUrl: 'http://localhost:8080/saveFinalReport',
                             overwriteInitial: false,
                             initialPreviewAsData: true,
                             showPreview: true,//是否显示预览
+                            initialPreview: [],
                             showUpload: false,
                             enctype: "multipart/form-data",
-                            uploadExtraData: {
-                                course_id:cid,
-                                type:"origin"
-                            }
-                        });
-                        $("#translated_file").fileinput({
+                            uploadExtraData: function () {
+                                var data = {
+                                    studentid: sid,
+                                    type: "paper"
+                                };
+                                return data;
+                            },
+                        })
+                        $("#resultfile").fileinput({
                             language: 'zh',
                             theme: 'explorer-fas',
-                            uploadUrl: 'http://localhost:8080/saveTranslation',
+                            uploadUrl: 'http://localhost:8080/saveFinalReport',
                             overwriteInitial: false,
                             initialPreviewAsData: true,
                             showPreview: true,//是否显示预览
+                            initialPreview: [],
                             showUpload: false,
                             enctype: "multipart/form-data",
-                            uploadExtraData: {
-                                course_id:cid,
-                                type:"translated"
-                            }
-                        });
-
+                            uploadExtraData: function () {
+                                var data = {
+                                    studentid: sid,
+                                    type: "result"
+                                };
+                                return data;
+                            },
+                        })
+                        $("#otherfile").fileinput({
+                            language: 'zh',
+                            theme: 'explorer-fas',
+                            uploadUrl: 'http://localhost:8080/saveFinalReport',
+                            overwriteInitial: false,
+                            initialPreviewAsData: true,
+                            showPreview: true,//是否显示预览
+                            initialPreview: [],
+                            showUpload: false,
+                            enctype: "multipart/form-data",
+                            uploadExtraData: function () {
+                                var data = {
+                                    studentid: sid,
+                                    type: "other"
+                                };
+                                return data;
+                            },
+                            initialPreviewConfig: []
+                        })
+                        console.log(formdata);
                     }
                 });
 
-                initBasicInfor(sid, cid, role);
+                initBasicInfor(sid, cid,role);
                 $.ajax({
                     type: "GET",
-                    url: "http://localhost:8080/getTranslation",
+                    url: "http://localhost:8080/returnFinalReport",
                     data: {course_id: cid},
                     success: function (msg) {
                         initReport(msg.success)
@@ -498,15 +489,14 @@
 
     });
 
-    function initBasicInfor(sid, cid, role) {
+    function initBasicInfor(sid, cid,role) {
         //处理角色
-        if (role === 1) {
-            $("#result").removeAttr("disabled");
+        if(role===1){
+            $("#resultt").removeAttr("disabled");
             $("#advice").removeAttr("disabled");
-            $("#original").summernote("disable");
-            $("#translated").summernote("disable");
+            //这个按钮一开始应该是隐藏的，角色为老师的时候才显示
+            //按钮一开始应该是  style=“display:none”
             $("#submitt").show();
-
         }
 
         // 课题基本信息
@@ -531,77 +521,78 @@
         });
     }
 
-    function initReport(page) {
+    function initReport(midreport) {
+        console.log(midreport.state);
         //处理报告状态
-        if (page.state !== "SAVE" && page.state !== null) {
-            $("#original").summernote("disable");
-            $("#translated").summernote("disable");
+        if (midreport.state !== "SAVE" && midreport.state !== "") {
+            $("body").find("input,textarea").attr("disabled", true);
             $("#submit").hide();
-            $(".filep").hide();
             $("#save").hide();
-            if (page.file_address1 !== null) {
-                $("#write_Left").show();
-                $("#write_Left_accessory").html(page.originfilename1);
-                $("#write_Left_A").attr({
-                    "href": page.file_address1,
-                    "download": page.originfilename1
-                });
-            }
-            if (page.file_address2 !== null) {
-                $("#write_Right").show();
-                $("#write_Right_accessory").html(page.originfilename2);
-                $("#write_Right_A").attr({
-                    "href": page.file_address2,
-                    "download": page.originfilename2
-                });
-            }
         }
 
-        if(page.result!=null){
+        //处理审核状态
+        // 如果老师提交过了的话（默认填过字） 就处理下状态和按钮
+        if(midreport.result!=null){
             $("#advice").attr("disabled",true);
             $("#result").attr("disabled",true);
             $("#submitt").hide();
-
         }
         //处理文件下载
-        if (page.file_address1 !== null) {
-            $("#write_Left").show();
-            $("#write_Left_accessory").html(page.originfilename1);
-            $("#write_Left_A").attr({
-                "href": page.file_address1,
-                "download": page.originfilename1
+        var reportA = page.fileadress;
+        var resultA = page.result_adress;
+        var otherA = page.enclosure_adress;
+
+        if (reportA != null) {
+            $("#file_download").show();
+            $("#file_path").attr({
+                'href':reportA,
+                'download':page.originfilename1
             });
+            $("#file_name").html(page.originfilename1);
+
         }
-        if (page.file_address2 !== null) {
-            $("#write_Right").show();
-            $("#write_Right_accessory").html(page.originfilename2);
-            $("#write_Right_A").attr({
-                "href": page.file_address2,
-                "download": page.originfilename2
+        if(resultA!=null){
+            $("#result_download").show();
+            $("#result_path").attr({
+                'href':resultA,
+                'download':page.originfilename2
             });
+            $("#result_name").html(page.originfilename2);
+        }
+        if(otherA!=null){
+            $("#other_file").show();
+            $("#other_path").attr({
+                'href':resultA,
+                'download':page.originfilename3
+            });
+            $("#other_name").html(page.originfilename3);
         }
 
         //处理报告信息（不能直接复制）
-        $('#original').summernote('code', page.original_text);
-        $('#translated').summernote('code', page.translation_content);
+        $("#papername").val(page.reportname);
+        $("#keys").val(page.innovation_point);
+        $("#points").val(page.chinese_abstract);
+        $("#summary").val(page.chinese_abstract);
+        $("#summary-e").val(page.english_abstract);
+        $("#others").val(page.others);
+        $("#result").val(page.detection_result);
 
         //处理审核状态  此处直接复制
-        $("#result").val(page.result);
-        $("#reviewer").html($("#c_teacher")[0].innerText);
-        $("#advice").val(page.advice);
+        $("#resultt").val(midreport.result);
+        $("#reviewer").html($("#c_teacher")[0].innerText)
+        $("#advice").val(midreport.advice);
+
+
     }
-
-
 </script>
 <script type="text/javascript">
     //页面信息处理
-
     //初始化加载
     $(function () {
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/getTranslation",
-            data: {course_id: cid},
+            url: "http://localhost:8080/returnFinalReport",
+            data: {studentid: sid},
             success: function (msg) {
                 initReport(msg.success)
             }
@@ -610,13 +601,14 @@
     });
     //保存提交
     $("#save").on("click", function () {
-        commitPages(cid, "SAVE");
-        // window.location.reload();
-
+        commitPages("123", "SAVE");
+        toastr.success("保存成功", "消息提示");
 
     });
+
     $("#submit").on("click", function () {
-        commitPages(cid, "SUBMIT");
+        commitPages("123", "SUBMIT");
+        toastr.success("提交成功", "消息提示");
         // window.location.reload();
 
     });
@@ -630,9 +622,9 @@
         var page={
             course_id:id,
             advice:$("#advice")[0].value,
-            result:$("#result")[0].value
+            teacher_result:$("#resultt")[0].value
         };
-        axios.post('http://localhost:8080/updateTranslationForTeacher',page).then(
+        axios.post('http://localhost:8080/updateFinalReportForTeacher',page).then(
             function (response) {
                 console.log(response);
                 toastr.success("提交成功", "消息提示");
@@ -644,20 +636,25 @@
 
     function commitPages(id, sta) {
         var page = {
-            course_id: id,
+            studentid: id,
             state: sta,
-            translation_content: $('#translated').summernote('code'),
-            original_text: $("#original").summernote('code')
+            commit_time: new Date(),
+            reportname: $("#papername")[0].value,
+            keywoord: $("#keys")[0].value,
+            innovation_point: $("#points")[0].value,
+            chinese_abstract: $("#summary")[0].value,
+            english_abstract: $("#summary-e")[0].value,
+            others: $("#others")[0].value,
+            detection_result: $("#result")[0].value,
         };
 
-        axios.post('http://localhost:8080/addTranslation', page)
+        axios.post('http://localhost:8080/addFinalReport', page)
             .then(function (response) {
                 $("div [name='items']").fileinput('upload');
-                toastr.success("提交成功", "消息提示");
+                // window.location.reload();
             })
             .catch(function (error) {
                 console.log(error);
-                toastr.error("提交失败", "消息提示");
             });
     }
 </script>

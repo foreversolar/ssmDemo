@@ -24,4 +24,16 @@
 	    from (select version from midreport where course_id=#{course_id}) a
       )
   </update>
+  <select id="returnMidReportToTeacher" parameterType="java.lang.Integer" resultType="com.demo.mms.common.domain.Midreport">
+    SELECT*
+    FROM midreport NATURAL JOIN (
+    select course_id,max(version) as version
+        from midreport
+        where course_id in(
+        select id
+        from course
+        where inst_id=#{teacher_id})
+            group by course_id) tt
+  </select>
+
 </mapper>

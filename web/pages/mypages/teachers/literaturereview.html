@@ -4,49 +4,53 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>本科毕业论文(设计)管理系统</title>
-
+    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- 基础css-->
+    <script src="../../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../../../dist/css/skins/_all-skins.min.css">
+    <script src="../../../dist/js/pages/dashboard.js"></script>
+    <script src="../../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../../../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../../../dist/js/demo.js"></script>
+    <script src="../../../dist/js/adminlte.min.js"></script>
 
-    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 
-    <!-- 川大Style-->
-    <link rel="stylesheet" href="../../dist/css/origin/default.css">
-    <link rel="stylesheet" href="../../dist/css/origin/easyui(4).css">
-    <link rel="stylesheet" href="../../dist/css/origin/base(4).css">
-    <link rel="stylesheet" href="../../dist/css/origin/common.css">
-    <link rel="stylesheet" href="../../dist/css/origin/webuploader(1).css">
+    <!-- 川大css-->
+    <link rel="stylesheet" href="../../../dist/css/origin/easyui(4).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/rangyStyle(1).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/base(4).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/common(1).css">
+    <link rel="stylesheet" href="../../../dist/css/origin/webuploader(2).css">
 
     <!-- 富文本css-->
-    <link href="../../bower_components/summernote/dist/summernote.css" rel="stylesheet">
-    <script src="../../bower_components/summernote/dist/summernote.js"></script>
-    <script src="../../bower_components/summernote/dist/lang/summernote-zh-CN.js"></script>
-
-    <!-- 时间选择器-->
-    <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <link href="../../../bower_components/summernote/dist/summernote.css" rel="stylesheet">
+    <script src="../../../bower_components/summernote/dist/summernote.js"></script>
+    <script src="../../../bower_components/summernote/dist/lang/summernote-zh-CN.js"></script>
 
     <!-- 文件上传-->
-    <link href="../../bower_components/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet"
+    <link href="../../../bower_components/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet"
           type="text/css"/>
-    <script src="../../bower_components/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
-    <script src="../../bower_components/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
+    <script src="../../../bower_components/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="../../../bower_components/bootstrap-fileinput/js/locales/zh.js" type="text/javascript"></script>
 
+    <!-- 弹窗-->
+    <script src="../../../bower_components/toastr/toastr.min.js"></script>
+    <link rel="stylesheet" href="../../../bower_components/toastr/toastr.min.css">
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--AXIOS-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+
     <!--可以全部复制-->
     <header class="main-header">
         <!-- Logo -->
@@ -79,11 +83,10 @@
                     </p>
                 </div>
             </div>
-            <img style=" float:left;padding:15px" src="../../dist/img/scu.png">
+            <img style=" float:left;padding:15px" src="../../../dist/img/scu.png">
             <p class="login-paper" id="xtmc">本科毕业论文（设计）管理系统</p>
         </nav>
     </header>
-
     <!--修改 active-->
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -91,7 +94,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="../../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>
@@ -119,10 +122,10 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class=""><a href="./myindex.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
+                        <li class=""><a href="../../index.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-files-o"></i>
                         <span>师生双选管理</span>
@@ -131,7 +134,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./addCourse.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
+                        <li class=""><a href="./addCourse.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
                         <li><a href="./chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
                         <li><a href="./task.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
                     </ul>
@@ -147,13 +150,13 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>提交开题报告</a></li>
-                        <li><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
-                        <li class="active"><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
-                        <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
-                        <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a></li>
-                        <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
-                        <li><a href=" "><i class="fa fa-circle-o"></i>指导教师答疑安排</a></li>
+                        <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>审核开题报告</a></li>
+                        <li><a href="./midreport.html "><i class="fa fa-circle-o"></i>审核中期检查</a></li>
+                        <li><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>审核指导记录</a></li>
+                        <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>审核外文译文和原件</a></li>
+                        <li class="active"><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>审核文献综述</a>
+                        </li>
+                        <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>审核毕业设计(论文)</a></li>
                     </ul>
                 </li>
 
@@ -189,25 +192,11 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- 时间限制提示 -->
-        <div id="timeLimit" class="gxf_tips" style="display:none;">
-            <div class="gxf_tip">
-                <i></i>信息提示
-            </div>
-            <div>
-                <p style="margin-top: 10px; font-size:14px;" id="timeText"></p>
-            </div>
-        </div>
-        <!-- 时间限制提示 -->
-        <div id="otherMIdReport" class="gxf_tips" style="display:none;">
-            <div class="gxf_tip">
-                <i></i>信息提示
-            </div>
-            <div>
-                <p style="margin-top: 10px; font-size:14px;">您所在学校设置了您无权限查看内容</p>
-            </div>
-        </div>
+
         <div class="main" id="choiceDiv" style="">
+            <div class="gxf_problem gxf_pro_top" id="historyDiv" style="">
+                <div class="active"><h2><span class="sanjiao_active"></span>文献综述</h2></div>
+            </div>
             <!-- 课题基本信息 -->
             <div id="gxf-project-information">
                 <div class="gxf_problem gxf_problem_detail">
@@ -247,43 +236,64 @@
                     </div>
                 </div>
             </div>
-            <div class=" gxf_problem gxf_problem_title">
-                <div><h2><span></span>添加内容</h2></div>
-                <div class="gxf_designTable_content">
-                    <ul class="gxf_designTable_box" id="DesignTable" style="">
-                        <li><p>指导时间</p>
-                            <span class="textbox easyui-fluid" style="width: 1211px; height: 28px;">
-                                 <div class="input-group date">
-                                     <div class="input-group-addon">
-                                         <i class="fa fa-calendar"></i>
-                                     </div>
-                                     <input type="text" class="form-control pull-right" id="datepicker">
-                                 </div>
-                            </span>
-                        </li>
-                        <li><p>指导内容<span class="statement margl"></span></p>
-                            <!--<div id="summernote"  class="gxf_rangy_left" ></div>-->
-                            <textarea id="input_textarea" class="form-control"  rows="24" ></textarea>
-                        </li>
-                    </ul>
-                    <ul class="gxf_designTable_box">
-                        <li id="fujian" style="">
-                            <p>添加附件：<span id="scfj" class="statement">上传有关指导记录的附件，上传的文件将以附件的形式显示。支持附件格式为doc，docx，pdf，wps，rar，zip</span>
-                            </p>
-                            <div class="file-loading">
-                                <input id="kv-explorer" type="file"  name="items" multiple>
+
+            <!-- 详情 -->
+            <div id="openReportDetail" style="">
+                <div class=" gxf_problem gxf_problem_title">
+                    <div><h2><span></span>内容详情</h2></div>
+                    <div class="gxf_designTable_content">
+                        <ul class="gxf_designTable_box" id="DesignTable">
+                            <li><p>文献综述需要填写的内容<span class="writerText margl"> <span class="statement margl">请按照学校的要求，在下方输入相关内容，若无内容请填写“无”</span>
+                            </span>></p>
+                                <div class="gxf_designTable_rangy clearfix">
+                                    <div id="left_neirong1" class="gxf_rangy_left">
+                                        <div id="summernote"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul><!-- 自定义时详情 -->
+                        <ul class="gxf_designTable_box">
+                            <div id="fujian">
+                                <p>附件<span id="fujian-test" class="margl" style="font-size: 12px;"> </span></p>
+                                <div id="accessory" style="display: none" class="gxf_designTable_detailes">附件：<span
+                                        id="accessorySpan">毕业论文文献综述.docx</span>
+                                    <a id="file_path" class="listA margl">点击下载</a>
+                                </div>
                             </div>
-                        </li>
-                        <li id="file" style="">
-                            <div id="accessory" class="gxf_designTable_detailes">四川大学毕业论文（设计）中期检查表.doc
+                            <!--<div class="file-loading">-->
+                                <!--<input id="original_file" type="file" multiple name="items">-->
+                            <!--</div>-->
+
+                            <div class="margt">
+                                <input id="save" style="margin:20px" class="clearBtn margl" type="button" value="保存">
+                                <input id="submit" style="margin:20px" class="formBtn" type="button" value="提交">
                             </div>
-                            <a class="listA margl" id="file_path" download="四川大学毕业论文（设计）中期检查表.doc">点击下载</a>
-                        </li>
-                        <li>
-                            <input id="submit_uploading" class="formBtn margt" type="button" value="提交">
-                            <input id="cancel" class="clearBtn margl margt" type="button" value="取消">
-                        </li>
-                    </ul>
+                        </ul>
+                    </div>
+                    <div class="gxf_problem gxf_problem_reader" id="CheckDetail" style="">
+                        <div><h2><span></span>审核情况</h2></div>
+                        <div id="designTableCheckBox">
+                            <div class="gxf_designTable_check">指导教师审核情况</div>
+                            <div class="gxf_designTable_content">
+                                <ul class="gxf_designTable_box">
+                                    <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl"
+                                                                                                id="reviewer"></span>
+                                    </li>
+                                    <li class="_checkState_"><p>审核状态</p>
+                                        <input class="form-control" id="resultt" disabled="disabled">
+                                    </li>
+                                    <li><p>审核意见</p>
+                                        <input class="form-control" id="advice" disabled="disabled">
+                                    </li>
+                                </ul>
+                                <div class="margt">
+                                    <input id="submitt" style="margin:20px; display: none" class="formBtn" type="button"
+                                           value="提交">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,75 +306,18 @@
         <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
         reserved.
     </footer>
+
+
 </div>
-<script src="../../bower_components/toastr/toastr.min.js"></script>
-<link rel="stylesheet" href="../../bower_components/toastr/toastr.min.css">
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- ./wrapper -->
 
+<script src="../../dist/js/demo.js"></script>
 
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        var formdata={};
-        //指导内容框
-        $('#summernote').summernote({
-            lang: 'zh-CN',
-            placeholder: '',
-            tabsize: 4,
-            height: 500
-        });
-        //指导日期
-        $('#datepicker').datepicker({
-            autoclose: true
-        });
-
-        toastr.options = {
-            closeButton: false,
-            debug: false,
-            progressBar: true,
-            positionClass: "toast-top-center",
-            onclick: null,
-            showDuration: "300",
-            hideDuration: "800",
-            timeOut: "1000",
-            extendedTimeOut: "1000",
-            showEasing: "swing",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut"
-        };
-        //初始化文件上传
-        $("#kv-explorer").fileinput({
-            language: 'zh',
-            theme: 'explorer-fas',
-            uploadUrl: 'http://localhost:8080/saveGuidance',/**************/
-            overwriteInitial: false,
-            initialPreviewAsData: true,
-            showPreview:true,//是否显示预览
-            initialPreview: [],
-            enctype:"multipart/form-data",
-            uploadExtraData:function () {
-                return {course_id:11000};
-            },
-            initialPreviewConfig: []
-        }).on('filepreupload', function (event, data, previewId, index) {     //上传中
-            var form = data.form, files = data.files, extra = data.extra,
-                response = data.response, reader = data.reader;
-            console.log('文件正在上传');
-        }).on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
-            console.log('文件上传成功！' + data.id);
-
-        }).on('fileerror', function (event, data, msg) {  //一个文件上传失败
-            console.log('文件上传失败！' + data.id);
-        });
-    });
-</script>
 <script type="text/javascript">
     //页面初始化
     var cid = 0;
     var sid = 0;
-    var role=0;
+    var role = 0;
     $(function () {
         $.ajax({
             url: "http://localhost:8080/getUser",
@@ -372,43 +325,39 @@
             error: function (data) {
             },
             success: function (data) {
-                sid = data.current_user;
+                sid = data.student_id;
                 cid = data.course_id;
-                role=data.role;  //0表示学生 1表示老师
+                role = data.role;  //0表示学生 1表示老师
                 $.ajax({
-                    url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
+                    url: "http://localhost:8080/getTeacherInformation?teacherId=" + data.current_user,
                     dataType: "json",
                     success: function (data) {
-                        console.log(data.success.stu_major);
-                        $("#user_name").html(data.success.student);
-                        $("#depart_name").html(data.success.stuMajor);
-                        //添加文件上传时候的参数，三处用到
-                        formdata={
-                            course_id:cid
-                        };
-                        console.log(formdata);
+                        $("#user_name").html(data.name);
+                        $("#depart_name").html(data.department);
                     }
                 });
-                initBasicInfor(sid, cid,role);
+
+                initBasicInfor(sid, cid, role);
                 $.ajax({
                     type: "GET",
-                    url: "http://localhost:8080/getGuidance",
+                    url: "http://localhost:8080/getLiteratureReview",
                     data: {course_id: cid},
                     success: function (msg) {
                         initReport(msg)
                     }
                 });
+
             }
         });
+
+
     });
 
-    function initBasicInfor(sid, cid,role) {
-        //处理角色
-        if(role===1){
-            $("#result").removeAttr("disabled");
-            $("#advice").removeAttr("disabled");
-            $("#submitt").show();
-        }
+    function initBasicInfor(sid, cid, role) {
+        $("#resultt").removeAttr("disabled");
+        $("#advice").removeAttr("disabled");
+        $("#submitt").show();
+
         // 课题基本信息
         $.ajax({
             url: "http://localhost:8080/getCourse?student_id=" + sid,
@@ -431,68 +380,75 @@
         });
     }
 
-    function initReport(guideancedate) {
-        console.log(guideancedate.state);
-        //处理报告状态
-        if (guideancedate.state !== "SAVE" && guideancedate.state !== "") {
-            $("body").find("input,textarea").attr("disabled", true);
-            $("#submit_uploading").hide();
-            $("#cancel").hide();
+    function initReport(page) {
+        $("#summernote").summernote("disable");
+        $("#submit").hide();
+        $("#save").hide();
+        console.log(page.result)
+        if (page.result != null) {
+            $("#advice").attr("disabled", true);
+            $("#resultt").attr("disabled", true);
+            $("#submitt").hide();
 
         }
-        //处理页面内容
-
-        $("#datepicker").val(guideancedate.time);
-        $("#input_textarea").val(guideancedate.content);
         //处理文件下载
-        if (guideancedate.path !== null) {
-            $("#fujian").hide();
-            $("#file").show();
-            $("#accessory").html(guideancedate.originfilename);
+        if (page.path !== null) {
+            $("#accessory").show();
+            $("#accessorySpan").html(page.originfilename);
             $("#file_path").attr({
-                'href': guideancedate.path,
-                'download': guideancedate.originfilename
+                "href": page.path,
+                "download": page.originfilename
             });
         }
+
+        //处理报告信息（不能直接复制）
+        $('#summernote').summernote('code', page.content);
+
         //处理审核状态  此处直接复制
-        $("#result").val(guideancedate.result);
-        $("#reviewer").html($("#c_teacher")[0].innerText)
-        $("#advice").val(guideancedate.advice);
+        $("#resultt").val(page.result);
+        $("#reviewer").html($("#c_teacher")[0].innerText);
+        $("#advice").val(page.advice);
     }
+
+
 </script>
-<script>
-    $(document).ready(function () {
-        $("#submit_uploading").click(function () {
-            submitReport(sid);/**/
+<script type="text/javascript">
+    //页面信息处理
 
-        });
-        $("#cancel").click(function () {
-            location.href = "./guideance.html";
-            alert("操作取消");
-        });
-        function submitReport(sid) {
-            var course_id = cid;
-            var time =  new Date($("#datepicker")[0].value);
-            var content = $("#input_textarea")[0].value;
-            var sub_time = new Date();
-
-            var guideancedate = {
-                course_id:  course_id,
-                time: time,
-                content: content,
-                submit_time: sub_time
-            };
-            axios.post('http://localhost:8080/addGuidance', guideancedate)
-                .then(function (response) {
-                    $("#kv-explorer").fileinput("upload");
-                    toastr.success("保存成功", "消息提示");
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
+    $("#submitt").on("click", function () {
+        commitAdvice(cid);
     })
+
+    function commitAdvice(cid) {
+        var page = {
+            course_id: cid,
+            advice: $("#advice")[0].value,
+            AuditStatus: $("#resultt")[0].value
+        };
+        $.ajax({
+            url:"http://localhost:8080/addLiteratureReviewTeacherOpinion",
+            data:page
+        }).then(
+            function (response) {
+                toastr.success("提交成功", "消息提示");
+            }
+        ).catch(function () {
+            toastr.error("提交失败", "消息提示");
+        })
+    }
+
+    //初始化加载
+    $(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/getLiteratureReview",
+            data: {course_id: cid},
+            success: function (msg) {
+                initReport(msg.success)
+            }
+        })
+    })
+
 </script>
 </body>
 </html>

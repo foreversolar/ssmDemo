@@ -21,7 +21,15 @@ public class course {
 
     private String student;
 
-    private Integer studentId;
+    public Integer getStudent_id() {
+        return student_id;
+    }
+
+    public void setStudent_id(Integer student_id) {
+        this.student_id = student_id;
+    }
+
+    private Integer student_id;
 
     private String instEmail;
 
@@ -107,13 +115,6 @@ public class course {
         this.student = student == null ? null : student.trim();
     }
 
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
 
     public String getInstEmail() {
         return instEmail;

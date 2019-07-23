@@ -105,24 +105,46 @@
             hideMethod: "fadeOut"
         };
         $('#btnSubmit').click(function () {
-            $.ajax({
-                url: "http://localhost:8080/checkUsrANDPwd",
-                data: $('#form1').serialize(),
-                dataType: "json",
-                error: function (data) {
-                    toastr.warning(data.msg);
-                    window.location.href = "/pages/mypages/login.html"
-                },
-                success: function (data) {
-                    if (data.msg === "登录成功") {
-                        window.location.href = "/pages/mypages/myindex.html"
-                    }
-                    else {
-                        toastr.error("用户名或密码错误");
-                    }
+            if($("input:radio[name='Role']:checked").val()==0){
+                $.ajax({
+                    url: "http://localhost:8080/checkUsrANDPwd",
+                    data: $('#form1').serialize(),
+                    dataType: "json",
+                    error: function (data) {
+                        toastr.warning(data.msg);
+                        window.location.href = "/pages/mypages/login.html"
+                    },
+                    success: function (data) {
+                        if (data.msg === "登录成功") {
+                            window.location.href = "/pages/mypages/myindex.html"
+                        }
+                        else {
+                            toastr.error("用户名或密码错误");
+                        }
 
-                }
-            });
+                    }
+                });
+            }else{
+                $.ajax({
+                    url: "http://localhost:8080/checkTeacherUsrANDPwd",
+                    data: $('#form1').serialize(),
+                    dataType: "json",
+                    error: function (data) {
+                        toastr.warning(data.msg);
+                        window.location.href = "/pages/mypages/login.html"
+                    },
+                    success: function (data) {
+                        if (data.msg === "登录成功") {
+                            window.location.href = "/pages/mypages/teachers/myindex.html"
+                        }
+                        else {
+                            toastr.error("用户名或密码错误");
+                        }
+
+                    }
+                });
+            }
+
         });
     })
 </script>
