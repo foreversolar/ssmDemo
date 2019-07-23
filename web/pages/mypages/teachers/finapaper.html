@@ -24,9 +24,6 @@
     <link rel="stylesheet" href="../../dist/css/origin/rangyStyle(1).css">
     <link rel="stylesheet" href="../../dist/css/origin/base(4).css">
     <link rel="stylesheet" href="../../dist/css/origin/common(1).css">
-    <!--<link rel="stylesheet" href="../../dist/css/origin/base(2).css">-->
-    <link href="../../dist/css/origin/cnkiPager.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../dist/css/origin/Login.css">
 
     <!-- 富文本css-->
     <link href="../../bower_components/summernote/dist/summernote.css" rel="stylesheet">
@@ -71,8 +68,8 @@
 
             <div class="navbar-custom-menu">
                 <div class="bannerRight">
-                    <p class="john"><span id="user_name">用户名</span>, &nbsp;欢迎使用系统</p>
-                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span class="role_name">学生</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span></p>
+                    <p class="john"><span id="user_name">王启帆(2015141463170)</span>, &nbsp;欢迎使用系统</p>
+                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span class="role_name">学生</span><span id="academyName" title="专业：软件学院-软件工程">&nbsp; / &nbsp;专业：软件学院-...</span></p>
                     <!--<input  id="hdUserDefinedRoles" value="[{&quot;name&quot;:&quot;管理员&quot;,&quot;value&quot;:1},{&quot;name&quot;:&quot;学生&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;指导教师&quot;,&quot;value&quot;:3},{&quot;name&quot;:&quot;专业负责人&quot;,&quot;value&quot;:4},{&quot;name&quot;:&quot;教学秘书&quot;,&quot;value&quot;:5},{&quot;name&quot;:&quot;院长&quot;,&quot;value&quot;:6},{&quot;name&quot;:&quot;答辩录入员&quot;,&quot;value&quot;:7},{&quot;name&quot;:&quot;督导专家&quot;,&quot;value&quot;:8},{&quot;name&quot;:&quot;评阅专家&quot;,&quot;value&quot;:9},{&quot;name&quot;:&quot;辅助导师&quot;,&quot;value&quot;:10},{&quot;name&quot;:&quot;管理员（被授权）&quot;,&quot;value&quot;:11}]">-->
                     <!--<input id="hdAuthToken" value="">-->
                     <p class="quitChunk">
@@ -114,7 +111,8 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class=" active treeview">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>首页管理</span>
                         <span class="pull-right-container">
@@ -122,7 +120,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="myindex.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
+                        <li class=""><a href="../../index.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -134,14 +132,14 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./addCourse.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
-                        <li><a href="./chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
-                        <li><a href="./task.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
+                        <li><a href="../../pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
+                        <li><a href="../../pages/layout/boxed.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
+                        <li><a href="../../pages/layout/fixed.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
                     </ul>
                 </li>
 
 
-                <li class=" treeview">
+                <li class="active treeview">
                     <a href="#">
                         <i class="fa fa-th"></i>
                         <span>过程文档管理</span>
@@ -152,7 +150,7 @@
                     <ul class="treeview-menu">
                         <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>提交开题报告</a></li>
                         <li><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
-                        <li><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
+                        <li class="active"><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
                         <li ><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
                         <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a></li>
                         <li ><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
@@ -168,7 +166,9 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../../pages/mypages/gradeview.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
+                        <li><a href="../../pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> 查看我参加的答辩</a></li>
+                        <li><a href="../../pages/charts/morris.html"><i class="fa fa-circle-o"></i> 答辩记录</a></li>
+                        <li><a href="../../pages/charts/flot.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
                     </ul>
                 </li>
 
@@ -182,6 +182,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="../../pages/UI/general.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
+                        <li><a href="../../pages/UI/icons.html"><i class="fa fa-circle-o"></i> 个人信息维护</a></li>
                     </ul>
                 </li>
             </ul>
@@ -190,30 +191,94 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <div class="main gxf_teacher_container">
-        <div class="gxf_teacher_tabs">
-            <ul id="ulNoticeTabs" class="clearfix"><li><a href="javascript:SwitchTab(&quot;0&quot;,&quot;1016&quot;,&quot;0&quot;);" class="active">操作指南</a></li><li><a href="javascript:SwitchTab(&quot;1&quot;,&quot;38&quot;,&quot;0&quot;);">资料下载</a></li><li><a href="javascript:SwitchTab(&quot;2&quot;,&quot;1012&quot;,&quot;0&quot;);">学校通知通告</a></li><li><a href="javascript:SwitchTab(&quot;3&quot;,&quot;1013&quot;,&quot;0&quot;);">毕业论文（设计）管理文件</a></li></ul>
-        </div>
-        <div id="Ncontent" class="Ncontent clearfix" style="width: 100%">
-            <!--右侧展示-->
-            <div id="divModeList" class="NRnews" style="display: block; width: 100%; padding: 0px; border: 0px;">
-                <!--<h2>通知公告</h2>-->
-                <ul id="ulNoticeList" class="Narticlelist clearfix" style="padding-left: 10px;"><li><p><a href="javascript:openframe(&#39;查看通知公告&#39;, &#39;Notice/Details.html?noticeId=6&amp;typeId=1016&#39;,false)">四川大学毕业论文（设计）管理系统指导老师操作步骤</a></p></li><li><p><a href="javascript:openframe(&#39;查看通知公告&#39;, &#39;Notice/Details.html?noticeId=5&amp;typeId=1016&#39;,false)">四川大学毕业论文（设计）管理系统学生操作步骤</a></p></li></ul>
+    <div class="content-wrapper">
 
-                <div id="noticeListPager" class="cnkipager" style="width: 100%; float: right; text-align: right; line-height: 30px; margin-top: 30px; margin-right: 30px; font-size: 12px;">&nbsp;<span class="disabled">首页</span><span class="disabled">上一页</span><span class="curr">1</span><span class="disabled">下一页</span><span class="disabled">尾页</span>&nbsp;<span class="normalsize">共1页/2条数据</span></div>
+        <div id="timeLimit" class="gxf_tips" style="display:none;">
+            <div class="gxf_tip">
+                <i></i>信息提示
             </div>
-
-            <!--右1035侧展示 第2种样式-->
-            <div id="divModeContent" class="NRnews-two" style="display: none; width: 100%; padding: 0; border: 0;">
-                <!--<h2 style="padding-left: 30px;">通知公告</h2>-->
-                <div id="contentList" style="padding: 0 20px"></div>
-
-                <div id="noticeListPager2" class="cnkipager" style="width: 100%; float: right; text-align: right; line-height: 30px; margin-top: 30px; margin-right: 30px; font-size: 12px;">&nbsp;<span class="disabled">首页</span><span class="disabled">上一页</span><span class="curr">1</span><span class="disabled">下一页</span><span class="disabled">尾页</span>&nbsp;<span class="normalsize">共1页/0条数据</span></div>
+            <div>
+                <p style="margin-top: 10px; font-size:14px;" id="timeText"></p>
             </div>
-
-            <div id="noContent" style="display: none; color: red; min-height: 200px; text-align: left; padding-left: 30px;"></div>
         </div>
+        <div class="main" id="main">
+            <!-- 课题基本信息 -->
+
+            <div id="gxf-project-information"><div class="gxf_problem gxf_problem_detail">            <div class="active"><h2><span class="sanjiao_active"></span>毕业设计</h2></div><div><h2><span></span>课题基本信息</h2></div><div class="gxf_pro_content gxf_content_table"><ul class="clearfix gxf_project_detadil_ul"><li style="width:100%;"><span class="detadil_txt_left"> 课题题目：</span><span style="width:600px;" class="detadil_txt_right">条件生成对抗网络在少数类有效数据生成中的研究与应用</span></li><li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right">软件工程</span></li><li><span class="detadil_txt_left"> 课题申报时间：</span><span class="detadil_txt_right">2018-12-11</span></li><li><span class="detadil_txt_left"> 题目类型：</span><span class="detadil_txt_right">理论研究</span></li><li><span class="detadil_txt_left"> 题目来源：</span><span class="detadil_txt_right">教师科研纵向课题</span></li><li><span class="detadil_txt_left"> 选择模式：</span><span class="detadil_txt_right">学生提交课题</span></li><li><span class="detadil_txt_left"> 课题所属专业：</span><span class="detadil_txt_right">软件学院-软件工程</span></li><li><span class="detadil_txt_left"> 指导教师：</span><span class="detadil_txt_right">段磊（20092049）</span></li><li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right">教授</span></li><li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"></span></li><li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right">王启帆（2015141463170）</span></li><li><span class="detadil_txt_left"> 学生院系专业：</span><span class="detadil_txt_right">软件学院-软件工程</span></li></ul></div></div></div>
+
+            <div class="gxf_problem gxf_problem_require">
+                <div id="Submit_GuideRecord" style="margin-bottom: 20px; margin-top: 20px">
+                    <a href="addFinalpaper.html">
+                        <input id="submit"  class="formBtn" type="button" value="添加毕业设计">
+                    </a>
+                </div>
+
+                <div id="tit" style="border-left: 3px solid #22B3C8"><h2>学生论文列表</h2></div>
+
+
+                <section class="content" style="padding: 0px">
+                    <div class="row">
+                        <div class="col-md-6" style="width:100%">
+                            <div class="box">
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>课题题目</th>
+                                            <th>提交时间</th>
+                                            <th>审核状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>条件生成对抗网络在少数类有效数据生成中的研究与应用</td>
+                                            <td>
+                                                2019-05-23:14:22:00
+                                            </td>
+                                            <td><span class="label label-success">审核通过</span></td>
+                                            <td><span  style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-操作">查看</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>条件生成对抗网络在少数类有效数据生成中的研究与应用</td>
+                                            <td>
+                                                2019-05-23:14:22:00
+                                            </td>
+                                            <td><span class="label label-success">审核通过</span></td>
+                                            <td><span  style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-操作">查看</span></td>
+                                        </tr>                                        <tr>
+                                        <td>3.</td>
+                                        <td>条件生成对抗网络在少数类有效数据生成中的研究与应用</td>
+                                        <td>
+                                            2019-05-23:14:22:00
+                                        </td>
+                                        <td><span class="label label-success">审核通过</span></td>
+                                        <td><span  style="text-align:center;white-space:normal;height:auto;" class="datagrid-cell datagrid-cell-c1-操作">查看</span></td>
+                                    </tr>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer clearfix">
+                                    <ul class="pagination pagination-sm no-margin pull-right">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+        <!-- 列表 -->
     </div>
 </div>
 <!-- /.content-wrapper -->
@@ -227,26 +292,7 @@
 
 </div>
 <!-- ./wrapper -->
-<script type="text/javascript">
-    $(function () {
-        $.ajax({
-            url: "http://localhost:8080/getUser",
-            dataType: "json",
-            error: function (data) {
-            },
-            success: function (data) {
-                $.ajax({
-                    url: "http://localhost:8080/getCourse?student_id="+data.current_user,
-                    dataType: "json",
-                    success: function (data) {
-                        console.log(data.success.stu_major);
-                       $("#user_name").html(data.success.student);
-                       $("#depart_name").html(data.success.stuMajor);
-                    }});
 
-            }})
-    });
-</script>
 
 </body>
 </html>

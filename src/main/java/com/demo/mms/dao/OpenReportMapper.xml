@@ -4,23 +4,23 @@
   <resultMap id="BaseResultMap" type="com.demo.mms.common.domain.OpenReport">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="course_id" jdbcType="INTEGER" property="course_id" />
-    <result column="course_meaning" jdbcType="VARCHAR" property="courseMeaning" />
-    <result column="current_overview" jdbcType="VARCHAR" property="currentOverview" />
-    <result column="research_content" jdbcType="VARCHAR" property="researchContent" />
-    <result column="research_mind" jdbcType="VARCHAR" property="researchMind" />
-    <result column="research_schedule" jdbcType="VARCHAR" property="researchSchedule" />
+    <result column="course_meaning" jdbcType="VARCHAR" property="course_meaning" />
+    <result column="current_overview" jdbcType="VARCHAR" property="current_overview" />
+    <result column="research_content" jdbcType="VARCHAR" property="research_content" />
+    <result column="research_mind" jdbcType="VARCHAR" property="research_mind" />
+    <result column="research_schedule" jdbcType="VARCHAR" property="research_schedule" />
     <result column="reference" jdbcType="VARCHAR" property="reference" />
-    <result column="meeting_time" jdbcType="TIMESTAMP" property="meetingTime" />
-    <result column="meeting_place" jdbcType="VARCHAR" property="meetingPlace" />
-    <result column="meeting_host" jdbcType="VARCHAR" property="meetingHost" />
-    <result column="teacher1_id" jdbcType="INTEGER" property="teacher1Id" />
-    <result column="teacher2_id" jdbcType="INTEGER" property="teacher2Id" />
-    <result column="teacher3_id" jdbcType="INTEGER" property="teacher3Id" />
-    <result column="meeting_summary" jdbcType="VARCHAR" property="meetingSummary" />
+    <result column="meeting_time" jdbcType="TIMESTAMP" property="meeting_time" />
+    <result column="meeting_place" jdbcType="VARCHAR" property="meeting_place" />
+    <result column="meeting_host" jdbcType="VARCHAR" property="meeting_host" />
+    <result column="teacher1_id" jdbcType="INTEGER" property="teacher1_id" />
+    <result column="teacher2_id" jdbcType="INTEGER" property="teacher2_id" />
+    <result column="teacher3_id" jdbcType="INTEGER" property="teacher3_id" />
+    <result column="meeting_summary" jdbcType="VARCHAR" property="meeting_summary" />
     <result column="advice" jdbcType="VARCHAR" property="advice" />
     <result column="version" jdbcType="INTEGER" property="version" />
     <result column="state" jdbcType="VARCHAR" property="state" />
-    <result column="submit_time" jdbcType="TIMESTAMP" property="submitTime" />
+    <result column="submit_time" jdbcType="TIMESTAMP" property="submit_time" />
   </resultMap>
   <sql id="Base_Column_List">
     id, course_id, course_meaning, current_overview, research_content, research_mind, 
@@ -134,7 +134,7 @@
         #{course_id,jdbcType=INTEGER},
       </if>
       <if test="courseMeaning != null">
-        #{courseMeaning,jdbcType=VARCHAR},
+        #{course_meaning,jdbcType=VARCHAR},
       </if>
       <if test="currentOverview != null">
         #{currentOverview,jdbcType=VARCHAR},
@@ -182,7 +182,7 @@
         #{state,jdbcType=VARCHAR},
       </if>
       <if test="submitTime != null">
-        #{submitTime,jdbcType=TIMESTAMP},
+        #{submit_time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -193,7 +193,7 @@
         course_id = #{course_id,jdbcType=INTEGER},
       </if>
       <if test="courseMeaning != null">
-        course_meaning = #{courseMeaning,jdbcType=VARCHAR},
+        course_meaning = #{course_meaning,jdbcType=VARCHAR},
       </if>
       <if test="currentOverview != null">
         current_overview = #{currentOverview,jdbcType=VARCHAR},
@@ -241,7 +241,7 @@
         state = #{state,jdbcType=VARCHAR},
       </if>
       <if test="submitTime != null">
-        submit_time = #{submitTime,jdbcType=TIMESTAMP},
+        submit_time = #{submit_time,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -249,7 +249,7 @@
   <update id="updateByPrimaryKey" parameterType="com.demo.mms.common.domain.OpenReport">
     update openreport
     set course_id = #{course_id,jdbcType=INTEGER},
-      course_meaning = #{courseMeaning,jdbcType=VARCHAR},
+      course_meaning = #{course_meaning,jdbcType=VARCHAR},
       current_overview = #{currentOverview,jdbcType=VARCHAR},
       research_content = #{researchContent,jdbcType=VARCHAR},
       research_mind = #{researchMind,jdbcType=VARCHAR},
@@ -265,7 +265,7 @@
       advice = #{advice,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER},
       state = #{state,jdbcType=VARCHAR},
-      submit_time = #{submitTime,jdbcType=TIMESTAMP}
+      submit_time = #{submit_time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="insertTeacherOpinion" parameterType="java.lang.String">

@@ -1,46 +1,38 @@
 package com.demo.mms.controller;
 
-import com.demo.mms.common.domain.Student;
 import com.demo.mms.common.domain.course;
-import com.demo.mms.service.StudentService;
+import com.demo.mms.service.TeacherService;
 import com.demo.mms.service.courseService;
 import org.apache.ibatis.annotations.Param;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.testng.mustache.Model;
-import sun.applet.resources.MsgAppletViewer;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
 
 @Controller
-public class StudentController {
+public class TeacherController {
     @Autowired
-    private StudentService studentService;
+    private TeacherService teacherService;
     @Autowired
     private courseService courseService;
 //    private  CourseService courseService;
 
-    @RequestMapping("/checkUserName")
+    @RequestMapping("/checkTeacherUserName")
     @ResponseBody
-    public boolean checkUserName(int usr){ return studentService.checkUserName(usr); }
+    public boolean checkUserName(int usr){ return teacherService.checkUserName(usr); }
 
-    @RequestMapping("/checkUsrANDPwd")
+    @RequestMapping("/checkTeacherUsrANDPwd")
     @ResponseBody
-    public Object checkUsrANDPwd(@Param("usr") Integer usr, @Param("pwd") String pwd,@Param("role") Integer role, HttpSession session){
+    public Object checkUsrANDPwd(@Param("usr") Integer usr, @Param("pwd") String pwd, HttpSession session){
         String msg=null;
         Map<String,Object> rs = new HashMap<>(64);
-        if(studentService.checkUsrANDPwd(usr,pwd)){
+        if(teacherService.checkUsrANDPwd(usr,pwd)){
            msg="登录成功";
             rs.put("msg",msg);
-            session.setAttribute("role",role);
             session.setAttribute("current_user",usr);
         }else{
             msg="用户名或密码错误";
@@ -50,22 +42,27 @@ public class StudentController {
 
     }
 
-    @RequestMapping("/getUser")
+    @RequestMapping("/getTeacherUser")
     @ResponseBody
     public Object getUser(HttpSession session){
-        Map<String,Object>rs = new HashMap<>(64);
         Integer currentUser = (Integer) session.getAttribute("current_user");
-            course coursetl= courseService.findcourse(currentUser);
-            rs.put("course_id",coursetl.getId());
+
+        course coursetl= courseService.findcourse(currentUser);
+        Map<String,Object>rs = new HashMap<>(64);
+        if(currentUser!=null){
             rs.put("current_user",currentUser);
+            rs.put("course_id",coursetl.getId());
             return rs;
         }
+        return  null;
 
-
-
-    @RequestMapping("/getStudentInformation")
-    @ResponseBody
-    public Object getStudentInformation(int stuId){
-         return studentService.getStudent(stuId);
     }
+
+    @RequestMapping("/getTeacherInformation")
+    @ResponseBody
+    public Object getTeacherInformation(int teacherId){
+        return teacherService.getTeacher(teacherId);
+    }
+
+
 }

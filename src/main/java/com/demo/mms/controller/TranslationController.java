@@ -90,4 +90,12 @@ public class TranslationController {
         rs.put("success", true);
         return rs;
     }
+    @RequestMapping("/addTranslationTeacherOpinion")
+    @ResponseBody
+    public Object addTeacherOpinion(@Param("course_id") Integer course_id, @Param("advice") String advice, @Param("AuditStatus") String AuditStatus) {
+        translationService.addTeacherOpinion(Integer.toString(course_id), advice, AuditStatus);
+        Map<String, Object> rs = new HashMap<>(64);
+        rs.put("success", true);
+        return rs;
+    }
 }
