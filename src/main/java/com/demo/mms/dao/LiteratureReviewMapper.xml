@@ -3,16 +3,18 @@
 <mapper namespace="com.demo.mms.dao.LiteratureReviewMapper">
   <resultMap id="BaseResultMap" type="com.demo.mms.common.domain.LiteratureReview">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="course_id" jdbcType="INTEGER" property="course_id" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="state" jdbcType="VARCHAR" property="state" />
     <result column="version" jdbcType="INTEGER" property="version" />
     <result column="advice" jdbcType="VARCHAR" property="advice" />
     <result column="attachment_address" jdbcType="VARCHAR" property="attachmentAddress" />
     <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="originfilename" jdbcType="VARCHAR" property="originfilename" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, course_id, content, state, version, advice, attachment_address, time
+    id, course_id, content, state, version, advice, attachment_address, time,path,originfilename
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
@@ -20,16 +22,21 @@
     from literaturereview
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!--<select id="selectMaxVersion" parameterType="java.lang.Integer" resultType="Integer">-->
+    <!--select max(version)-->
+    <!--from literaturereview-->
+    <!--where course_id=#{course_id}-->
+  <!--</select>-->
   <select id="selectMaxVersion" parameterType="java.lang.Integer" resultType="Integer">
     select max(version)
     from literaturereview
-    where course_id=#{courseId}
+    where course_id=#{value};
   </select>
   <select id="selectLiteratureReview" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from literaturereview
-    where course_id=#{courseId} and version=#{version}
+    where course_id=#{course_id} and version=#{version}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from literaturereview
@@ -38,10 +45,10 @@
   <insert id="insert" parameterType="com.demo.mms.common.domain.LiteratureReview">
     insert into literaturereview (id, course_id, content,
       state, version, advice,
-      attachment_address, time)
-    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR},
+      path, time)
+    values (#{id,jdbcType=INTEGER}, #{course_id,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR},
       #{state,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{advice,jdbcType=VARCHAR},
-      #{attachmentAddress,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
+      #{path,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.demo.mms.common.domain.LiteratureReview">
     insert into literaturereview
@@ -49,7 +56,7 @@
       <if test="id != null">
         id,
       </if>
-      <if test="courseId != null">
+      <if test="course_id != null">
         course_id,
       </if>
       <if test="content != null">
@@ -75,8 +82,8 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="courseId != null">
-        #{courseId,jdbcType=INTEGER},
+      <if test="course_id != null">
+        #{course_id,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
@@ -101,8 +108,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.mms.common.domain.LiteratureReview">
     update literaturereview
     <set>
-      <if test="courseId != null">
-        course_id = #{courseId,jdbcType=INTEGER},
+      <if test="course_id != null">
+        course_id = #{course_id,jdbcType=INTEGER},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
@@ -127,7 +134,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.demo.mms.common.domain.LiteratureReview">
     update literaturereview
-    set course_id = #{courseId,jdbcType=INTEGER},
+    set course_id = #{course_id,jdbcType=INTEGER},
       content = #{content,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER},
@@ -142,4 +149,9 @@
 	    from (select version from literaturereview where course_id=#{course_id}) a
       )
   </update>
+
+  <update id="insertliteratureReviewpath" parameterType="java.lang.String">
+    update literaturereview set path = #{dbpath},originfilename = #{originalFilename} where course_id= #{course_id} and version = #{version}
+  </update>
+
 </mapper>

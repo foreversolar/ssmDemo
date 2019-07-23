@@ -18,10 +18,10 @@ public class LiteratureReviewServiceImpl implements LiteratureReviewService{
     }
 
     @Override
-    public LiteratureReview getLiteratureReview(Integer course_id, int version){
-        int max_version=literatureReviewMapper.selectMaxVersion(course_id);
+    public LiteratureReview getLiteratureReview(Integer course_id){
+        Integer max_version=literatureReviewMapper.selectMaxVersion(course_id);
 //        System.out.println(max_version);
-        LiteratureReview hellokitty=literatureReviewMapper.selectLiteratureReview(course_id,version);
+        LiteratureReview hellokitty=literatureReviewMapper.selectLiteratureReview(course_id,max_version);
 //        System.out.println(hellokitty.getCurrentOverview());
         return hellokitty;
     }
@@ -30,4 +30,15 @@ public class LiteratureReviewServiceImpl implements LiteratureReviewService{
     public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
         literatureReviewMapper.insertTeacherOpinion(course_id,advice,auditStatus);
     }
+
+    @Override
+    public Integer addMaxversion(Integer course_id) {
+        return literatureReviewMapper.selectMaxVersion(course_id);
+    }
+
+    @Override
+    public void addliteratureReviewpath(String dbpath, String course_id, String version, String originalFilename) {
+        literatureReviewMapper.insertliteratureReviewpath(dbpath,course_id,version,originalFilename);
+    }
+
 }

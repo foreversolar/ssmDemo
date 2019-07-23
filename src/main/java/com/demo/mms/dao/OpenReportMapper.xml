@@ -3,7 +3,7 @@
 <mapper namespace="com.demo.mms.dao.OpenReportMapper">
   <resultMap id="BaseResultMap" type="com.demo.mms.common.domain.OpenReport">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="course_id" jdbcType="INTEGER" property="course_id" />
     <result column="course_meaning" jdbcType="VARCHAR" property="courseMeaning" />
     <result column="current_overview" jdbcType="VARCHAR" property="currentOverview" />
     <result column="research_content" jdbcType="VARCHAR" property="researchContent" />
@@ -25,7 +25,8 @@
   <sql id="Base_Column_List">
     id, course_id, course_meaning, current_overview, research_content, research_mind, 
     research_schedule, reference, meeting_time, meeting_place, meeting_host, teacher1_id, 
-    teacher2_id, teacher3_id, meeting_summary, advice, version, state, submit_time
+    teacher2_id, teacher3_id, meeting_summary, advice, version, state, submit_time,result,
+    path,originfilename
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -36,13 +37,13 @@
   <select id="selectMaxVersion" parameterType="java.lang.Integer" resultType="Integer">
     select max(version)
     from openreport
-    where course_id=#{courseId}
+    where course_id=#{course_id}
   </select>
   <select id="selectOpenReport" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from openreport
-    where course_id=#{courseId} and version=#{version}
+    where course_id=#{course_id} and version=#{version}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from openreport
@@ -56,13 +57,13 @@
       teacher2_id, teacher3_id, meeting_summary, 
       advice, version, state, 
       submit_time)
-    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{courseMeaning,jdbcType=VARCHAR}, 
-      #{currentOverview,jdbcType=VARCHAR}, #{researchContent,jdbcType=VARCHAR}, #{researchMind,jdbcType=VARCHAR}, 
-      #{researchSchedule,jdbcType=VARCHAR}, #{reference,jdbcType=VARCHAR}, #{meetingTime,jdbcType=TIMESTAMP}, 
-      #{meetingPlace,jdbcType=VARCHAR}, #{meetingHost,jdbcType=VARCHAR}, #{teacher1Id,jdbcType=INTEGER}, 
-      #{teacher2Id,jdbcType=INTEGER}, #{teacher3Id,jdbcType=INTEGER}, #{meetingSummary,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{course_id,jdbcType=INTEGER}, #{course_meaning,jdbcType=VARCHAR},
+      #{current_overview,jdbcType=VARCHAR}, #{research_content,jdbcType=VARCHAR}, #{research_mind,jdbcType=VARCHAR},
+      #{research_schedule,jdbcType=VARCHAR}, #{reference,jdbcType=VARCHAR}, #{meeting_time,jdbcType=TIMESTAMP},
+      #{meeting_place,jdbcType=VARCHAR}, #{meeting_host,jdbcType=VARCHAR}, #{teacher1_id,jdbcType=INTEGER},
+      #{teacher2_id,jdbcType=INTEGER}, #{teacher3_id,jdbcType=INTEGER}, #{meeting_summary,jdbcType=VARCHAR},
       #{advice,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{state,jdbcType=VARCHAR}, 
-      #{submitTime,jdbcType=TIMESTAMP})
+      #{submit_time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.demo.mms.common.domain.OpenReport">
     insert into openreport
@@ -70,7 +71,7 @@
       <if test="id != null">
         id,
       </if>
-      <if test="courseId != null">
+      <if test="course_id != null">
         course_id,
       </if>
       <if test="courseMeaning != null">
@@ -129,8 +130,8 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="courseId != null">
-        #{courseId,jdbcType=INTEGER},
+      <if test="course_id != null">
+        #{course_id,jdbcType=INTEGER},
       </if>
       <if test="courseMeaning != null">
         #{courseMeaning,jdbcType=VARCHAR},
@@ -188,8 +189,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.mms.common.domain.OpenReport">
     update openreport
     <set>
-      <if test="courseId != null">
-        course_id = #{courseId,jdbcType=INTEGER},
+      <if test="course_id != null">
+        course_id = #{course_id,jdbcType=INTEGER},
       </if>
       <if test="courseMeaning != null">
         course_meaning = #{courseMeaning,jdbcType=VARCHAR},
@@ -247,7 +248,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.demo.mms.common.domain.OpenReport">
     update openreport
-    set course_id = #{courseId,jdbcType=INTEGER},
+    set course_id = #{course_id,jdbcType=INTEGER},
       course_meaning = #{courseMeaning,jdbcType=VARCHAR},
       current_overview = #{currentOverview,jdbcType=VARCHAR},
       research_content = #{researchContent,jdbcType=VARCHAR},
@@ -272,5 +273,8 @@
 	    select max(a.version)
 	    from (select version from openreport where course_id=#{course_id}) a
       )
+  </update>
+  <update id="insertOpenReportpath" parameterType="java.lang.String">
+    update openreport set path = #{dbpath},originfilename = #{originalFilename} where course_id= #{course_id} and version = #{version}
   </update>
 </mapper>

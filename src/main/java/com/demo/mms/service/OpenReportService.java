@@ -8,4 +8,8 @@ public interface OpenReportService {
     OpenReport getOpenreport(Integer id);
 
     void addTeacherOpinion(String toString, String advice, String auditStatus);
+
+    Integer addMaxversion(int course_id);
+
+    void addMidrepcortpath(String dbpath, String course_id, String version, String originalFilename);
 }

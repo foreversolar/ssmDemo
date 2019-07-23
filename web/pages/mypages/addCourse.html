@@ -55,6 +55,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
+    <!--可以全部复制-->
     <header class="main-header">
         <!-- Logo -->
         <a href="../../index2.html" class="logo">
@@ -73,22 +74,24 @@
             <div class="navbar-custom-menu">
                 <div class="bannerRight">
                     <p class="john"><span id="user_name">用户名</span>, &nbsp;欢迎使用系统</p>
-                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span class="role_name">学生</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span></p>
+                    <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span
+                            class="role_name">学生</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span>
+                    </p>
                     <!--<input  id="hdUserDefinedRoles" value="[{&quot;name&quot;:&quot;管理员&quot;,&quot;value&quot;:1},{&quot;name&quot;:&quot;学生&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;指导教师&quot;,&quot;value&quot;:3},{&quot;name&quot;:&quot;专业负责人&quot;,&quot;value&quot;:4},{&quot;name&quot;:&quot;教学秘书&quot;,&quot;value&quot;:5},{&quot;name&quot;:&quot;院长&quot;,&quot;value&quot;:6},{&quot;name&quot;:&quot;答辩录入员&quot;,&quot;value&quot;:7},{&quot;name&quot;:&quot;督导专家&quot;,&quot;value&quot;:8},{&quot;name&quot;:&quot;评阅专家&quot;,&quot;value&quot;:9},{&quot;name&quot;:&quot;辅助导师&quot;,&quot;value&quot;:10},{&quot;name&quot;:&quot;管理员（被授权）&quot;,&quot;value&quot;:11}]">-->
                     <!--<input id="hdAuthToken" value="">-->
                     <p class="quitChunk">
-                        <a id="knowledge" >诚信与学术规范<span class="new"></span></a>
+                        <a id="knowledge">诚信与学术规范<span class="new"></span></a>
                         <a id="WeChart">绑定微信</a>
-                        <a id="help" >帮助</a>
+                        <a id="help">帮助</a>
                         <a id="quit">退出</a>
                     </p>
                 </div>
             </div>
-            <img style=" float:left;padding:15px"  src="../../dist/img/scu.png">
+            <img style=" float:left;padding:15px" src="../../dist/img/scu.png">
             <p class="login-paper" id="xtmc">本科毕业论文（设计）管理系统</p>
         </nav>
     </header>
-    <!-- Left side column. contains the logo and sidebar -->
+    <!--修改 active-->
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -115,7 +118,6 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">MAIN NAVIGATION</li>
                 <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>首页管理</span>
@@ -127,7 +129,7 @@
                         <li class=""><a href="../../index.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
-                <li class="active treeview">
+                <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-files-o"></i>
                         <span>师生双选管理</span>
@@ -153,10 +155,10 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>提交开题报告</a></li>
-                        <li><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
+                        <li class=""><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
                         <li><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
                         <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
-                        <li class="active"><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a>
+                        <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a>
                         </li>
                         <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
                     </ul>
@@ -171,7 +173,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../../pages/charts/flot.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
+                        <li><a href="./gradeview.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
                     </ul>
                 </li>
 
@@ -184,8 +186,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../../pages/UI/general.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
-                        <li><a href="../../pages/UI/icons.html"><i class="fa fa-circle-o"></i> 个人信息维护</a></li>
+                        <li><a href="./modifyPw.html"><i class="fa fa-circle-o"></i> 修改密码</a></li>
                     </ul>
                 </li>
             </ul>
@@ -207,8 +208,10 @@
                     <div class="gxf_pro_content gxf_content_table">
                         <ul class="clearfix gxf_project_detadil_ul">
                             <li style="width:100%;"><span class="detadil_txt_left"> 课题题目：</span><span
-                                    style="width:600px;" class="detadil_txt_right" id="c_title">条件生成对抗网络在少数类有效数据生成中的研究与应用</span></li>
-                            <li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right"  id="c_availmajor">软件工程</span>
+                                    style="width:600px;" class="detadil_txt_right" id="c_title">条件生成对抗网络在少数类有效数据生成中的研究与应用</span>
+                            </li>
+                            <li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right"
+                                                                                  id="c_availmajor">软件工程</span>
                             </li>
                             <li><span class="detadil_txt_left"> 课题申报时间：</span><span
                                     class="detadil_txt_right" id="c_time">2018-12-11</span></li>
@@ -222,11 +225,14 @@
                                     class="detadil_txt_right" id="c_attachmajor">软件学院-软件工程</span></li>
                             <li><span class="detadil_txt_left"> 指导教师：</span><span
                                     class="detadil_txt_right" id="c_teacher">段磊（20092049）</span></li>
-                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right" id="c_teachertitle">教授</span>
+                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right"
+                                                                                  id="c_teachertitle">教授</span>
                             </li>
-                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right" id="c_teacheremail"></span>
+                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"
+                                                                                    id="c_teacheremail"></span>
                             </li>
-                            <li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right" id="c_student">王启帆（2015141463170）</span>
+                            <li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right"
+                                                                                  id="c_student">王启帆（2015141463170）</span>
                             </li>
                             <li><span class="detadil_txt_left"> 学生院系专业：</span><span
                                     class="detadil_txt_right" id="c_student_major">软件学院-软件工程</span></li>
@@ -281,44 +287,40 @@
                             </div>
                         </ul>
                     </div>
-                    <div class="gxf_problem gxf_problem_reader" id="CheckDetail">
+                    <div class="gxf_problem gxf_problem_reader" id="CheckDetail" style="">
                         <div><h2><span></span>审核情况</h2></div>
                         <div id="designTableCheckBox">
                             <div class="gxf_designTable_check">指导教师审核情况</div>
                             <div class="gxf_designTable_content">
                                 <ul class="gxf_designTable_box">
-                                    <li class="gxf_designTable_roleTime"><span>审核人：段磊</span><span class="margl">审核时间：2019-06-03 10:38:59</span>
+                                    <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl" id="reviewer"></span>
                                     </li>
-                                    <li class="_checkState_"><p>审核状态</p><input type="hidden" class="hdOpeKeyId"
-                                                                               value="103274" projectid="6134"
-                                                                               roletype="3" checkstate="1"><input
-                                            type="hidden" class="showAttachment" value="true" filename=""
-                                            filelink=""><input type="hidden" class="designTableModel" value="检查通过。"
-                                                               aesdesigntableinfo="L0KAQnNmvyFryG0yMC3tkzJVHX62A8l6tCllvnsX+7JmJ33kkUnUDhlAfyylGB18Q8VHWMDRgpc0I7XPAQlg8bWmPiruMSZoPvMUjW05IlmxnyKGGqbOVF1SJ1hq175PLusQMowrRiGuEUfEXduwqlmaXiJIkCFlimKCIyHaVaaJCcqSrQrIyenFGX0io7K40ia+6Hw8wab8tycO2p1cnw==">
-                                        <div class="gxf_designTable_detailes"><span class="txt_green">审核通过</span></div>
+                                    <li class="_checkState_"><p>审核状态</p>
+                                        <input class="form-control" id="result" disabled="disabled">
                                     </li>
                                     <li><p>审核意见</p>
-                                        <div class="gxf_designTable_detailes">检查通过。</div>
+                                        <input class="form-control" id="advice" disabled="disabled">
                                     </li>
                                 </ul>
+                                <div class="margt">
+                                    <input id="submitt" style="margin:20px; display: none" class="formBtn" type="button" value="提交">
+                                </div>
                             </div>
                             <div class="gxf_designTable_check">专业负责人审核情况</div>
                             <div class="gxf_designTable_content">
                                 <ul class="gxf_designTable_box">
-                                    <li class="gxf_designTable_roleTime"><span>审核人：段磊</span><span class="margl">审核时间：2019-06-03 10:38:59</span>
+                                    <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl" id="profession_reviewer"></span>
                                     </li>
-                                    <li class="_checkState_"><p>审核状态</p><input type="hidden" class="hdOpeKeyId"
-                                                                               value="103274" projectid="6134"
-                                                                               roletype="3" checkstate="1"><input
-                                            type="hidden" class="showAttachment" value="true" filename=""
-                                            filelink=""><input type="hidden" class="designTableModel" value="检查通过。"
-                                                               aesdesigntableinfo="L0KAQnNmvyFryG0yMC3tkzJVHX62A8l6tCllvnsX+7JmJ33kkUnUDhlAfyylGB18Q8VHWMDRgpc0I7XPAQlg8bWmPiruMSZoPvMUjW05IlmxnyKGGqbOVF1SJ1hq175PLusQMowrRiGuEUfEXduwqlmaXiJIkCFlimKCIyHaVaaJCcqSrQrIyenFGX0io7K40ia+6Hw8wab8tycO2p1cnw==">
-                                        <div class="gxf_designTable_detailes"><span class="txt_green">审核通过</span></div>
+                                    <li class="_checkState_"><p>审核状态</p>
+                                        <input class="form-control" id="profession_result" disabled="disabled">
                                     </li>
                                     <li><p>审核意见</p>
-                                        <div class="gxf_designTable_detailes">检查通过。</div>
+                                        <input class="form-control" id="p_advice" disabled="disabled">
                                     </li>
                                 </ul>
+                                <div class="margt">
+                                    <input id="p_submitt" style="margin:20px; display: none" class="formBtn" type="button" value="提交">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -328,75 +330,9 @@
         </div>
 
 
-        <div class="panel window panel-htop" style="display: none; width: 400px; left: 443px; top: 193px;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">New Dialog</div>
-                <div class="panel-tool"><a href="javascript:;" class="panel-tool-close"></a></div>
-            </div>
-            <div id="delmessagebox" class="easyui-dialog panel-body panel-body-noborder window-body"
-                 style="text-align: center; padding: 10px; overflow-wrap: break-word; width: 378px; height: 143px;"
-                 data-options="closed:true" title=""></div>
-        </div>
-        <div class="window-shadow" style="display: none; left: 443px; top: 193px; width: 400px; height: 200px;"></div>
-        <div class="panel window panel-htop"
-             style="display: none; width: 400px; left: 443px; top: 193px; z-index: 9005;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">提示</div>
-                <div class="panel-tool"></div>
-            </div>
-        </div>
-        <div class="window-shadow"
-             style="display: none; left: 443px; top: 193px; width: 400px; height: 200px; z-index: 9004;"></div>
-        <div class="window-mask" style="display: none; z-index: 9003; position: fixed;"></div>
-        <div class="panel window panel-htop"
-             style="display: none; width: 400px; left: 443px; top: 193px; z-index: 9008;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">提示</div>
-                <div class="panel-tool"></div>
-            </div>
-        </div>
-        <div class="window-shadow"
-             style="display: none; left: 443px; top: 193px; width: 400px; height: 200px; z-index: 9007;"></div>
-        <div class="window-mask" style="display: none; z-index: 9006; position: fixed;"></div>
-        <div class="panel window panel-htop"
-             style="display: none; width: 400px; left: 443px; top: 193px; z-index: 9011;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">提示</div>
-                <div class="panel-tool"></div>
-            </div>
-        </div>
-        <div class="window-shadow"
-             style="display: none; left: 443px; top: 193px; width: 400px; height: 200px; z-index: 9010;"></div>
-        <div class="window-mask" style="display: none; z-index: 9009; position: fixed;"></div>
-        <div class="panel window panel-htop"
-             style="display: none; width: 400px; left: 435px; top: 193px; z-index: 9026;">
-            <div class="panel-header panel-header-noborder window-header" style="width: 392px;">
-                <div class="panel-title">提示</div>
-                <div class="panel-tool"></div>
-            </div>
-        </div>
-        <div class="window-shadow"
-             style="display: none; left: 435px; top: 193px; width: 400px; height: 200px; z-index: 9025;"></div>
-        <div class="window-mask" style="display: none; z-index: 9024; position: fixed;"></div>
-        <div style="width:0; height:0; overflow:hidden; ">
-            <div id="gxf_rangy_maxredBox" class="easyui-dialog" data-options="closed:true,modal:true,closable: false"
-                 style=" width:800px; height:470px; text-align:left; padding:5px 20px;">
-                <div><input type="hidden" id="hdArticleRemarkId" value=""><input type="hidden" id="hdSelectedText"
-                                                                                 value=""><input type="hidden"
-                                                                                                 id="hdSerializedSelection"
-                                                                                                 value="">
-                    <p style="line-height: 30px;"><span>批注人：</span><span id="lblCreatorName">---</span><span
-                            class="margl">批注时间：</span><span id="lblDatetime"></span></p>
-                    <p style="word-break: break-word;"><input id="txtRemark" type="text" class="easyui-textbox"
-                                                              data-options="multiline:true,height:160,width:760"></p>
-                    <h3 style="margin: 10px 0;">选中批注的内容：</h3>
-                    <p id="postilDetailContent"></p></div>
-            </div>
-        </div>
-        <div style="width:0; height:0; overflow:hidden; ">
-            <div id="gxf_rangy_delModelBox" class="easyui-dialog" data-options="closed:true,modal:true"
-                 style=" width:400px; height: 200px; text-align:center; padding:30px"></div>
-        </div>
+
+
+
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -416,6 +352,9 @@
     //页面初始化
     var cid=0;
     var sid=0;
+    var tid=0;
+    var role=1;
+    var tname=null;
     $(function () {
         $.ajax({
             url: "http://localhost:8080/getUser",
@@ -425,6 +364,7 @@
             success: function (data) {
                  sid=data.current_user;
                  cid=data.course_id;
+                 tid=data.teacher_id;
                 $.ajax({
                     url: "http://localhost:8080/getCourse?student_id="+data.current_user,
                     dataType: "json",
@@ -433,11 +373,35 @@
                         $("#user_name").html(data.success.student);
                         $("#depart_name").html(data.success.stuMajor);
                     }});
+                $.ajax({
+                    url: "http://localhost:8080/getTeacher?teacher_id="+tid,
+                    dataType: "json",
+                    success: function (data) {
+                        tname=data.success.name;
+                    }});
                 initBasicInfor(sid,cid);
 
             }})
     });
     function  initBasicInfor(sid,cid) {
+        //处理角色
+        if(role===1){
+            if(tname===$("#c_teacher")[0].value){
+            $("#result").removeAttr("disabled");
+            $("#advice").removeAttr("disabled");
+            //这个按钮一开始应该是隐藏的，角色为老师的时候才显示
+            //按钮一开始应该是  style=“display:none”
+            $("#submitt").show();
+            }else{
+                $("#profession_result").removeAttr("disabled");
+                $("#p_advice").removeAttr("disabled");
+                //这个按钮一开始应该是隐藏的，角色为老师的时候才显示
+                //按钮一开始应该是  style=“display:none”
+                $("#p_submitt").show();
+            }
+        }
+
+
         $.ajax({
             url: "http://localhost:8080/getCourse?student_id="+sid,
             dataType: "json",
@@ -495,32 +459,7 @@
             tabsize: 4,
             height: 300
         });
-        $("div [name='items']" ).fileinput({
-            language: 'zh',
-            theme: 'explorer-fas',
-            uploadUrl: 'http://localhost:8080/saveFile',
-            overwriteInitial: false,
-            initialPreviewAsData: true,
-            showPreview: true,//是否显示预览
-            initialPreview: [],
-            showUpload:false,
-            enctype: "multipart/form-data",
-            uploadExtraData: function () {
-                var data = {
-                };
-                return data;
-            },
-            initialPreviewConfig: []
-        }).on('filepreupload', function (event, data, previewId, index) {     //上传中
-            var form = data.form, files = data.files, extra = data.extra,
-                response = data.response, reader = data.reader;
-            console.log('文件正在上传');
-        }).on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
-            console.log('文件上传成功！' + data.id);
 
-        }).on('fileerror', function (event, data, msg) {  //一个文件上传失败
-            console.log('文件上传失败！' + data.id);
-        });
     });
 </script>
 <script type="text/javascript">
@@ -538,6 +477,32 @@
         toastr.success("提交成功", "消息提示");
 
     });
+
+
+    $("#submitt").on("click",function () {
+        commitAdvice(cid);
+    });
+
+
+    function commitAdvice(id) {
+        var page={
+            course_id:id,
+            p_advice:$("#p_advice")[0].value,
+            professional_teacher_result:$("#profession_result")[0].value,
+            advice:$("#advice")[0].value,
+            teacher_result:$("#result")[0].value
+        };
+        axios.post('http://localhost:8080/updateAddcourseForTeacher',page).then(
+            function (response) {
+                console.log(response);
+                toastr.success("提交成功", "消息提示");
+            }
+        ).catch(function ( ) {
+            toastr.error("提交失败", "消息提示");
+        })
+    }
+
+
 
     function  commitPages(id,sta) {
         var page={

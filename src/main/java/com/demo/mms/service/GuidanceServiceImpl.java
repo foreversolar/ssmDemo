@@ -20,10 +20,10 @@ public class GuidanceServiceImpl implements GuidanceService{
     }
 
     @Override
-    public Guidance getGuidance(Integer course_id, int version){
+    public Guidance getGuidance(Integer course_id){
 //        int max_version=guidanceMapper.selectMaxVersion(course_id);
 //        System.out.println(max_version);
-        Guidance hellokitty=guidanceMapper.selectGuidance(course_id,version);
+        Guidance hellokitty=guidanceMapper.selectGuidance(course_id);
 //        System.out.println(hellokitty.getCurrentOverview());
         return hellokitty;
     }
@@ -37,6 +37,17 @@ public class GuidanceServiceImpl implements GuidanceService{
     @Override
     public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
         guidanceMapper.insertTeacherOpinion(course_id,advice,auditStatus);
+    }
+
+    @Override
+    public Integer addMaxversion(Integer course_id) {
+        return guidanceMapper.selectMaxversion(course_id);
+    }
+
+    @Override
+    public void addMidrepcortpath(String dbpath, String course_id, String version, String originalFilename) {
+        System.out.println(dbpath+"  "+course_id+"  "+version+"  "+originalFilename);
+        guidanceMapper.insertGuidancepath(dbpath,course_id,version,originalFilename);
     }
 
     /*

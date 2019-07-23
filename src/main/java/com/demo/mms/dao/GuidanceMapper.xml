@@ -3,14 +3,14 @@
 <mapper namespace="com.demo.mms.dao.GuidanceMapper">
   <resultMap id="BaseResultMap" type="com.demo.mms.common.domain.Guidance">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="course_id" jdbcType="INTEGER" property="course_id" />
     <result column="time" jdbcType="TIMESTAMP" property="time" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="version" jdbcType="INTEGER" property="version" />
-    <result column="submit_time" jdbcType="TIMESTAMP" property="submitTime" />
+    <result column="submit_time" jdbcType="TIMESTAMP" property="submit_time" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, course_id, time, content, version, submit_time
+    id, course_id, time, content, version, submit_time,state,result,advice,path,originfilename
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -21,19 +21,22 @@
   <select id="selectMaxVersion" parameterType="java.lang.Integer" resultType="Integer">
     select max(version)
     from guidance
-    where course_id=#{courseId}
+    where course_id=#{course_id}
   </select>
   <select id="selectGuidance" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
+    select *
     from guidance
-    where course_id=#{courseId} and version=#{version}
+    where course_id=#{course_id} and version=(
+      select max(version)
+      from guidance
+      where course_id=#{course_id}
+    )
   </select>
   <select id="getGuidances" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from guidance
-    where course_id=#{courseId}
+    where course_id=#{course_id}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from guidance
@@ -43,8 +46,8 @@
     insert into guidance (id, course_id, time, 
       content, version, submit_time
       )
-    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{submitTime,jdbcType=TIMESTAMP}
+    values (#{id,jdbcType=INTEGER}, #{course_id,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP},
+      #{content,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, #{submit_time,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.demo.mms.common.domain.Guidance">
@@ -53,7 +56,7 @@
       <if test="id != null">
         id,
       </if>
-      <if test="courseId != null">
+      <if test="course_id != null">
         course_id,
       </if>
       <if test="time != null">
@@ -65,7 +68,7 @@
       <if test="version != null">
         version,
       </if>
-      <if test="submitTime != null">
+      <if test="submit_time != null">
         submit_time,
       </if>
     </trim>
@@ -73,8 +76,8 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="courseId != null">
-        #{courseId,jdbcType=INTEGER},
+      <if test="course_id != null">
+        #{course_id,jdbcType=INTEGER},
       </if>
       <if test="time != null">
         #{time,jdbcType=TIMESTAMP},
@@ -85,16 +88,16 @@
       <if test="version != null">
         #{version,jdbcType=INTEGER},
       </if>
-      <if test="submitTime != null">
-        #{submitTime,jdbcType=TIMESTAMP},
+      <if test="submit_time != null">
+        #{submit_time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.mms.common.domain.Guidance">
     update guidance
     <set>
-      <if test="courseId != null">
-        course_id = #{courseId,jdbcType=INTEGER},
+      <if test="course_id != null">
+        course_id = #{course_id,jdbcType=INTEGER},
       </if>
       <if test="time != null">
         time = #{time,jdbcType=TIMESTAMP},
@@ -105,19 +108,19 @@
       <if test="version != null">
         version = #{version,jdbcType=INTEGER},
       </if>
-      <if test="submitTime != null">
-        submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      <if test="submit_time != null">
+        submit_time = #{submit_time,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.demo.mms.common.domain.Guidance">
     update guidance
-    set course_id = #{courseId,jdbcType=INTEGER},
+    set course_id = #{course_id,jdbcType=INTEGER},
       time = #{time,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER},
-      submit_time = #{submitTime,jdbcType=TIMESTAMP}
+      submit_time = #{submit_time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="insertTeacherOpinion" parameterType="java.lang.String">
@@ -125,5 +128,13 @@
 	    select max(a.version)
 	    from (select version from guidance where course_id=#{course_id}) a
       )
+  </update>
+  <select id="selectMaxversion" parameterType="java.lang.Integer" resultType="int">
+    select max(version)
+    from guidance
+    where course_id=#{value};
+  </select>
+  <update id="insertGuidancepath" parameterType="java.lang.String">
+    update guidance set path = #{dbpath},originfilename = #{originalFilename} where course_id= #{course_id} and version = #{version}
   </update>
 </mapper>

@@ -13,8 +13,7 @@
     <result column="version" jdbcType="VARCHAR" property="version" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, course_id, file_address, state, advice, time, translation_content, original_text, 
-    version
+    id, course_id, file_address1, state, advice, time, translation_content, original_text,version,result,file_address2,originfilename1,originfilename2
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -27,11 +26,11 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.demo.mms.common.domain.Translation">
-    insert into translation (id, course_id, file_address, 
+    insert into translation (id, course_id,
       state, advice, time, 
       translation_content, original_text, version
       )
-    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{fileAddress,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER},
       #{state,jdbcType=VARCHAR}, #{advice,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
       #{translationContent,jdbcType=VARCHAR}, #{originalText,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}
       )
@@ -130,7 +129,6 @@
   <update id="updateByPrimaryKey" parameterType="com.demo.mms.common.domain.Translation">
     update translation
     set course_id = #{courseId,jdbcType=INTEGER},
-      file_address = #{fileAddress,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       advice = #{advice,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP},
@@ -150,13 +148,19 @@
     where course_id=#{value};
   </select>
   <insert id="insertTranslation" parameterType="com.demo.mms.common.domain.Translation">
-    insert into translation(id,course_id,file_address,state,advice,time,translation_content,original_text,version)
-    value (#{id},#{course_id},#{file_address},#{state},#{advice},#{time},#{translation_content},#{original_text},#{version})
+    insert into translation(id,course_id,state,advice,time,translation_content,original_text,version)
+    value (#{id},#{course_id},#{state},#{advice},#{time},#{translation_content},#{original_text},#{version})
   </insert>
   <update id="insertTeacherOpinion" parameterType="java.lang.String">
     update translation set result = #{auditStatus},advice=#{advice} where course_id= #{course_id} and version=(
 	    select max(a.version)
 	    from (select version from translation where course_id=#{course_id}) a
       )
+  </update>
+  <update id="insertTranslation1path" parameterType="java.lang.String">
+    update translation set file_address1 = #{dbpath},originfilename1 = #{originalFilename} where course_id= #{course_id} and version = #{version}
+  </update>
+  <update id="insertTranslation2path" parameterType="java.lang.String">
+    update translation set file_address2 = #{dbpath},originfilename2 = #{originalFilename} where course_id= #{course_id} and version = #{version}
   </update>
 </mapper>

@@ -12,13 +12,15 @@ public interface OpenReportMapper {
 
     OpenReport selectByPrimaryKey(Integer id);
 
-    int selectMaxVersion(Integer course_id);
+    Integer selectMaxVersion(Integer course_id);
 
-    OpenReport selectOpenReport(@Param("courseId") Integer course_id, @Param("version") Integer version);
+    OpenReport selectOpenReport(@Param("course_id") Integer course_id, @Param("version") Integer version);
 
     int updateByPrimaryKeySelective(OpenReport record);
 
     int updateByPrimaryKey(OpenReport record);
 
     void insertTeacherOpinion(@Param("course_id")String course_id, @Param("advice")String advice, @Param("auditStatus")String auditStatus);
+
+    void insertOpenReportpath(@Param("dbpath")String finalpath,@Param("course_id")String course_id,@Param("version")String version,@Param("originalFilename")String originalFilename);
 }
