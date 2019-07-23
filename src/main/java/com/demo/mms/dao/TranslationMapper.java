@@ -12,4 +12,8 @@ public interface TranslationMapper {
     Translation selectTranslation(@Param("course_id") int course_id, @Param("version") int version);
 
     void insertTeacherOpinion(@Param("course_id")String course_id, @Param("advice")String advice, @Param("auditStatus")String auditStatus);
+
+    void insertTranslation1path(@Param("dbpath")String dbpath, @Param("course_id")String course_id, @Param("version")String version, @Param("originalFilename")String originalFilename);
+
+    void insertTranslation2path(@Param("dbpath")String dbpath, @Param("course_id")String course_id, @Param("version")String version, @Param("originalFilename")String originalFilename);
 }

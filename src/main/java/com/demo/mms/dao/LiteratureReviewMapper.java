@@ -16,9 +16,12 @@ public interface LiteratureReviewMapper {
 
     int updateByPrimaryKey(LiteratureReview record);
 
-    int selectMaxVersion(Integer course_id);
+    Integer selectMaxVersion(Integer course_id);
 
-    LiteratureReview selectLiteratureReview(@Param("course_id") Integer course_id,@Param("version") int version);
+    LiteratureReview selectLiteratureReview(@Param("course_id") Integer course_id,@Param("version") Integer version);
 
     void insertTeacherOpinion(@Param("course_id") String course_id,@Param("advice") String advice,@Param("auditStatus") String auditStatus);
+
+
+    void insertliteratureReviewpath(@Param("dbpath")String dbpath, @Param("course_id")String course_id, @Param("version")String version, @Param("originalFilename")String originalFilename);
 }

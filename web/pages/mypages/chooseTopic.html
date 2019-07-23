@@ -361,7 +361,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="../../pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
-                        <li><a href="./chooseTopics.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
+                        <li><a href="../../pages/mypages/chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
                         <li><a href="../../pages/layout/fixed.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
                     </ul>
                 </li>
@@ -444,19 +444,19 @@
                 <div class="gxf_problem gxf_problem_detail">
                     <div><h2><span></span>课题基本信息</h2></div>
                     <!--*****************-->
-                    <div class="main gxf_pro_content gxf_content_table">
-                        <ul class="form clearfix">
-                            <div style="margin: 0 auto;">
-                                <li style="display: inline-block" ><span>条件一(version)：</span><input id="condition_1" type="text"  /></li>
-                                <li style="display: inline-block" ><span>条件二(id)：</span><input id="condition_2" type="text"  /></li>
-                                <li style="display: inline-block" ><span>条件三(course_id)：</span><input id="condition_3" type="text"  /></li>
-                            </div>
-                            <div style="margin: 0 auto;">
-                                <li style="display: inline-block" ><span>条件四：</span><select id="condition_4"><option value="all_type">全部</option><option value="theoretical_research">理论研究</option><option value="system_design">系统设计</option><option value="saturday">今天是星期六</option></select></li>
-                                <li style="display: inline-block" ><span>条件五：</span><select id="condition_5"><option value="all_title">全部</option><option value="student_title">学生提交课题</option><option value="teacher_title">教师科研纵向课题</option><option value="saturday">今天是星期六</option></select></li>
-                                <li style="display: inline-block" ><span>&nbsp;</span><input class="formBtn" id="search_btn" type="button" value="查询"></li>
-                            </div>
-                        </ul>
+                    <div class="main gxf_pro_content gxf_content_table" style="display: flex; flex-direction: row; height: 120px; justify-content: space-around;">
+                        <div style="display: flex; flex-direction: column;justify-content: space-around;">
+                            <div><span>课题题目：</span><input id="condition_1" type="text"  /></div>
+                            <div><span>题目类型：</span><select id="condition_4"><option value="all_type">全部</option><option value="theoretical_research">理论研究</option><option value="system_design">系统设计</option><option value="saturday">今天是星期六</option></select></div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; justify-content: space-around;">
+                            <div><span>指导教师：</span><input id="condition_2" type="text"  /></div>
+                            <div><span>题目来源：</span><select id="condition_5"><option value="all_title">全部</option><option value="student_title">学生提交课题</option><option value="teacher_title">教师科研纵向课题</option><option value="saturday">今天是星期六</option></select></div>
+                        </div>
+                        <div style="display:flex; flex-direction: column;  justify-content: space-around;">
+                            <div><span>教师编号：</span><input id="condition_3" type="text"  /></div>
+                            <div><span>&nbsp;</span><input class="formBtn" id="search_btn" type="button" value="查询"></div>
+                        </div>
                     </div>
                     <!--****************-->
 
@@ -472,21 +472,20 @@
                         <div class="box">
                             <!-- /.box-header -->
                             <div class="box-body">
-                                <table style="text-align:center" id="main-table" class="table table-bordered table-hover gxf_problem gxf_pro_top">
+                                <table style="text-align:center; font-size: small" id="main-table" class="table table-bordered table-hover gxf_problem gxf_pro_top">
                                     <thead>
                                     <tr>
                                         <th>1212</th>
                                         <th style="text-align:center" >序号</th>
-                                        <th style="text-align:center">条件一</th>
-                                        <th style="text-align:center">条件二</th>
-                                        <th style="text-align:center">条件三</th>
-                                        <th style="text-align:center">条件四</th>
-                                        <th style="text-align:center">条件五</th>
-                                        <th style="text-align:center">提交时间</th>
+                                        <th style="text-align:center">课题题目</th>
+                                        <th style="text-align:center">题目类型</th>
+                                        <th style="text-align:center">题目来源</th>
+                                        <th style="text-align:center">指导教师(编号)</th>
+                                        <th style="text-align:center">申报时间</th>
+                                        <th style="text-align:center">状态</th>
                                     </tr>
                                     </thead>
-                                    <tbody id="choose_table_id">
-                                    </tbody>
+                                    <tbody id="choose_table_id" style="align-items: center; vertical-align: middle;"></tbody>
                                 </table>
                             </div>
                             <!-- /.box-body -->
@@ -801,54 +800,62 @@
     });
 </script>
 <script>
-$(document).ready(function () {
-    $.ajax({
-        method: "GET",
-        url:"http://localhost:8080/selectGuidances",
-        data:{course_id: 10001},
-        success: function (result) {
-            //title-type的值
-            // var type_Text = $("#condition_4 option:selected").text();
-            // console.log(type_Text);
+    $(document).ready(function () {
+        $.ajax({
+            method: "GET",
+            url:"http://localhost:8080/returnAddedCourse",
+            data:{course_id: 3110002},
+            success: function (result) {
+                console.log(typeof result)
+                console.log(result)
+                console.log(Object.keys(result).length)
+                var $tbody=$("#choose_table_id");
+                $tbody.html(""); //去掉控件第一行
 
-            var $tbody=$("#choose_table_id");
-                  //去掉控件第一行
-                  $tbody.html("");
-            $("#search_btn").click(function () {
-                  for(var index  in result){
-                      var each = result[index];
-                      function displaydata() {
-                          var $tr=  $("<tr>").append($("<td>").html(parseInt(Object.keys(result)[index])+1))
-                              .append($("<td>").html(each["version"]))
-                              .append($("<td>").html(each["content"]))
-                              .append($("<td>").html(each["courseId"]))
-                              .append($("<td>").html(""+index))
-                              .append($("<td>").html(each["content"]))
-                              .append($("<td>").html(each["submitTime"]));
-                          $tbody.append($tr);
-                          console.log("查询成功")
-                      }
-                      if (each["version"]==$("#condition_1")[0].value ){
-                          displaydata();
-                      }
-                      if (each["id"]==$("#condition_2")[0].value){
-                          displaydata();
-                           }
-                      if (each["courseId"]==$("#condition_3")[0].value){
-                          displaydata();
-                      }
-                      if ("content"==$("#condition_4 option:selected").text()){
-                          displaydata();
-                      }
-                      if (each["content"]==$("#condition_5 option:selected").text()){
-                          displaydata();
-                      }
-                  }
-            })
-        },
-        dateType:"json"
-    })
-});
+                // 点击查询
+                $("#search_btn").click(function () {
+                    for(var index  in result){
+                        var each = result[index];
+                        console.log(each)
+                        // parseInt(Object.keys(result)[index])+1)
+                        // for(var index in each){
+                        // var eachdata = each[index];
+                        console.log(index);
+                        // function displaydata() {
+                        var $tr= $("<tr>").append($("<td>").html(Object.keys(result).length))
+                            .append($("<td>").html(each["course_name"]))
+                            .append($("<td>").html(each["course_type"]))
+                            .append($("<td>").html(each["course_overview"]))
+                            .append($("<td>").html(each["course_type"]))
+                            .append($("<td>").html(each["state"]))
+                            .append($("<td>").append($('<input class="btn btn-block btn-success btn-flat" type="button" value="选择课题" />')));
+                        $tbody.append($tr);
+                        // console.log(typeof index);
+                        // console.log("查询成功")
+                        // }
+                        // displaydata();
+                        // if (each["version"]==$("#condition_1")[0].value ){
+                        //     displaydata();
+                        // }
+                        // if (each["id"]==$("#condition_2")[0].value){
+                        //     displaydata();
+                        //      }
+                        // if (each["courseId"]==$("#condition_3")[0].value){
+                        //     displaydata();
+                        // }
+                        // if ("content"==$("#condition_4 option:selected").text()){
+                        //     displaydata();
+                        // }
+                        // if (each["content"]==$("#condition_5 option:selected").text()){
+                        //     displaydata();
+                        // }
+                    }
+                    // }
+                })
+            },
+            dateType:"json"
+        })
+    });
 </script>
 </body>
 </html>

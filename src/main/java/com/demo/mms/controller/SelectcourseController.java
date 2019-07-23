@@ -17,7 +17,7 @@ public class SelectcourseController {
     @Autowired
     private  SelectcourseService selectcourseService;
 
-    @RequestMapping("/addtranslation")
+    @RequestMapping("/addSelectcourse")
     @ResponseBody
     public Object addSelectcourse(@RequestBody Selectcourse selectcourse){
         selectcourseService.addSelectcourse(selectcourse);

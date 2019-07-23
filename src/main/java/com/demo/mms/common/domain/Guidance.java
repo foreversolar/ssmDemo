@@ -5,7 +5,7 @@ import java.util.Date;
 public class Guidance {
     private Integer id;
 
-    private Integer courseId;
+    private Integer course_id;
 
     private Date time;
 
@@ -13,11 +13,49 @@ public class Guidance {
 
     private Integer version;
 
-    private Date submitTime;
+    private Date submit_time;
+
+    private String state;
 
     private String result;
 
     private String advice;
+
+    private String path;
+
+    public Date getSubmit_time() {
+        return submit_time;
+    }
+
+    public void setSubmit_time(Date submit_time) {
+        this.submit_time = submit_time;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getOriginfilename() {
+        return originfilename;
+    }
+
+    public void setOriginfilename(String originfilename) {
+        this.originfilename = originfilename;
+    }
+
+    private String originfilename;
 
     public void setResult(String result) {
         this.result = result;
@@ -43,12 +81,12 @@ public class Guidance {
         this.id = id;
     }
 
-    public Integer getCourseId() {
-        return courseId;
+    public Integer getCourse_id() {
+        return course_id;
     }
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
+    public void setCourse_id(Integer course_id) {
+        this.course_id = course_id;
     }
 
     public Date getTime() {
@@ -75,11 +113,4 @@ public class Guidance {
         this.version = version;
     }
 
-    public Date getSubmitTime() {
-        return submitTime;
-    }
-
-    public void setSubmitTime(Date submitTime) {
-        this.submitTime = submitTime;
-    }
 }

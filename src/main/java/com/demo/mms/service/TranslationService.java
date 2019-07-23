@@ -8,5 +8,9 @@ public interface TranslationService {
     Translation findTranslation(int course_id, int version);
 
     void addTeacherOpinion(String course_id, String advice, String auditStatus);
+
+    void addTranslation1path(String dbpath, String course_id, String version, String originalFilename);
+
+    void addTranslation2path(String dbpath, String course_id, String version, String originalFilename);
 }
 

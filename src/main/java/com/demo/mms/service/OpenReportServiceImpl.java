@@ -15,6 +15,11 @@ public class OpenReportServiceImpl implements OpenReportService{
     @Transactional
     @Override
     public void addOpenReport(OpenReport openReport) {
+        Integer max_version=openReportMapper.selectMaxVersion(openReport.getCourse_id());
+        if(max_version==null){
+            max_version=0;
+        }
+        openReport.setVersion(max_version+1);
         openReportMapper.insert(openReport);
     }
 
@@ -30,5 +35,16 @@ public class OpenReportServiceImpl implements OpenReportService{
     @Override
     public void addTeacherOpinion(String course_id, String advice, String auditStatus) {
         openReportMapper.insertTeacherOpinion(course_id,advice,auditStatus);
+    }
+
+    @Override
+    public Integer addMaxversion(int course_id) {
+        Integer max_version=openReportMapper.selectMaxVersion(course_id);
+        return max_version;
+    }
+
+    @Override
+    public void addMidrepcortpath(String dbpath, String course_id, String version, String originalFilename) {
+        openReportMapper.insertOpenReportpath(dbpath,course_id,version,originalFilename);
     }
 }

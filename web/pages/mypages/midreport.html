@@ -593,6 +593,9 @@
                                 <input class="form-control" id="advice" disabled="disabled">
                             </li>
                         </ul>
+                        <div class="margt">
+                            <input id="submitt" style="margin:20px; display: none" class="formBtn" type="button" value="提交">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -716,6 +719,7 @@
                 sid = data.current_user;
                 cid = data.course_id;
                 role=data.role;  //0表示学生 1表示老师
+                role=1;
                 $.ajax({
                     url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
                     dataType: "json",
@@ -752,6 +756,9 @@
         if(role===1){
             $("#result").removeAttr("disabled");
             $("#advice").removeAttr("disabled");
+            //这个按钮一开始应该是隐藏的，角色为老师的时候才显示
+            //按钮一开始应该是  style=“display:none”
+            $("#submitt").show();
         }
 
         // 课题基本信息
@@ -783,6 +790,14 @@
             $("body").find("input,textarea").attr("disabled", true);
             $("#submit").hide();
             $("#save").hide();
+        }
+
+        //处理审核状态
+           // 如果老师提交过了的话（默认填过字） 就处理下状态和按钮
+        if(midreport.result!=null){
+            $("#advice").attr("disabled",true);
+            $("#result").attr("disabled",true);
+            $("#submitt").hide();
         }
         //处理文件下载
         if (midreport.path !== null) {
@@ -848,15 +863,35 @@
         $('#submit').on('click', function () {
             // 以下属性 字符串类型的必须是string 但 Number类型的属性值传入string类型也可以
             commitReport(cid, "SUBMIT");
-            toastr.success("提交成功", "消息提示");
+
             //window.location.reload();
         });
         $("#save").on('click', function () {
             commitReport(cid, "SAVE");
-            toastr.success("保存成功", "消息提示");
             // window.location.reload();
 
-        })
+        });
+        $("#submitt").on("click",function () {
+            commitAdvice(cid);
+        });
+
+
+        function commitAdvice(id) {
+            var page={
+                course_id:id,
+                advice:$("#advice")[0].value,
+                result:$("#result")[0].value
+            };
+            axios.post('http://localhost:8080/updateTranslationForTeacher',page).then(
+                function (response) {
+                    console.log(response);
+                    toastr.success("提交成功", "消息提示");
+                }
+            ).catch(function ( ) {
+                toastr.error("提交失败", "消息提示");
+            })
+        }
+
 
 
         function commitReport(course_id, state) {
@@ -910,7 +945,9 @@
             };
             axios.post('http://localhost:8080/addMidreport', midreport)
                 .then(function (response) {
+                    //把文件上传、弹窗提示写在commitReport的post请求回调函数中
                     $("#kv-explorer").fileinput("upload");
+                    toastr.success("提交成功", "消息提示");
                     console.log(response)
                 })
                 .catch(function (error) {

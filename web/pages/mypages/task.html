@@ -139,8 +139,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="../../pages/mypages/addCourse.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
-                        <li><a href="../../pages/layout/boxed.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
-                        <li class="active"><a href="../../pages/mypages/task.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
+                        <li><a href="../../pages/mypages/chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
                     </ul>
                 </li>
 
@@ -173,9 +172,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../../pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> 查看我参加的答辩</a></li>
-                        <li><a href="../../pages/charts/morris.html"><i class="fa fa-circle-o"></i> 答辩记录</a></li>
-                        <li><a href="../../pages/charts/flot.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
+                        <li><a href="./gradeview.html"><i class="fa fa-circle-o"></i> 查看成绩</a></li>
                     </ul>
                 </li>
 
@@ -199,49 +196,49 @@
 
     <div class="content-wrapper">
         <div class="main">
-            <div class="gxf_problem gxf_pro_top" id="historyDiv">
-                <div class="active"><h2><span class="sanjiao_active"></span>任务书</h2></div>
-                <div class="gxf_pro_content ">
-                    <span><a
-                            href="http://scu.co.cnki.net/Task/Details.html?prevTitle=%u4EFB%u52A1%u4E66&amp;r=0.3490785836859438#CheckDetail"
-                            class="listA">查看审核详情</a></span>
-                    <span><a href="javascript:;" id="historylink" class="listA" style="">查看历史记录</a></span>
-                </div>
-            </div>
-            <!-- 课题详情 -->
+            <!-- 课题基本信息 -->
             <div id="gxf-project-information">
                 <div class="gxf_problem gxf_problem_detail">
+                    <div class="gxf_problem gxf_pro_top" id="historyDiv" style="">
+                        <div class="active"><h2><span class="sanjiao_active"></span>任务书</h2></div>
+                    </div>
                     <div><h2><span></span>课题基本信息</h2></div>
                     <div class="gxf_pro_content gxf_content_table">
                         <ul class="clearfix gxf_project_detadil_ul">
                             <li style="width:100%;"><span class="detadil_txt_left"> 课题题目：</span><span
-                                    style="width:600px;" class="detadil_txt_right">条件生成对抗网络在少数类有效数据生成中的研究与应用</span></li>
-                            <li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right">软件工程</span>
+                                    style="width:600px;" class="detadil_txt_right" id="c_title">条件生成对抗网络在少数类有效数据生成中的研究与应用</span>
+                            </li>
+                            <li><span class="detadil_txt_left"> 可选专业：</span><span class="detadil_txt_right"
+                                                                                  id="c_availmajor">软件工程</span>
                             </li>
                             <li><span class="detadil_txt_left"> 课题申报时间：</span><span
-                                    class="detadil_txt_right">2018-12-11</span></li>
-                            <li><span class="detadil_txt_left"> 题目类型：</span><span class="detadil_txt_right">理论研究</span>
+                                    class="detadil_txt_right" id="c_time">2018-12-11</span></li>
+                            <li><span class="detadil_txt_left"> 题目类型：</span><span class="detadil_txt_right" id="c_type">理论研究</span>
                             </li>
-                            <li><span class="detadil_txt_left"> 题目来源：</span><span class="detadil_txt_right"
-                                                                                  title="教师科研纵向课题">教师科研纵向课题</span></li>
+                            <li><span class="detadil_txt_left"> 题目来源：</span><span
+                                    class="detadil_txt_right" id="c_source">教师科研纵向课题</span></li>
                             <li><span class="detadil_txt_left"> 选择模式：</span><span
-                                    class="detadil_txt_right">学生提交课题</span></li>
+                                    class="detadil_txt_right" id="c_mode">学生提交课题</span></li>
                             <li><span class="detadil_txt_left"> 课题所属专业：</span><span
-                                    class="detadil_txt_right">软件学院-软件工程</span></li>
+                                    class="detadil_txt_right" id="c_attachmajor">软件学院-软件工程</span></li>
                             <li><span class="detadil_txt_left"> 指导教师：</span><span
-                                    class="detadil_txt_right">段磊（20092049）</span></li>
-                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right">教授</span>
+                                    class="detadil_txt_right" id="c_teacher">段磊（20092049）</span></li>
+                            <li><span class="detadil_txt_left"> 教师职称：</span><span class="detadil_txt_right"
+                                                                                  id="c_teachertitle">教授</span>
                             </li>
-                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"></span>
+                            <li><span class="detadil_txt_left"> 导师联系邮箱：</span><span class="detadil_txt_right"
+                                                                                    id="c_teacheremail"></span>
                             </li>
-                            <li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right">王启帆（2015141463170）</span>
+                            <li><span class="detadil_txt_left"> 学生姓名：</span><span class="detadil_txt_right"
+                                                                                  id="c_student">王启帆（2015141463170）</span>
                             </li>
                             <li><span class="detadil_txt_left"> 学生院系专业：</span><span
-                                    class="detadil_txt_right">软件学院-软件工程</span></li>
+                                    class="detadil_txt_right" id="c_student_major">软件学院-软件工程</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
+
             <div class="gxf_problem gxf_problem_require">
                 <div><h2><span></span>任务书详情</h2></div>
                 <div class="gxf_designTable_content">
@@ -284,120 +281,217 @@
                     <div class="gxf_designTable_check">指导教师审核情况</div>
                     <div class="gxf_designTable_content">
                         <ul class="gxf_designTable_box">
-                            <li class="gxf_designTable_roleTime"><span>审核人：段磊</span><span class="margl">审核时间：2018-12-20 10:17:23</span>
-                            </li>
-                            <li class="_checkState_"><p>审核状态</p><input type="hidden" class="hdOpeKeyId" value="13220"
-                                                                       projectid="6134" roletype="3"
-                                                                       checkstate="1"><input type="hidden"
-                                                                                             class="showAttachment"
-                                                                                             value="true" filename=""
-                                                                                             filelink=""><input
-                                    type="hidden" class="designTableModel"
-                                    value="学生通过与指导教师充分讨论，参考了相关文献，确定该研究课题。学生明确了研究思路，通过研究条件生成对抗网络的模型算法，能够对不平衡学习下的少数类样本进行有效的数据生成。课题的研究方法和研究步骤合理，难度合适，预期能在规定时间内完成课题的设计。同意本科毕业论文开题。"
-                                    aesdesigntableinfo="58HW8P9e+rGkERbRu0b/so96z0RA6kcrg06qgcO125ocWV9n9QcOccC5uMzAzojlQ0oUVEbQVJqn6oojNPzOixIpLvn8pk7vn0BuOrHTPnunXTE6fi0MMZ5c9snAiU7EMDiMq9CssHMKXfJtKOGM0Olt+YQwT/POKPzfZPDf/v8jT5/raI/Ls/Xj+jLOVvQa4rz7kLhCP1E7Xrq7r/kBGw==">
-                                <div class="gxf_designTable_detailes"><span class="txt_green">审核通过</span></div>
+                            <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl" id="reviewer"></span></li>
+                            <li class="_checkState_"><p>审核状态</p>
+                                <input class="form-control" id="result" disabled="disabled">
                             </li>
                             <li><p>审核意见</p>
-                                <div class="gxf_designTable_detailes">
-                                    学生通过与指导教师充分讨论，参考了相关文献，确定该研究课题。学生明确了研究思路，通过研究条件生成对抗网络的模型算法，能够对不平衡学习下的少数类样本进行有效的数据生成。课题的研究方法和研究步骤合理，难度合适，预期能在规定时间内完成课题的设计。同意本科毕业论文开题。
-                                </div>
+                                <input class="form-control" id="advice" disabled="disabled">
                             </li>
                         </ul>
+                        <div class="margt">
+                            <input id="submitt" style="display: none;" class="formBtn" type="button" value="提交" />
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $("div [name='summernote']").summernote({
-                lang: 'zh-CN',
-                placeholder: '',
-                tabsize: 4,
-                height: 300
-            });
-            toastr.options = {
-                closeButton: false,
-                debug: false,
-                progressBar: true,
-                positionClass: "toast-top-center",
-                onclick: null,
-                showDuration: "300",
-                hideDuration: "800",
-                timeOut: "1000",
-                extendedTimeOut: "1000",
-                showEasing: "swing",
-                hideEasing: "linear",
-                showMethod: "fadeIn",
-                hideMethod: "fadeOut"
-            };
+</div>
 
-        })
 
-    </script>
-    <script type="text/javascript">
-        //页面信息处理
-        //初始化加载
-        $(function () {
-            $.ajax({
-                type: "GET",
-                url: "http://localhost:8080/returnFinalReport",
-                data: {studentid: "123"},
-                success: function (msg) {
-                    initReport(msg.success)
-                }
-            });
+<!--初始化组件-->
+<script type="text/javascript">
+    $(function () {
+        $("div [name='summernote']").summernote({
+            lang: 'zh-CN',
+            placeholder: '',
+            tabsize: 4,
+            height: 300
+        });
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-center",
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "800",
+            timeOut: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
 
-            function initReport(page) {
-                if (page.state !== "SAVE") {
-                    $("body").find('input, textarea').attr("disabled", true);
-                    $("#submit").hide();
-                    $("#save").hide();
-                }
-                if(page.exercise===1){
-                    $("#sfsj1").attr('checked', "checked");
-                }
-                $('#goal').summernote('code',page.goal);
-                $('#refer').summernote('code',page.refer);
-                $('#schedule').summernote('code',page.schedule);
+    })
+</script>
+<!--初始化页面-->
+<script type="text/javascript">
+    //页面初始化
+    var cid = 0;
+    var sid = 0;
+    var role=0;
+    $(function () {
+        $.ajax({
+            url: "http://localhost:8080/getUser",
+            dataType: "json",
+            error: function (data) {
+            },
+            success: function (data) {
+                sid = data.current_user;
+                cid = data.course_id;
+                role=data.role;  //0表示学生 1表示老师
+                role=1;
+                $.ajax({
+                    url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data.success.stu_major);
+                        $("#user_name").html(data.success.student);
+                        $("#depart_name").html(data.success.stuMajor);
+                        //添加文件上传时候的参数，三处用到
+                        formdata={
+                            course_id:cid
+                        };
+                        console.log(formdata);
+                    }
+                });
+                initBasicInfor(sid, cid,role);
             }
         });
-        //保存提交
-        $("#save").on("click", function () {
-            commitPages("123", "SAVE");
-            toastr.success("保存成功", "消息提示");
+    });
 
-        });
-
-        $("#submit").on("click", function () {
-            commitPages("123", "SUBMIT");
-            toastr.success("提交成功", "消息提示");
-            // window.location.reload();
-
-        });
-        function commitPages(id, sta) {
-            var tc = $("#sfsj0")[0].checked ? 0 : 1;
-            var page = {
-                studentid: id,
-                state: sta,
-                commit_time: new Date(),
-                exercise: tc,
-                goal: $('#goal').summernote('code'),
-                refer: $('#refer').summernote('code'),
-                schedule: $('#schedule').summernote('code'),
-            };
-
-            axios.post('http://localhost:8080/addFinalReport', page)
-                .then(function (response) {
-                    $("div [name='items']").fileinput('upload');
-                    // window.location.reload();
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+    function initBasicInfor(sid, cid,role) {/* sid cid role*/
+        //处理角色
+        if(role===1){
+            $("#result").removeAttr("disabled");
+            $("#advice").removeAttr("disabled");
+            //角色为老师才显示按钮，初始状态display：none;
+            $("#submitt").show();
+            //教师端处理
+            $("#submitt").on("click",function () {
+                commitAdvice(cid);
+            });
+            function commitAdvice(id) {
+                var page={
+                    course_id:id,
+                    advice:$("#advice")[0].value,
+                    result:$("#result")[0].value
+                }
+                axios.post('http://localhost:8080/updateTaskForTeacher',page).then(
+                    function (response) {
+                        console.log(response);
+                        toastr.success("提交成功", "消息提示");
+                    }
+                )
+            }
         }
-    </script>
+
+        // 课题基本信息
+        $.ajax({
+            url: "http://localhost:8080/getCourse?student_id=" + sid,
+            dataType: "json",
+            success: function (data) {
+                data = data.success;
+                $("#c_attachmajor").html(data.attachMajor);
+                $("#c_availmajor").html(data.availMajor);
+                $("#c_mode").html(data.mode);
+                $("#c_source").html(data.resource);
+                $("#c_student").html(data.student);
+                $("#c_teacher").html(data.instructor);
+                $("#c_time").html(data.declareTime);
+                $("#c_teacheremail").html(data.instEmail);
+                $("#c_teachertitle").html(data.teaTitle);
+                $("#c_student_major").html(data.stuMajor);
+                $("#c_title").html(data.title);
+                $("#c_type").html(data.type)
+            }
+        });
+    }
+
+    function initReport(midreport) {
+        console.log(midreport.state);
+        //处理报告状态
+        if (midreport.state !== "SAVE" && midreport.state !== "") {
+            $("body").find("input,textarea").attr("disabled", true);
+            $("#submit").hide();
+            $("#save").hide();
+        }
+
+        //如果老师提交了（默认填过字），就处理状态和按钮
+        if(midreport.result != null){
+            $("#advice").attr("disabled",true);
+            $("#result").attr("disabled",true);
+            $("#submitt").hide();
+        }
+        //处理审核状态  此处直接复制
+        $("#result").val(midreport.result);
+        $("#reviewer").html($("#c_teacher")[0].innerText)
+        $("#advice").val(midreport.advice);
+    }
+</script>
+
+<script type="text/javascript">
+    //页面信息处理
+    //初始化加载
+    $(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/returnTask",
+            data: {studentid: sid},
+            success: function (msg) {
+                initReport(msg.success)
+            }
+        });
+
+        function initReport(page) {
+            if (page.state !== "SAVE") {
+                $("body").find('input, textarea').attr("disabled", true);
+                $("#submit").hide();
+                $("#save").hide();
+            }
+            if(page.exercise===1){
+                $("#sfsj1").attr('checked', "checked");
+            }
+            $('#goal').summernote('code',page.goal);
+            $('#refer').summernote('code',page.refer);
+            $('#schedule').summernote('code',page.schedule);
+        }
+    });
+    //保存提交
+    $("#save").on("click", function () {
+        commitPages(sid, "SAVE");
+        toastr.success("保存成功", "消息提示");
+    });
+
+    $("#submit").on("click", function () {
+        commitPages(sid, "SUBMIT");
+        toastr.success("提交成功", "消息提示");
+    });
+
+    function commitPages(sid, sta) {/********************/
+        var tc = $("#sfsj0")[0].checked ? 0 : 1;
+        var page = {
+            studentid: sid, /********************/
+            state: sta,
+            commit_time: new Date(),
+            exercise: tc,
+            goal: $('#goal').summernote('code'),
+            refer: $('#refer').summernote('code'),
+            schedule: $('#schedule').summernote('code'),
+        };
+
+        axios.post('http://localhost:8080/addTask', page)
+            .then(function (response) {
+                // window.location.reload();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+</script>
 </body>
 </html>

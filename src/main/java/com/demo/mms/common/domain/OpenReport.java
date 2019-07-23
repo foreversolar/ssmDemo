@@ -5,33 +5,33 @@ import java.util.Date;
 public class OpenReport {
     private Integer id;
 
-    private Integer courseId;
+    private Integer course_id;
 
-    private String courseMeaning;
+    private String course_meaning;
 
-    private String currentOverview;
+    private String current_overview;
 
-    private String researchContent;
+    private String research_content;
 
-    private String researchMind;
+    private String research_mind;
 
-    private String researchSchedule;
+    private String research_schedule;
 
     private String reference;
 
-    private Date meetingTime;
+    private Date meeting_time;
 
-    private String meetingPlace;
+    private String meeting_place;
 
-    private String meetingHost;
+    private String meeting_host;
 
-    private Integer teacher1Id;
+    private Integer teacher1_id;
 
-    private Integer teacher2Id;
+    private Integer teacher2_id;
 
-    private Integer teacher3Id;
+    private Integer teacher3_id;
 
-    private String meetingSummary;
+    private String meeting_summary;
 
     private String advice;
 
@@ -39,17 +39,13 @@ public class OpenReport {
 
     private String state;
 
-    private Date submitTime;
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public String getResult() {
-        return result;
-    }
+    private Date submit_time;
 
     private String result;
+
+    private String path;
+
+    private String originfilename;
 
     public Integer getId() {
         return id;
@@ -59,52 +55,52 @@ public class OpenReport {
         this.id = id;
     }
 
-    public Integer getCourseId() {
-        return courseId;
+    public Integer getCourse_id() {
+        return course_id;
     }
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
+    public void setCourse_id(Integer course_id) {
+        this.course_id = course_id;
     }
 
-    public String getCourseMeaning() {
-        return courseMeaning;
+    public String getCourse_meaning() {
+        return course_meaning;
     }
 
-    public void setCourseMeaning(String courseMeaning) {
-        this.courseMeaning = courseMeaning == null ? null : courseMeaning.trim();
+    public void setCourse_meaning(String course_meaning) {
+        this.course_meaning = course_meaning;
     }
 
-    public String getCurrentOverview() {
-        return currentOverview;
+    public String getCurrent_overview() {
+        return current_overview;
     }
 
-    public void setCurrentOverview(String currentOverview) {
-        this.currentOverview = currentOverview == null ? null : currentOverview.trim();
+    public void setCurrent_overview(String current_overview) {
+        this.current_overview = current_overview;
     }
 
-    public String getResearchContent() {
-        return researchContent;
+    public String getResearch_content() {
+        return research_content;
     }
 
-    public void setResearchContent(String researchContent) {
-        this.researchContent = researchContent == null ? null : researchContent.trim();
+    public void setResearch_content(String research_content) {
+        this.research_content = research_content;
     }
 
-    public String getResearchMind() {
-        return researchMind;
+    public String getResearch_mind() {
+        return research_mind;
     }
 
-    public void setResearchMind(String researchMind) {
-        this.researchMind = researchMind == null ? null : researchMind.trim();
+    public void setResearch_mind(String research_mind) {
+        this.research_mind = research_mind;
     }
 
-    public String getResearchSchedule() {
-        return researchSchedule;
+    public String getResearch_schedule() {
+        return research_schedule;
     }
 
-    public void setResearchSchedule(String researchSchedule) {
-        this.researchSchedule = researchSchedule == null ? null : researchSchedule.trim();
+    public void setResearch_schedule(String research_schedule) {
+        this.research_schedule = research_schedule;
     }
 
     public String getReference() {
@@ -112,63 +108,63 @@ public class OpenReport {
     }
 
     public void setReference(String reference) {
-        this.reference = reference == null ? null : reference.trim();
+        this.reference = reference;
     }
 
-    public Date getMeetingTime() {
-        return meetingTime;
+    public Date getMeeting_time() {
+        return meeting_time;
     }
 
-    public void setMeetingTime(Date meetingTime) {
-        this.meetingTime = meetingTime;
+    public void setMeeting_time(Date meeting_time) {
+        this.meeting_time = meeting_time;
     }
 
-    public String getMeetingPlace() {
-        return meetingPlace;
+    public String getMeeting_place() {
+        return meeting_place;
     }
 
-    public void setMeetingPlace(String meetingPlace) {
-        this.meetingPlace = meetingPlace == null ? null : meetingPlace.trim();
+    public void setMeeting_place(String meeting_place) {
+        this.meeting_place = meeting_place;
     }
 
-    public String getMeetingHost() {
-        return meetingHost;
+    public String getMeeting_host() {
+        return meeting_host;
     }
 
-    public void setMeetingHost(String meetingHost) {
-        this.meetingHost = meetingHost == null ? null : meetingHost.trim();
+    public void setMeeting_host(String meeting_host) {
+        this.meeting_host = meeting_host;
     }
 
-    public Integer getTeacher1Id() {
-        return teacher1Id;
+    public Integer getTeacher1_id() {
+        return teacher1_id;
     }
 
-    public void setTeacher1Id(Integer teacher1Id) {
-        this.teacher1Id = teacher1Id;
+    public void setTeacher1_id(Integer teacher1_id) {
+        this.teacher1_id = teacher1_id;
     }
 
-    public Integer getTeacher2Id() {
-        return teacher2Id;
+    public Integer getTeacher2_id() {
+        return teacher2_id;
     }
 
-    public void setTeacher2Id(Integer teacher2Id) {
-        this.teacher2Id = teacher2Id;
+    public void setTeacher2_id(Integer teacher2_id) {
+        this.teacher2_id = teacher2_id;
     }
 
-    public Integer getTeacher3Id() {
-        return teacher3Id;
+    public Integer getTeacher3_id() {
+        return teacher3_id;
     }
 
-    public void setTeacher3Id(Integer teacher3Id) {
-        this.teacher3Id = teacher3Id;
+    public void setTeacher3_id(Integer teacher3_id) {
+        this.teacher3_id = teacher3_id;
     }
 
-    public String getMeetingSummary() {
-        return meetingSummary;
+    public String getMeeting_summary() {
+        return meeting_summary;
     }
 
-    public void setMeetingSummary(String meetingSummary) {
-        this.meetingSummary = meetingSummary == null ? null : meetingSummary.trim();
+    public void setMeeting_summary(String meeting_summary) {
+        this.meeting_summary = meeting_summary;
     }
 
     public String getAdvice() {
@@ -176,7 +172,7 @@ public class OpenReport {
     }
 
     public void setAdvice(String advice) {
-        this.advice = advice == null ? null : advice.trim();
+        this.advice = advice;
     }
 
     public Integer getVersion() {
@@ -192,14 +188,38 @@ public class OpenReport {
     }
 
     public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+        this.state = state;
     }
 
-    public Date getSubmitTime() {
-        return submitTime;
+    public Date getSubmit_time() {
+        return submit_time;
     }
 
-    public void setSubmitTime(Date submitTime) {
-        this.submitTime = submitTime;
+    public void setSubmit_time(Date submit_time) {
+        this.submit_time = submit_time;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getOriginfilename() {
+        return originfilename;
+    }
+
+    public void setOriginfilename(String originfilename) {
+        this.originfilename = originfilename;
     }
 }

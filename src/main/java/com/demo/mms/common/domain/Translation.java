@@ -7,7 +7,7 @@ public class Translation {
 
     private Integer course_id;
 
-    private String file_address;
+    private String file_address1;
 
     private String state;
 
@@ -17,11 +17,65 @@ public class Translation {
 
     private String translation_content;
 
-    private String original_text;
-
     private int version;
 
     private String result;
+
+    private String original_text;
+
+    private String file_address2;
+
+    public String getTranslation_content() {
+        return translation_content;
+    }
+
+    public void setTranslation_content(String translation_content) {
+        this.translation_content = translation_content;
+    }
+
+    public String getOriginal_text() {
+        return original_text;
+    }
+
+    public void setOriginal_text(String original_text) {
+        this.original_text = original_text;
+    }
+
+    public String getFile_address1() {
+        return file_address1;
+    }
+
+    public void setFile_address1(String file_address1) {
+        this.file_address1 = file_address1;
+    }
+
+    public String getFile_address2() {
+        return file_address2;
+    }
+
+    public void setFile_address2(String file_address2) {
+        this.file_address2 = file_address2;
+    }
+
+    public String getOriginfilename1() {
+        return originfilename1;
+    }
+
+    public void setOriginfilename1(String originfilename1) {
+        this.originfilename1 = originfilename1;
+    }
+
+    public String getOriginfilename2() {
+        return originfilename2;
+    }
+
+    public void setOriginfilename2(String originfilename2) {
+        this.originfilename2 = originfilename2;
+    }
+
+    private String originfilename1;
+
+    private String originfilename2;
 
     public void setResult(String result) {
         this.result = result;
@@ -37,14 +91,6 @@ public class Translation {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getFileAddress() {
-        return file_address;
-    }
-
-    public void setFileAddress(String file_address) {
-        this.file_address = file_address == null ? null : file_address.trim();
     }
 
     public String getState() {

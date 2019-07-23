@@ -5,7 +5,15 @@ import java.util.Date;
 public class LiteratureReview {
     private Integer id;
 
-    private Integer courseId;
+    public Integer getCourse_id() {
+        return course_id;
+    }
+
+    public void setCourse_id(Integer course_id) {
+        this.course_id = course_id;
+    }
+
+    private Integer course_id;
 
     private String content;
 
@@ -15,11 +23,30 @@ public class LiteratureReview {
 
     private String advice;
 
-    private String attachmentAddress;
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    private String path;
 
     private Date time;
 
+
     private String result;
+
+    public String getOriginfilename() {
+        return originfilename;
+    }
+
+    public void setOriginfilename(String originfilename) {
+        this.originfilename = originfilename;
+    }
+
+    private  String originfilename;
 
     public void setResult(String result) {
         this.result = result;
@@ -37,13 +64,6 @@ public class LiteratureReview {
         this.id = id;
     }
 
-    public Integer getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
 
     public String getContent() {
         return content;
@@ -77,13 +97,6 @@ public class LiteratureReview {
         this.advice = advice == null ? null : advice.trim();
     }
 
-    public String getAttachmentAddress() {
-        return attachmentAddress;
-    }
-
-    public void setAttachmentAddress(String attachmentAddress) {
-        this.attachmentAddress = attachmentAddress == null ? null : attachmentAddress.trim();
-    }
 
     public Date getTime() {
         return time;

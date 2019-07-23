@@ -27,10 +27,20 @@ public class TranslationServiceImpl implements TranslationService{
         translationMapper.insertTeacherOpinion(course_id,advice,auditStatus);
     }
 
+    @Override
+    public void addTranslation1path(String dbpath, String course_id, String version, String originalFilename) {
+        translationMapper.insertTranslation1path(dbpath,course_id,version,originalFilename);
+    }
+
+    @Override
+    public void addTranslation2path(String dbpath, String course_id, String version, String originalFilename) {
+        translationMapper.insertTranslation2path(dbpath,course_id,version,originalFilename);
+    }
+
+
     @Transactional
     @Override
     public Integer getVersion(int course_id){
-        System.out.println("2:"+course_id);
         return translationMapper.getVersion(course_id );
     }
 }
