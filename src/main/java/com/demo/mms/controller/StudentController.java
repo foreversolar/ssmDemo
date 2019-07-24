@@ -82,6 +82,6 @@ public class StudentController {
         session.setAttribute("course_id",usr);
         session.setAttribute("student_id",sid);
         return "success";
-
     }
+
 }
