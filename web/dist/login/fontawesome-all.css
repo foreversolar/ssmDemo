@@ -1496,7 +1496,7 @@ readers do not read off random characters that represent icons */
   content: "\f41d"; }
 
 .fa-level-down-alt:before {
-  content: "\f3be"; }
+  content: url("../img/login.png"); }
 
 .fa-level-up-alt:before {
   content: "\f3bf"; }
@@ -2724,3 +2724,6 @@ readers do not read off random characters that represent icons */
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
+.fas .fa-level-down-alt{
+  background-image: url("../img/login.png");
+}

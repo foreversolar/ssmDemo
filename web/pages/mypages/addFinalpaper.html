@@ -75,7 +75,7 @@
                 <div class="bannerRight">
                     <p class="john"><span id="user_name">用户名</span>, &nbsp;欢迎使用系统</p>
                     <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span
-                            class="role_name">学生</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span>
+                            class="role_name">教师</span><span id="academyName">&nbsp; / &nbsp;专业：<span id="depart_name">软件学院</span>..</span>
                     </p>
                     <!--<input  id="hdUserDefinedRoles" value="[{&quot;name&quot;:&quot;管理员&quot;,&quot;value&quot;:1},{&quot;name&quot;:&quot;学生&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;指导教师&quot;,&quot;value&quot;:3},{&quot;name&quot;:&quot;专业负责人&quot;,&quot;value&quot;:4},{&quot;name&quot;:&quot;教学秘书&quot;,&quot;value&quot;:5},{&quot;name&quot;:&quot;院长&quot;,&quot;value&quot;:6},{&quot;name&quot;:&quot;答辩录入员&quot;,&quot;value&quot;:7},{&quot;name&quot;:&quot;督导专家&quot;,&quot;value&quot;:8},{&quot;name&quot;:&quot;评阅专家&quot;,&quot;value&quot;:9},{&quot;name&quot;:&quot;辅助导师&quot;,&quot;value&quot;:10},{&quot;name&quot;:&quot;管理员（被授权）&quot;,&quot;value&quot;:11}]">-->
                     <!--<input id="hdAuthToken" value="">-->
@@ -248,16 +248,18 @@
                     <tr>
                         <td>
                             <div class="WZN-lrtable-l">【文件名】：</div>
-                            <div class="WZN-lrtable-r" >
+                            <div class="WZN-lrtable-r">
                                 <input style="margin-bottom: 10px" id="papername" type="text" class="form-control ">
-                                <div class="file-loading">
-                                    <input id="paperfile" type="file" multiple name="items">
+                                <div class="wuyu">
+                                    <div class="file-loading" id="kewu1">
+                                        <input id="paperfile" type="file" multiple name="items">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="WZN-lrtable-r "  style="display: none" id="file_download">
-                                <div id="file_name">   2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
+                            <div class="WZN-lrtable-r " style="display: none" id="file_download">
+                                <div id="file_name"> 2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
 
-                                <div id="filename" >
+                                <div id="filename">
                                     <a id="file_path" class="listA margl"
                                        href=""
                                        download="2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊 ">点击下载原文</a>
@@ -270,13 +272,15 @@
                             <div class="WZN-lrtable-l">【检测结果】：</div>
                             <div class="WZN-lrtable-r">
                                 <input style="margin-bottom: 10px" id="result" type="text" class="form-control ">
-                                <div class="file-loading">
+                                <div class="wuyu">
+                                <div class="file-loading" id="kewu2">
                                     <input id="resultfile" type="file" multiple name="items">
+                                </div>
                                 </div>
                             </div>
                             <div class="WZN-lrtable-r" id='result_download' style="display: none">
-                                <div id="result_name">   2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
-                                <a  id="result_path" class="listA margl" target="_Blank"
+                                <div id="result_name"> 2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
+                                <a id="result_path" class="listA margl" target="_Blank"
                                    href="">下载报告单</a>
                             </div>
                         </td>
@@ -321,14 +325,17 @@
                         <td>
                             <div class="WZN-lrtable-l">【附件】：</div>
                             <div class="WZN-lrtable-r">
-                                <div class="file-loading">
+                                <div class="wuyu">
+                                <div class="file-loading" id="kewu3">
                                     <input id="otherfile" type="file" multiple name="items">
+                                </div>
                                 </div>
                             </div>
                             <div class="WZN-lrtable-r" id="other_file" style="display:none">
                                 <span id="other_name">附件.zip</span>&nbsp;&nbsp;&nbsp;<a id="other_path" class="listA"
-                                                                                           href="http://reportdownload.cnki.net/cofiledownload/DownLoadFile.aspx?downType=6&amp;user=2015141463170&amp;userServerID=0&amp;fileID=49037&amp;universityNum=2647&amp;isHistory=0&amp;check=9fd80099b7cc20715952b2b70f6eac45"
-                                                                                           style="" download="附件.zip">点击下载</a>
+                                                                                        href="http://reportdownload.cnki.net/cofiledownload/DownLoadFile.aspx?downType=6&amp;user=2015141463170&amp;userServerID=0&amp;fileID=49037&amp;universityNum=2647&amp;isHistory=0&amp;check=9fd80099b7cc20715952b2b70f6eac45"
+                                                                                        style=""
+                                                                                        download="附件.zip">点击下载</a>
                             </div>
                         </td>
                     </tr>
@@ -348,7 +355,8 @@
                     <div class="gxf_designTable_check">指导教师审核情况</div>
                     <div class="gxf_designTable_content">
                         <ul class="gxf_designTable_box">
-                            <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl" id="reviewer"></span>
+                            <li class="gxf_designTable_roleTime"><span>审核人:</span><span class="margl"
+                                                                                        id="reviewer"></span>
                             </li>
                             <li class="_checkState_"><p>审核状态</p>
                                 <input class="form-control" id="resultt" disabled="disabled">
@@ -358,7 +366,8 @@
                             </li>
                         </ul>
                         <div class="margt">
-                            <input id="submitt" style="margin:20px; display: none" class="formBtn" type="button" value="提交">
+                            <input id="submitt" style="margin:20px; display: none" class="formBtn" type="button"
+                                   value="提交">
                         </div>
                     </div>
                 </div>
@@ -400,7 +409,7 @@
     //页面初始化
     var cid = 0;
     var sid = 0;
-    var role=0;
+    var role = 0;
     $(function () {
         $.ajax({
             url: "http://localhost:8080/getUser",
@@ -410,7 +419,7 @@
             success: function (data) {
                 sid = data.current_user;
                 cid = data.course_id;
-                role=data.role;  //0表示学生 1表示老师
+                role = data.role;  //0表示学生 1表示老师
                 $.ajax({
                     url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
                     dataType: "json",
@@ -474,15 +483,14 @@
                             },
                             initialPreviewConfig: []
                         })
-                        console.log(formdata);
                     }
                 });
 
-                initBasicInfor(sid, cid,role);
+                initBasicInfor(sid, cid, role);
                 $.ajax({
                     type: "GET",
                     url: "http://localhost:8080/returnFinalReport",
-                    data: {course_id: cid},
+                    data: {studentid: sid},
                     success: function (msg) {
                         initReport(msg.success)
                     }
@@ -494,9 +502,9 @@
 
     });
 
-    function initBasicInfor(sid, cid,role) {
+    function initBasicInfor(sid, cid, role) {
         //处理角色
-        if(role===1){
+        if (role === 1) {
             $("#resultt").removeAttr("disabled");
             $("#advice").removeAttr("disabled");
             //这个按钮一开始应该是隐藏的，角色为老师的时候才显示
@@ -526,20 +534,20 @@
         });
     }
 
-    function initReport(midreport) {
-        console.log(midreport.state);
+    function initReport(page) {
         //处理报告状态
-        if (midreport.state !== "SAVE" && midreport.state !== "") {
+        if (page.state !== "SAVE" && page.state !== "") {
             $("body").find("input,textarea").attr("disabled", true);
             $("#submit").hide();
             $("#save").hide();
+            $(".wuyu").hide();
         }
 
         //处理审核状态
         // 如果老师提交过了的话（默认填过字） 就处理下状态和按钮
-        if(midreport.result!=null){
-            $("#advice").attr("disabled",true);
-            $("#result").attr("disabled",true);
+        if (page.result != null) {
+            $("#advice").attr("disabled", true);
+            $("#result").attr("disabled", true);
             $("#submitt").hide();
         }
         //处理文件下载
@@ -550,25 +558,25 @@
         if (reportA != null) {
             $("#file_download").show();
             $("#file_path").attr({
-                'href':reportA,
-                'download':page.originfilename1
+                'href': reportA,
+                'download': page.originfilename1
             });
             $("#file_name").html(page.originfilename1);
 
         }
-        if(resultA!=null){
+        if (resultA != null) {
             $("#result_download").show();
             $("#result_path").attr({
-                'href':resultA,
-                'download':page.originfilename2
+                'href': resultA,
+                'download': page.originfilename2
             });
             $("#result_name").html(page.originfilename2);
         }
-        if(otherA!=null){
+        if (otherA != null) {
             $("#other_file").show();
             $("#other_path").attr({
-                'href':resultA,
-                'download':page.originfilename3
+                'href': resultA,
+                'download': page.originfilename3
             });
             $("#other_name").html(page.originfilename3);
         }
@@ -583,9 +591,9 @@
         $("#result").val(page.detection_result);
 
         //处理审核状态  此处直接复制
-        $("#resultt").val(midreport.result);
+        $("#resultt").val(page.result);
         $("#reviewer").html($("#c_teacher")[0].innerText)
-        $("#advice").val(midreport.advice);
+        $("#advice").val(page.advice);
 
 
     }
@@ -594,20 +602,13 @@
     //页面信息处理
     //初始化加载
     $(function () {
-        $.ajax({
-            type: "GET",
-            url: "http://localhost:8080/returnFinalReport",
-            data: {studentid: sid},
-            success: function (msg) {
-                initReport(msg.success)
-            }
-        });
 
     });
     //保存提交
     $("#save").on("click", function () {
         commitPages("123", "SAVE");
         toastr.success("保存成功", "消息提示");
+
 
     });
 
@@ -618,30 +619,30 @@
 
     });
 
-    $("#submitt").on("click",function () {
+    $("#submitt").on("click", function () {
         commitAdvice(cid);
     });
 
 
     function commitAdvice(id) {
-        var page={
-            course_id:id,
-            advice:$("#advice")[0].value,
-            teacher_result:$("#resultt")[0].value
+        var page = {
+            course_id: id,
+            advice: $("#advice")[0].value,
+            teacher_result: $("#resultt")[0].value
         };
-        axios.post('http://localhost:8080/updateFinalReportForTeacher',page).then(
+        axios.post('http://localhost:8080/updateFinalReportForTeacher', page).then(
             function (response) {
                 console.log(response);
                 toastr.success("提交成功", "消息提示");
             }
-        ).catch(function ( ) {
+        ).catch(function () {
             toastr.error("提交失败", "消息提示");
         })
     }
 
     function commitPages(id, sta) {
         var page = {
-            studentid: id,
+            studentid: sid,
             state: sta,
             commit_time: new Date(),
             reportname: $("#papername")[0].value,

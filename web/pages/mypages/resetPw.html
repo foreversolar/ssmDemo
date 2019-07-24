@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://www.17sucai.com/preview/1266961/2018-06-19/3007/index.html -->
+<html lang="zxx">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>本科毕设管理系统</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../dist/login/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../dist/login/fontawesome-all.css">
+
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 弹窗-->
+    <script src="../../bower_components/toastr/toastr.min.js"></script>
+    <link rel="stylesheet" href="../../bower_components/toastr/toastr.min.css">
+    <link rel="stylesheet" href="../../dist/css/button.css">
+
+</head>
+
+<body>
+<!-- bg effect -->
+<div id="bg">
+    <canvas width="1519" height="382"></canvas>
+    <canvas width="1519" height="382"></canvas>
+    <canvas width="1519" height="382"></canvas>
+</div>
+<!-- title -->
+<h1>本科毕业设计管理系统</h1>
+<!-- content -->
+<div class="sub-main-w3">
+    <form id="form1" action="checkUsrANDPwd" method="get">
+        <h2>
+            <i class="fas fa-level-down-alt"></i>
+        </h2>
+        <div class="form-style-agile">
+            <label>
+                <i class="fas fa-user"></i>
+                请输入新密码
+            </label>
+            <input id="new" placeholder="新密码" name="mail" type="password" required="">
+            <label>
+                <i class="fas fa-user"></i>
+                请再输入一次
+            </label>
+            <input id="onceagain" placeholder="再次输入" name="mail" type="password" required="">
+        </div>
+
+
+        <!-- //checkbox -->
+        <input class="button button-glow button-rounded button-raised button-action " type="button" value=" 确认"
+               id="btnSubmit">
+    </form>
+</div>
+<!-- //content -->
+
+<!-- copyright -->
+<div class="footer">
+    <p>Copyright © 2019. 年轻人的亚子 All rights reserved.</p>
+</div>
+<!-- //copyright -->
+
+<!-- //Jquery -->
+
+<!-- //effect js -->
+<script src="../../dist/login/canva_moving_effect.js"></script>
+<script language="JavaScript">
+    $("#onceagain").blur(function () {
+        if($("#new")[0].value!==$("#onceagain")[0].value){
+            toastr.error("两次输入不一致")
+        }else{
+            toastr.success("验证成功")
+        }
+
+    })
+    $(function () {
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-center",
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "800",
+            timeOut: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
+
+
+        $('#btnSubmit').click(function () {
+            var page={
+                mail:document.URL.split("?")[1].split("=")[1],
+                newPassword:$("#new")[0].value
+            }
+
+            $.ajax({
+                url: "http://localhost:8080/resetPassword",
+                data: page,
+                dataType: "json",
+                error: function (data) {
+                    // window.location.href = "/pages/mypages/login.html"
+                },
+                success: function (data) {
+                    toastr.success("修改成功")
+                    // window.location.href = "/pages/mypages/login.html"
+                }
+
+            });
+        })
+    })
+</script>
+
+
+</body>
+</html>

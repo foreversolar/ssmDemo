@@ -74,7 +74,7 @@
                 <div class="bannerRight">
                     <p class="john"><span id="user_name">王启帆(2015141463170)</span>, &nbsp;欢迎使用系统</p>
                     <p class="character">学年：<span id="plan_name">2018-2019</span>&nbsp; / &nbsp;角色：<span
-                            class="role_name">学生</span><span id="academyName" title="专业：软件学院-软件工程">&nbsp; / &nbsp;专业：软件学院-...</span>
+                            class="role_name">教师</span><span id="academyName" title="专业：软件学院-软件工程">&nbsp; / &nbsp;专业：软件学院-...</span>
                     </p>
                     <!--<input  id="hdUserDefinedRoles" value="[{&quot;name&quot;:&quot;管理员&quot;,&quot;value&quot;:1},{&quot;name&quot;:&quot;学生&quot;,&quot;value&quot;:2},{&quot;name&quot;:&quot;指导教师&quot;,&quot;value&quot;:3},{&quot;name&quot;:&quot;专业负责人&quot;,&quot;value&quot;:4},{&quot;name&quot;:&quot;教学秘书&quot;,&quot;value&quot;:5},{&quot;name&quot;:&quot;院长&quot;,&quot;value&quot;:6},{&quot;name&quot;:&quot;答辩录入员&quot;,&quot;value&quot;:7},{&quot;name&quot;:&quot;督导专家&quot;,&quot;value&quot;:8},{&quot;name&quot;:&quot;评阅专家&quot;,&quot;value&quot;:9},{&quot;name&quot;:&quot;辅助导师&quot;,&quot;value&quot;:10},{&quot;name&quot;:&quot;管理员（被授权）&quot;,&quot;value&quot;:11}]">-->
                     <!--<input id="hdAuthToken" value="">-->
@@ -128,7 +128,7 @@
                         <li class=""><a href="./myindex.html"><i class="fa fa-circle-o"></i> 通知公告</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class="active treeview">
                     <a href="#">
                         <i class="fa fa-files-o"></i>
                         <span>师生双选管理</span>
@@ -144,7 +144,7 @@
                 </li>
 
 
-                <li class="active treeview">
+                <li class=" treeview">
                     <a href="#">
                         <i class="fa fa-th"></i>
                         <span>过程文档管理</span>
@@ -357,6 +357,15 @@
                         console.log(formdata);
                     }
                 });
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:8080/getTask",
+                    data: {course_id: cid},
+                    success: function (msg) {
+                        initReport(msg.success)
+                    }
+                });
+
                 initBasicInfor(sid, cid,role);
             }
         });
@@ -436,14 +445,6 @@
     //页面信息处理
     //初始化加载
     $(function () {
-        $.ajax({
-            type: "GET",
-            url: "http://localhost:8080/returnTask",
-            data: {studentid: sid},
-            success: function (msg) {
-                initReport(msg.success)
-            }
-        });
 
         function initReport(page) {
             if (page.state !== "SAVE") {

@@ -529,7 +529,7 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../../dist/js/axios.js"></script>
 
 <!--<script src="../../bower_components/jquery/dist/jquery.min.js" crossorigin="anonymous"></script>-->
 <!--<script src="../../bower_components/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>-->
@@ -637,8 +637,10 @@
                             initialPreviewAsData: true,
                             showPreview: true,//是否显示预览
                             initialPreview: [],
+                            uploadExtraData: {
+                                course_id:cid,
+                            },
                             enctype: "multipart/form-data",
-                            uploadExtraData: {id:cid},
                             initialPreviewConfig: []
                         })
                     }
@@ -710,11 +712,11 @@
 <script type="text/javascript">
     //保存
     $("#save-input").on('click', function () {
-        saveAndSubmit(cid);
+        saveAndSubmit(cid,"SAVE");
     });
     //提交
     $("#submit-input").on('click', function () {
-        saveAndSubmit(cid);
+        saveAndSubmit(cid,"SUBMIT");
 
     });
 
@@ -735,7 +737,7 @@
         )
     }
 
-    function saveAndSubmit(sid) {
+    function saveAndSubmit(sid,sta) {
         var c_m = $("#textarea-1")[0].value;//选题意义
         var c_o = $("#textarea-2")[0].value;//国内外概述
         var r_c = $("#textarea-3")[0].value;//研究内容
@@ -765,7 +767,9 @@
             teacher2_id: t2_id,
             teacher3_id: t3_id,
             meeting_summary: m_s,
-            state: "SAVE",
+            state: sta,
+            path:$("#file_path")[0].href.split("8080")[1],
+            originfilename:$("#accessory")[0].innerText,
             advice: null,
             version: null,
         };

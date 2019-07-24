@@ -274,7 +274,7 @@
                                 <input id="kv-explorer" type="file"  name="items" multiple>
                             </div>
                         </li>
-                        <li id="file" style="">
+                        <li id="file" style="display:none">
                             <div id="accessory" class="gxf_designTable_detailes">四川大学毕业论文（设计）中期检查表.doc
                             </div>
                             <a class="listA margl" id="file_path" download="四川大学毕业论文（设计）中期检查表.doc">点击下载</a>
@@ -390,14 +390,14 @@
                     }
                 });
                 initBasicInfor(sid, cid,role);
-                $.ajax({
-                    type: "GET",
-                    url: "http://localhost:8080/getGuidance",
-                    data: {course_id: cid},
-                    success: function (msg) {
-                        initReport(msg)
-                    }
-                });
+                // $.ajax({
+                //     type: "GET",
+                //     url: "http://localhost:8080/getGuidance",
+                //     data: {course_id: cid},
+                //     success: function (msg) {
+                //         initReport(msg)
+                //     }
+                // });
             }
         });
     });

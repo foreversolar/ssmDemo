@@ -16,6 +16,7 @@ import org.testng.mustache.Model;
 import sun.applet.resources.MsgAppletViewer;
 
 import javax.servlet.http.HttpSession;
+import java.util.Currency;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,9 +59,14 @@ public class StudentController {
         Integer currentUser = (Integer) session.getAttribute("current_user");
         Integer cid = (Integer) session.getAttribute("course_id");
         Integer sid = (Integer) session.getAttribute("student_id");
+        Integer student_id= currentUser;
         if(cid==null){
-            course coursetl= courseService.findcourse(currentUser);
-            rs.put("course_id",coursetl.getId());
+            course coursetl= courseService.findcourse(student_id);
+            if(coursetl==null){
+                cid=0;
+            }else{
+                cid=coursetl.getId();
+            }
         }
         rs.put("student_id",sid);
         rs.put("course_id",cid);
@@ -82,6 +88,6 @@ public class StudentController {
         session.setAttribute("course_id",usr);
         session.setAttribute("student_id",sid);
         return "success";
-
     }
+
 }
