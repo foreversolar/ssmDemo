@@ -150,14 +150,14 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>提交开题报告</a></li>
-                        <li class="active"><a href="./midreport.html "><i class="fa fa-circle-o"></i>提交中期检查</a></li>
-                        <li><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>提交指导记录</a></li>
-                        <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>提交外文译文和原件</a></li>
-                        <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>提交文献综述</a>
+                    <ul class="  treeview-menu">
+                        <li><a href=" ./openreport.html"><i class="fa fa-circle-o"></i>审核开题报告</a></li>
+                        <li class="active"><a href="./midreport.html "><i class="fa fa-circle-o"></i>审核中期检查</a></li>
+                        <li><a href=" ./guideance.html"><i class="fa fa-circle-o"></i>审核指导记录</a></li>
+                        <li><a href="./foreign.html "><i class="fa fa-circle-o"></i>审核外文译文和原件</a></li>
+                        <li><a href="./literaturereview.html"><i class="fa fa-circle-o"></i>审核文献综述</a>
                         </li>
-                        <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>提交毕业设计(论文)</a></li>
+                        <li><a href="./finapaper.html "><i class="fa fa-circle-o"></i>审核毕业设计(论文)</a></li>
                     </ul>
                 </li>
 
@@ -196,7 +196,7 @@
         <!-- 中期检查 -->
         <div class="main" id="choiceDiv" style="">
             <div class="gxf_problem gxf_pro_top" id="historyDiv" style="">
-                <div class="active"><h2><span class="sanjiao_active"></span>中期报告</h2></div>
+                <div class="active"><h2><span class="sanjiao_active"></span>任务书</h2></div>
             </div>
             <section class="content" style="width: 100%; margin: 0px">
                 <div class="row" class="gxf_problem gxf_pro_top">
@@ -229,7 +229,6 @@
                 <!-- /.row -->
             </section>
         </div>
-        <input name="chakan" id="11" pid="123">
 
 
     </div>
@@ -262,22 +261,41 @@
             hideEasing: "linear",
             showMethod: "fadeIn",
             hideMethod: "fadeOut"
-        }})
+        }
+    })
 
 </script>
 
 
 <script>
-    var tid=0;    //老师的id
+    var tid = 0;    //老师的id
     var tbody = $("#choose_table_id");
     tbody.html(""); //去掉控件第一行
 
+
+    // 模拟数据
+    var datas = [{
+        student_id: 63096,
+        id: 11000,
+        student: "刘玉",
+        stuMajor: "软件工程",
+        title: "基于联邦迁移的金融平台",
+        state: "通过"
+    }, {
+        student_id: 1313,
+        id: 345,
+        student: "小王",
+        stuMajor: "软件工程",
+        title: "基于联邦迁移的金融平台",
+        state: "通过"
+    }]
     //初始化表格
-    function initTable(datas){
-        for(var index=0;index<datas.length;index++){
-            var data=datas[index];
-            var i="<input id="+data.id +" name='chakan' pid="+data.student_id+" class='btn btn-block btn-success btn-flat' type='button' value='查看'>"
-            var $tr = $("<tr>").append($("<td>").html(index))
+    function initTable(datas) {
+        for (var index = 0; index < datas.length;index++) {
+            var data = datas[index];
+            console.log(data)
+            var i = "<input id=" + data.id + " name='chakan' pid=" + data.student_id + " class='btn btn-block btn-success btn-flat' type='button' value='选择课题'>"
+            var $tr = $("<tr>").append($("<td>").html(index+1))
                 .append($("<td>").html(data.student))
                 .append($("<td>").html(data.stuMajor))
                 .append($("<td>").html(data.title))
@@ -289,6 +307,7 @@
 
     //页面初始化：  首先获得session中的教师id 然后请求所有的midreport
     $(function () {
+        initTable(datas);
         $.ajax({
             url: "http://localhost:8080/getTeacherUser",
             dataType: "json",
@@ -301,34 +320,40 @@
                     dataType: "json",
                     success: function (data) {
                         $.ajax({
-                            url: "http://localhost:8080/getTeacherInformation?teacherId=" +tid,
+                            url: "http://localhost:8080/getTeacherInformation?teacherId=" + tid,
                             dataType: "json",
                             success: function (data) {
                                 $("#user_name").html(data.name);
                                 $("#depart_name").html(data.department);
+
                             }
                         });
                         initTable(data.success);
                     }
                 });
+
             }
+
         });
 
 
-        $("input[name='chakan']").on("click",function () {
-            var cid =  $(this).attr("id");
-            var sid =  $(this).attr("pid");
+        //当按钮被点击的时候 获得courseid和studentid 为下一个页面做准备
+        $("input[name='chakan']").on("click", function () {
+            var cid = $(this).attr("id");
+            var sid = $(this).attr("pid");
             //更新session
             $.ajax({
-                url:"http://localhost:8080/navigate",
-                dataType:"json",
-                data:{course_id: cid, student_id:sid}
+                url: "http://localhost:8080/navigate",
+                dataType: "json",
+                data: {course_id: cid, student_id: sid}
             });
             //进行跳转
-            window.location.href="./midreport.html"
+            window.location.href = "./task.html"
         })
     })
 
 </script>
+
+
 </body>
 </html>

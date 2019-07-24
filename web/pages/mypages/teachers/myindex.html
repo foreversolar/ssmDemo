@@ -148,7 +148,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href=" ./openrepor_t.html"><i class="fa fa-circle-o"></i>审核开题报告</a></li>
+                        <li><a href=" ./openreport_t.html"><i class="fa fa-circle-o"></i>审核开题报告</a></li>
                         <li><a href="./midreport_t.html "><i class="fa fa-circle-o"></i>审核中期检查</a></li>
                         <li><a href=" ./guideance_t.html"><i class="fa fa-circle-o"></i>审核指导记录</a></li>
                         <li ><a href="./foreign_t.html "><i class="fa fa-circle-o"></i>审核外文译文和原件</a></li>
@@ -234,12 +234,11 @@
             },
             success: function (data) {
                 $.ajax({
-                    url: "http://localhost:8080/getCourse?student_id="+data.current_user,
+                    url: "http://localhost:8080/getTeacherInformation?teacherId="+data.current_user,
                     dataType: "json",
                     success: function (data) {
-                        console.log(data.success.stu_major);
-                       $("#user_name").html(data.success.student);
-                       $("#depart_name").html(data.success.stuMajor);
+                       $("#user_name").html(data.name);
+                       $("#depart_name").html(data.department);
                     }});
 
             }})

@@ -82,7 +82,7 @@
                     </p>
                 </div>
             </div>
-            <img style=" float:left;padding:15px" src="../../dist/img/scu.png">
+            <img style=" float:left;padding:15px" src="../../../dist/img/scu.png">
             <p class="login-paper" id="xtmc">本科毕业论文（设计）管理系统</p>
         </nav>
     </header>
@@ -93,7 +93,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="../../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>
@@ -134,7 +134,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li class=""><a href="./addCourse.html"><i class="fa fa-circle-o"></i> 学生申报课题</a></li>
-                        <li><a href="./chooseTopic.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
+                        <li><a href="chooseTopic_t.html"><i class="fa fa-circle-o"></i> 学生选题</a></li>
                         <li><a href="./task.html"><i class="fa fa-circle-o"></i> 任务书</a></li>
                     </ul>
                 </li>
@@ -243,12 +243,6 @@
                     <tr>
                         <td>
                             <div class="WZN-lrtable-l">【文件名】：</div>
-                            <div class="WZN-lrtable-r" >
-                                <input style="margin-bottom: 10px" id="papername" type="text" class="form-control ">
-                                <div class="file-loading">
-                                    <input id="paperfile" type="file" multiple name="items">
-                                </div>
-                            </div>
                             <div class="WZN-lrtable-r "  style="display: none" id="file_download">
                                 <div id="file_name">   2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
 
@@ -265,9 +259,6 @@
                             <div class="WZN-lrtable-l">【检测结果】：</div>
                             <div class="WZN-lrtable-r">
                                 <input style="margin-bottom: 10px" id="result" type="text" class="form-control ">
-                                <div class="file-loading">
-                                    <input id="resultfile" type="file" multiple name="items">
-                                </div>
                             </div>
                             <div class="WZN-lrtable-r" id='result_download' style="display: none">
                                 <div id="result_name">   2015毕设_2015141463170_王启帆_条件生成对抗网络在少数类有效数据生成中的研究与应用_段磊</div>
@@ -309,17 +300,11 @@
                     <tr>
                         <td>
                             <div class="WZN-lrtable-l">【其他】：</div>
-                            <div class="WZN-lrtable-r"><input id="others" type="text" class="form-control "></div>
                         </td>
                     </tr>
                     <tr id="fujian">
                         <td>
                             <div class="WZN-lrtable-l">【附件】：</div>
-                            <div class="WZN-lrtable-r">
-                                <div class="file-loading">
-                                    <input id="otherfile" type="file" multiple name="items">
-                                </div>
-                            </div>
                             <div class="WZN-lrtable-r" id="other_file" style="display:none">
                                 <span id="other_name">附件.zip</span>&nbsp;&nbsp;&nbsp;<a id="other_path" class="listA"
                                                                                            href="http://reportdownload.cnki.net/cofiledownload/DownLoadFile.aspx?downType=6&amp;user=2015141463170&amp;userServerID=0&amp;fileID=49037&amp;universityNum=2647&amp;isHistory=0&amp;check=9fd80099b7cc20715952b2b70f6eac45"
@@ -331,10 +316,6 @@
                 </table>
             </div>
             <div>
-                <div class="margt">
-                    <input id="save" class="clearBtn margl" type="button" value="保存">
-                    <input id="submit" class="formBtn" type="button" value="提交">
-                </div>
             </div>
 
             <div class="gxf_problem gxf_problem_reader" id="CheckDetail" style="">
@@ -403,73 +384,15 @@
             error: function (data) {
             },
             success: function (data) {
-                sid = data.current_user;
+                sid = data.student_id;
                 cid = data.course_id;
                 role=data.role;  //0表示学生 1表示老师
                 $.ajax({
-                    url: "http://localhost:8080/getCourse?student_id=" + data.current_user,
+                    url: "http://localhost:8080/getTeacherInformation?teacherId=" + data.current_user,
                     dataType: "json",
                     success: function (data) {
-                        console.log(data.success.stu_major);
-                        $("#user_name").html(data.success.student);
-                        $("#depart_name").html(data.success.stuMajor);
-                        //添加文件上传时候的参数，三处用到
-                        $("#paperfile").fileinput({
-                            language: 'zh',
-                            theme: 'explorer-fas',
-                            uploadUrl: 'http://localhost:8080/saveFinalReport',
-                            overwriteInitial: false,
-                            initialPreviewAsData: true,
-                            showPreview: true,//是否显示预览
-                            initialPreview: [],
-                            showUpload: false,
-                            enctype: "multipart/form-data",
-                            uploadExtraData: function () {
-                                var data = {
-                                    studentid: sid,
-                                    type: "paper"
-                                };
-                                return data;
-                            },
-                        })
-                        $("#resultfile").fileinput({
-                            language: 'zh',
-                            theme: 'explorer-fas',
-                            uploadUrl: 'http://localhost:8080/saveFinalReport',
-                            overwriteInitial: false,
-                            initialPreviewAsData: true,
-                            showPreview: true,//是否显示预览
-                            initialPreview: [],
-                            showUpload: false,
-                            enctype: "multipart/form-data",
-                            uploadExtraData: function () {
-                                var data = {
-                                    studentid: sid,
-                                    type: "result"
-                                };
-                                return data;
-                            },
-                        })
-                        $("#otherfile").fileinput({
-                            language: 'zh',
-                            theme: 'explorer-fas',
-                            uploadUrl: 'http://localhost:8080/saveFinalReport',
-                            overwriteInitial: false,
-                            initialPreviewAsData: true,
-                            showPreview: true,//是否显示预览
-                            initialPreview: [],
-                            showUpload: false,
-                            enctype: "multipart/form-data",
-                            uploadExtraData: function () {
-                                var data = {
-                                    studentid: sid,
-                                    type: "other"
-                                };
-                                return data;
-                            },
-                            initialPreviewConfig: []
-                        })
-                        console.log(formdata);
+                        $("#user_name").html(data.name);
+                        $("#depart_name").html(data.department);
                     }
                 });
 
@@ -477,7 +400,7 @@
                 $.ajax({
                     type: "GET",
                     url: "http://localhost:8080/returnFinalReport",
-                    data: {course_id: cid},
+                    data: {studentid: sid},
                     success: function (msg) {
                         initReport(msg.success)
                     }
@@ -491,13 +414,11 @@
 
     function initBasicInfor(sid, cid,role) {
         //处理角色
-        if(role===1){
             $("#resultt").removeAttr("disabled");
             $("#advice").removeAttr("disabled");
             //这个按钮一开始应该是隐藏的，角色为老师的时候才显示
             //按钮一开始应该是  style=“display:none”
             $("#submitt").show();
-        }
 
         // 课题基本信息
         $.ajax({
@@ -521,22 +442,12 @@
         });
     }
 
-    function initReport(midreport) {
-        console.log(midreport.state);
-        //处理报告状态
-        if (midreport.state !== "SAVE" && midreport.state !== "") {
+    function initReport(page) {
             $("body").find("input,textarea").attr("disabled", true);
-            $("#submit").hide();
-            $("#save").hide();
-        }
+            $("#advice").removeAttr("disabled");
+            $("#resultt").removeAttr("disabled");
+        $("#submitt").removeAttr("disabled");
 
-        //处理审核状态
-        // 如果老师提交过了的话（默认填过字） 就处理下状态和按钮
-        if(midreport.result!=null){
-            $("#advice").attr("disabled",true);
-            $("#result").attr("disabled",true);
-            $("#submitt").hide();
-        }
         //处理文件下载
         var reportA = page.fileadress;
         var resultA = page.result_adress;
@@ -578,9 +489,9 @@
         $("#result").val(page.detection_result);
 
         //处理审核状态  此处直接复制
-        $("#resultt").val(midreport.result);
+        $("#resultt").val(page.teacher_result);
         $("#reviewer").html($("#c_teacher")[0].innerText)
-        $("#advice").val(midreport.advice);
+        $("#advice").val(page.advice);
 
 
     }
@@ -599,19 +510,6 @@
         });
 
     });
-    //保存提交
-    $("#save").on("click", function () {
-        commitPages("123", "SAVE");
-        toastr.success("保存成功", "消息提示");
-
-    });
-
-    $("#submit").on("click", function () {
-        commitPages("123", "SUBMIT");
-        toastr.success("提交成功", "消息提示");
-        // window.location.reload();
-
-    });
 
     $("#submitt").on("click",function () {
         commitAdvice(cid);
@@ -620,16 +518,18 @@
 
     function commitAdvice(id) {
         var page={
-            course_id:id,
+            studentid:sid,
             advice:$("#advice")[0].value,
-            teacher_result:$("#resultt")[0].value
+            AuditStatus:$("#resultt")[0].value
         };
-        axios.post('http://localhost:8080/updateFinalReportForTeacher',page).then(
+        $.ajax({
+            url:"http://localhost:8080/addFianlreportTeacherOpinion",
+            data:page
+        }).then(
             function (response) {
-                console.log(response);
                 toastr.success("提交成功", "消息提示");
             }
-        ).catch(function ( ) {
+        ).catch(function () {
             toastr.error("提交失败", "消息提示");
         })
     }
@@ -648,14 +548,16 @@
             detection_result: $("#result")[0].value,
         };
 
-        axios.post('http://localhost:8080/addFinalReport', page)
-            .then(function (response) {
-                $("div [name='items']").fileinput('upload');
-                // window.location.reload();
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        $.ajax({
+            url:"http://localhost:8080/addFinalReport",
+            data:page
+        }).then(
+            function (response) {
+                toastr.success("提交成功", "消息提示");
+            }
+        ).catch(function () {
+            toastr.error("提交失败", "消息提示");
+        })
     }
 </script>
 </body>
