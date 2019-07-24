@@ -62,8 +62,11 @@ public class StudentController {
         Integer student_id= currentUser;
         if(cid==null){
             course coursetl= courseService.findcourse(student_id);
-            rs.put("course_id",coursetl.getId());
-            cid=coursetl.getId();
+            if(coursetl==null){
+                cid=0;
+            }else{
+                cid=coursetl.getId();
+            }
         }
         rs.put("student_id",sid);
         rs.put("course_id",cid);
