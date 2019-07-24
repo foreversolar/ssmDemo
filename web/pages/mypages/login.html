@@ -113,8 +113,8 @@
                     data: $('#form1').serialize(),
                     dataType: "json",
                     error: function (data) {
-                        toastr.warning(data.msg);
-                        window.location.href = "/pages/mypages/login.html"
+                        toastr.warning("用户名或密码错误");
+                        // window.location.href = "/pages/mypages/login.html"
                     },
                     success: function (data) {
                         if (data.msg === "登录成功") {
